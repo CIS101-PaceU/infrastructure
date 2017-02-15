@@ -1,0 +1,366 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+//colors
+$pace-blue: #01508d;
+$pace-yellow: #ffc61e;
+
+//fonts
+$roboto-sans: 'Roboto', sans-serif;
+$bold: 700;
+
+body {
+    padding: 20px;
+    //margin: 20px;
+    background-color: white;
+    font-family: $roboto-sans;
+    line-height: 1.5;
+}
+
+b { font-weight: $bold; }
+i { font-style:italic; }
+u { text-decoration: underline; }
+
+header{
+	width:100%;  
+	height:60px; 
+	line-height:60px;
+	border-bottom:1px solid #dddddd;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: $bold;
+    color: $pace-blue;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: $bold;
+    color: $pace-blue;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: $bold;
+    color: black;
+    text-decoration: underline;
+}
+
+.hide{
+    display:none;
+}
+/** CSS FOR HEADER.PHP **/
+.nav-title {
+    border-bottom: 1px solid black;
+    
+    #logo {
+        max-width: 225px;
+    }
+    h1{
+        text-transform:uppercase;
+        text-decoration: underline;
+    }
+}
+
+button{
+    background-color: $pace-blue;
+    color:$pace-yellow;
+    font-weight:500;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type=submit]{
+    background-color: $pace-blue;
+    color:$pace-yellow;
+    font-weight:500;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/** CSS FOR LOGIN INDEX **/
+.login-form{
+    max-width: 350px;
+    font-size:16px;
+    font-weight: $bold;
+    padding: 10px;
+    border: 3px solid $pace-yellow;
+    
+    #sub{
+        font-size:16px;
+    }
+    
+    .form-input{
+    font-size: 16px;
+    width: 15em;
+    height: 2em;
+    }
+}
+
+/** LINK STYLES **/
+
+//style for unordered list of links
+.nav-links {
+    li {
+        display: inline-block;  
+    }
+}
+
+//basic general links
+a {
+    text-decoration: none;
+    color: $pace-blue;
+    font-weight: $bold;
+}
+
+a:hover{
+    color: $pace-yellow;
+}
+
+.bold-text{
+    font-weight: bold;
+}
+
+//navigation bar links
+#head-links{
+    border: 1px solid $pace-blue;
+    border-radius: 5px;
+    padding: 3px;
+    color: $pace-blue;
+    background-color: white;
+    text-decoration: none;
+}
+
+#head-links:hover { 
+    color: $pace-yellow;
+    background-color: $pace-blue;
+}
+
+//selected nav bar link
+#this-link {
+    border: 1px solid $pace-blue;
+    border-radius: 5px;
+    padding: 3px;
+    color: $pace-yellow;
+    background-color: $pace-blue;
+}
+
+/** HAMBURGER MENU **/
+.menu, .hamburger, .cross{
+    display:none;
+}
+
+.hamburger, .cross{
+    background:none;
+    /**position:absolute;
+    top:0px;
+    left:0; **/
+    line-height:45px;
+    padding:5px 15px 0px 15px;
+    color: $pace-yellow;
+    border:0;
+    font-size:1.4em;
+    font-weight:bold;
+    cursor:pointer;
+    outline:none;
+    z-index:10000000000000;   
+}
+
+.menu{
+    z-index:1000000; font-weight:bold; 
+    font-size:0.8em; 
+    width:93%; 
+    background:#fff;  position:absolute; 
+    text-align:center; 
+    font-size:14px;
+    }
+
+.menu ul {
+    margin: 0; 
+    padding: 0; 
+    list-style-type: none; 
+    list-style-image: none;}
+.menu li {
+    display: block;   
+    padding:15px 0 15px 0; 
+     }
+.menu li:hover{
+    display: block;    
+    background:$pace-blue; 
+    padding:15px 0 15px 0; 
+    border-bottom:$pace-blue 1px solid;}
+.menu ul li a { text-decoration:none;  margin: 0px; color:#fff;
+}
+.menu ul li a:hover {  
+    color: $pace-yellow; text-decoration:none;}
+.menu a{text-decoration:none; color:$pace-blue;}
+.menu a:hover{text-decoration:none; color:$pace-yellow;
+background-color: $pace-blue;}
+
+//selected menu item
+.this-menu {
+    background-color: $pace-blue;
+    color: $pace-yellow;
+    font-weight: 800;
+}
+
+//container for content boxes on home page
+.class-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    //justify-content: space-between;
+}
+
+//home page content boxes
+.box {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
+    width: 350px;
+    height: 220px;
+    font-size: 14px;
+    text-align: justify;
+}
+
+
+/** index page **/
+.box > h2 {
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: $pace-blue;
+    font-weight: 900;
+}
+
+.box > a {
+    font-style: italic;
+}
+
+/** announcement page **/
+.all-updates{
+    padding: 15px;
+}
+
+.current-update{
+    padding: 30px;
+    border: $pace-blue 5px solid;
+    max-width: 900px;
+    text-align: left;
+}
+
+.prev-update {
+    padding: 30px;
+    border: #b1b1b1 1px solid;
+    max-width: 900px;
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.update{
+    margin-top: 20px;
+}
+
+.dload{
+    img{
+        max-height: 18px;
+    }
+}
+
+
+//professor page
+
+/** DROPDOWN MENU **/
+.styled-select {
+    overflow: hidden;
+    border: none;
+    //opacity: 0.8;
+ }
+
+.styled-select select {
+  padding:10px;
+  font-size: 18px;
+  font-weight: 800px;
+  background-color: $pace-blue;
+  color: $pace-yellow;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+ }
+
+ .styled-select select:focus {
+  outline: none;
+  background-color: $pace-blue;
+  color: $pace-yellow;
+ }
+
+.my-classes {
+    padding: 30px;
+    border: #b1b1b1 1px solid;
+    text-align: left;
+    margin-top: 20px;
+    
+    h2{
+        text-decoration: underline;
+    }
+}
+
+/** PROF ASSIGNMENT PAGE **/
+#class-name{
+    background-color:$pace-yellow;
+}
+.prev-update textarea {
+    width: 100%;
+    height: 20em;
+    font-size: 14px;
+    border: 1px solid black;
+}
+
+.prev-update input {
+    font-size: 18px;
+    max-width: 20em;
+    min-width: 15em;
+    border: 1px solid black;
+}
+
+
+//adjust for mobile sizes
+@media screen and (max-width:1000px) {
+    
+    body{
+        padding: 3px;
+    }
+    
+    .nav-title{
+        h1{ font-size: 20px; }
+        #logo{
+            width: 150px;
+        }
+    }
+
+    .nav-links{
+        display:none;
+    }
+    
+    .menu, .hamburger, .cross{
+    display:block;
+    }
+    
+    .menu {
+        width: 98%;
+    }
+
+}
+
