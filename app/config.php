@@ -1,7 +1,7 @@
 <?php
 
 //Configures database
-$link = mysqli_connect("localhost", "root", "", "Red-Velvet");
+$link = myqli_connect("localhost", "root", "", "Red-Velvet");
 
 //$link = new MySQLi('localhost', 'root','','Red-Velvet'); //is this outdated?
 
