@@ -1,16 +1,24 @@
+
+<?php
+   //$db = mysqli_connect("localhost","root","","red-velvet");
+   //connect to mysql database
+ $connection = mysqli_connect("localhost","root","","red-velvet") or die("Error " . mysqli_error($connection));
+ include('session.php');
+ $user_check = $_SESSION['login_user'];
+ $user_fName = $_SESSION['login_fName'];
+
+?>
+
 <html>
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         
-
-        
     <?php
-    
     $title = "CIS 101 Portal";
     $studentName = "Student" . "!"; //link to user name in database
-    $welcome = "Welcome " . $studentName;
+    $welcome = "Welcome " . $user_fName;
     
     
     //navigation links
@@ -23,7 +31,7 @@
     $group = "<a id='head-links' href='group.php'>Group Project</a>";
     
     $help = "<a id='thin-link' href='#'>Help</a>";
-    $logout = "<a id='thin-link' href='#'>Logout</a>";
+    $logout = "<a id='thin-link' href='logout.php'>Logout</a>";
 
     ?>
         
@@ -37,7 +45,7 @@
                    <!-- only show if user is logged in -->
                 <div class="logged-in"><span style="float:right;">
                 <?php echo "$welcome"; ?><br>
-                <a href="#">Help</a> <a href="#">Logout</a> 
+                <a href="#">Help</a> <a href="logout.php">Logout</a> 
                     </span>
                 </div>
                 
@@ -46,11 +54,7 @@
                         <a href="/"><img src="img/Pace_logo.png" id="logo"></a>
                        <h1>CIS 101 PORTAL</h1>
                     </div>
-                </div>
-                
-                
-             
-
+                </div>         
             </div>
 
             <div id="nav">
