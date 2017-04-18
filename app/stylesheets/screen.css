@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-/* line 5, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,45 +25,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/9D477F7E-D6EB-48C8-947A-26DC43A76364/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/7F507644-5AFE-4F93-B57E-381B3200B43C/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -136,8 +136,18 @@ button {
   font-size: 16px;
 }
 
+/* line 76, ../sass/screen.scss */
+input[type=submit] {
+  background-color: #01508d;
+  color: #ffc61e;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 /** CSS FOR LOGIN INDEX **/
-/* line 78, ../sass/screen.scss */
+/* line 87, ../sass/screen.scss */
 .login-form {
   max-width: 350px;
   font-size: 16px;
@@ -145,11 +155,11 @@ button {
   padding: 10px;
   border: 3px solid #ffc61e;
 }
-/* line 85, ../sass/screen.scss */
+/* line 94, ../sass/screen.scss */
 .login-form #sub {
   font-size: 16px;
 }
-/* line 89, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 .login-form .form-input {
   font-size: 16px;
   width: 15em;
@@ -157,24 +167,29 @@ button {
 }
 
 /** LINK STYLES **/
-/* line 100, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
 .nav-links li {
   display: inline-block;
 }
 
-/* line 106, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 a {
   text-decoration: none;
   color: #01508d;
   font-weight: 700;
 }
 
-/* line 112, ../sass/screen.scss */
+/* line 121, ../sass/screen.scss */
 a:hover {
   color: #ffc61e;
 }
 
-/* line 117, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
+.bold-text {
+  font-weight: bold;
+}
+
+/* line 130, ../sass/screen.scss */
 #head-links {
   border: 1px solid #01508d;
   border-radius: 5px;
@@ -184,13 +199,13 @@ a:hover {
   text-decoration: none;
 }
 
-/* line 126, ../sass/screen.scss */
+/* line 139, ../sass/screen.scss */
 #head-links:hover {
   color: #ffc61e;
   background-color: #01508d;
 }
 
-/* line 132, ../sass/screen.scss */
+/* line 145, ../sass/screen.scss */
 #this-link {
   border: 1px solid #01508d;
   border-radius: 5px;
@@ -200,12 +215,12 @@ a:hover {
 }
 
 /** HAMBURGER MENU **/
-/* line 141, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 .menu, .hamburger, .cross {
   display: none;
 }
 
-/* line 145, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 .hamburger, .cross {
   background: none;
   /**position:absolute;
@@ -222,7 +237,7 @@ a:hover {
   z-index: 10000000000000;
 }
 
-/* line 161, ../sass/screen.scss */
+/* line 174, ../sass/screen.scss */
 .menu {
   z-index: 1000000;
   font-weight: bold;
@@ -234,7 +249,7 @@ a:hover {
   font-size: 14px;
 }
 
-/* line 170, ../sass/screen.scss */
+/* line 183, ../sass/screen.scss */
 .menu ul {
   margin: 0;
   padding: 0;
@@ -242,13 +257,13 @@ a:hover {
   list-style-image: none;
 }
 
-/* line 175, ../sass/screen.scss */
+/* line 188, ../sass/screen.scss */
 .menu li {
   display: block;
   padding: 15px 0 15px 0;
 }
 
-/* line 179, ../sass/screen.scss */
+/* line 192, ../sass/screen.scss */
 .menu li:hover {
   display: block;
   background: #01508d;
@@ -256,40 +271,40 @@ a:hover {
   border-bottom: #01508d 1px solid;
 }
 
-/* line 184, ../sass/screen.scss */
+/* line 197, ../sass/screen.scss */
 .menu ul li a {
   text-decoration: none;
   margin: 0px;
   color: #fff;
 }
 
-/* line 186, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 .menu ul li a:hover {
   color: #ffc61e;
   text-decoration: none;
 }
 
-/* line 188, ../sass/screen.scss */
+/* line 201, ../sass/screen.scss */
 .menu a {
   text-decoration: none;
   color: #01508d;
 }
 
-/* line 189, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 .menu a:hover {
   text-decoration: none;
   color: #ffc61e;
   background-color: #01508d;
 }
 
-/* line 193, ../sass/screen.scss */
+/* line 206, ../sass/screen.scss */
 .this-menu {
   background-color: #01508d;
   color: #ffc61e;
   font-weight: 800;
 }
 
-/* line 200, ../sass/screen.scss */
+/* line 213, ../sass/screen.scss */
 .class-content {
   display: flex;
   flex-wrap: wrap;
@@ -297,19 +312,20 @@ a:hover {
   justify-content: center;
 }
 
-/* line 209, ../sass/screen.scss */
+/* line 222, ../sass/screen.scss */
 .box {
   background-color: white;
   border: 1px solid black;
   padding: 10px;
   margin: 5px;
-  max-width: 350px;
+  width: 350px;
+  height: 220px;
   font-size: 14px;
   text-align: justify;
 }
 
 /** index page **/
-/* line 221, ../sass/screen.scss */
+/* line 235, ../sass/screen.scss */
 .box > h2 {
   text-decoration: underline;
   text-transform: uppercase;
@@ -317,18 +333,18 @@ a:hover {
   font-weight: 900;
 }
 
-/* line 228, ../sass/screen.scss */
+/* line 242, ../sass/screen.scss */
 .box > a {
   font-style: italic;
 }
 
 /** announcement page **/
-/* line 233, ../sass/screen.scss */
+/* line 247, ../sass/screen.scss */
 .all-updates {
   padding: 15px;
 }
 
-/* line 237, ../sass/screen.scss */
+/* line 251, ../sass/screen.scss */
 .current-update {
   padding: 30px;
   border: #01508d 5px solid;
@@ -336,7 +352,7 @@ a:hover {
   text-align: left;
 }
 
-/* line 244, ../sass/screen.scss */
+/* line 258, ../sass/screen.scss */
 .prev-update {
   padding: 30px;
   border: #b1b1b1 1px solid;
@@ -346,24 +362,24 @@ a:hover {
   margin-bottom: 50px;
 }
 
-/* line 253, ../sass/screen.scss */
+/* line 267, ../sass/screen.scss */
 .update {
   margin-top: 20px;
 }
 
-/* line 258, ../sass/screen.scss */
+/* line 272, ../sass/screen.scss */
 .dload img {
   max-height: 18px;
 }
 
 /** DROPDOWN MENU **/
-/* line 267, ../sass/screen.scss */
+/* line 281, ../sass/screen.scss */
 .styled-select {
   overflow: hidden;
   border: none;
 }
 
-/* line 273, ../sass/screen.scss */
+/* line 287, ../sass/screen.scss */
 .styled-select select {
   padding: 10px;
   font-size: 18px;
@@ -375,32 +391,32 @@ a:hover {
   -webkit-appearance: none;
 }
 
-/* line 284, ../sass/screen.scss */
+/* line 298, ../sass/screen.scss */
 .styled-select select:focus {
   outline: none;
   background-color: #01508d;
   color: #ffc61e;
 }
 
-/* line 290, ../sass/screen.scss */
+/* line 304, ../sass/screen.scss */
 .my-classes {
   padding: 30px;
   border: #b1b1b1 1px solid;
   text-align: left;
   margin-top: 20px;
 }
-/* line 296, ../sass/screen.scss */
+/* line 310, ../sass/screen.scss */
 .my-classes h2 {
   text-decoration: underline;
 }
 
 /** PROF ASSIGNMENT PAGE **/
-/* line 302, ../sass/screen.scss */
+/* line 316, ../sass/screen.scss */
 #class-name {
   background-color: #ffc61e;
 }
 
-/* line 305, ../sass/screen.scss */
+/* line 319, ../sass/screen.scss */
 .prev-update textarea {
   width: 100%;
   height: 20em;
@@ -408,7 +424,7 @@ a:hover {
   border: 1px solid black;
 }
 
-/* line 312, ../sass/screen.scss */
+/* line 326, ../sass/screen.scss */
 .prev-update input {
   font-size: 18px;
   max-width: 20em;
@@ -417,31 +433,31 @@ a:hover {
 }
 
 @media screen and (max-width: 1000px) {
-  /* line 323, ../sass/screen.scss */
+  /* line 337, ../sass/screen.scss */
   body {
     padding: 3px;
   }
 
-  /* line 328, ../sass/screen.scss */
+  /* line 342, ../sass/screen.scss */
   .nav-title h1 {
     font-size: 20px;
   }
-  /* line 329, ../sass/screen.scss */
+  /* line 343, ../sass/screen.scss */
   .nav-title #logo {
     width: 150px;
   }
 
-  /* line 334, ../sass/screen.scss */
+  /* line 348, ../sass/screen.scss */
   .nav-links {
     display: none;
   }
 
-  /* line 338, ../sass/screen.scss */
+  /* line 352, ../sass/screen.scss */
   .menu, .hamburger, .cross {
     display: block;
   }
 
-  /* line 342, ../sass/screen.scss */
+  /* line 356, ../sass/screen.scss */
   .menu {
     width: 98%;
   }

@@ -1,8 +1,45 @@
 <?php
 //logic for login?
 
+$db = mysqli_connect("localhost","root","","red-velvet");
+   session_start();
+
+   if(isset($_SESSION['login_user'])){
+    header("location: index.php");
+   }
+
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form 
+      $myusername = mysqli_real_escape_string($db,$_POST['username']);
+      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+       
+      $sql = "SELECT userID, role, firstName FROM user WHERE username = '$myusername' and password = '$mypassword'";
+      $result = mysqli_query($db,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+   
+      $count = mysqli_num_rows($result);
+      
+      // If result matched $myusername and $mypassword, table row must be 1 row
+    
+       //$error 
+      if($count == 1) {
+         //session_register("myusername");
+         $_SESSION['login_user'] = $myusername;
+         $_SESSION['login_userID'] = $row['userID'];
+         $_SESSION['login_role'] = $row['role'];
+         $_SESSION['login_fName'] = $row['firstName'];
+          
+         header("location: index.php");
+      }else {
+         $error= "Your Username or Password is invalid"; 
+      }
+   }
+
+
+
+
 $thisPage="logInIndex";
-$isLoggedIn="false";
+$isLoggedIn=false;
 $belowRoot = true;
 
 $displayClass=false;
@@ -23,9 +60,12 @@ include("../header.php");
         <input type="text" class="form-input" placeholder="Pace ID"><br>
         
         <input type="password" class="form-input" placeholder="Password">
+        <br>
+        <input type="submit" name="submit" id="form-button">
     </form>
 
         <!-- registration form -->
+    <!-- not keeping registration form on the same page as log in --
 <br>
     <button id="sub">Log In</button> <button id="sub" class="reg-btn">Register</button>
 
@@ -47,22 +87,25 @@ include("../header.php");
         <input type="radio" name="role" value="student"> Student<br>
 
         <button id="sub">Submit</button>
-    </form>
-</div>
+    </form> 
+</div> -->
 
-        <a href="">Forgot password?</a>
+        <a href="">Forgot password?</a><br>
+        <a href="../activation.php">Haven't activated your account yet?</a>
 
 </div>       
 </center>
     
 <script>
+    //not keeping registration form on same page as log-in
 //toggle registration form.
-$(document).ready(function(){
+
+    /** $(document).ready(function(){
     $( ".reg" ).hide();
     $(".reg-btn").click(function(){
 $(".reg").slideToggle("slow");
     });
-});
+}); **/
 </script>
     
 </body>

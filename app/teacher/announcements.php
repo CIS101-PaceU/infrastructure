@@ -12,13 +12,12 @@ $showNav = true; //don't display navigation if teacher hasn't selected class fro
 $thisPage = "Announcements";
 
 //for new posts
-$date = "03/06/2017";
 date_default_timezone_set("America/New_York");
-$currentDate = date("m/d/Y") . " " . date("h:i:sa");
+$currentDate = date("m/d/Y") . " " . date("G:i:s");
 
 //for older and latest posts - will be programmatically added in
 
-$oldAssnDesc = "Integer aliquam ornare augue, vitae placerat sem tristique eu. Maecenas molestie ut mi non rhoncus. Aliquam erat volutpat. Nullam dignissim turpis velit, eget consequat metus semper sed. Duis est risus, vulputate non tristique eu, eleifend sit amet ex. Curabitur dictum lectus nec egestas commodo. Nam eu aliquet magna. Morbi eleifend non dolor sit amet ullamcorper.";
+$oldAssnDesc = "Integer aliquam ornare augue, vitae placerat sem tristique eu. Maecenas molestie ut mi non rhoncus.";
 
 $assnTitle = "Assignment Title";
 $assnDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -30,31 +29,30 @@ $assnDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
     <p class='dload'><a href='#'><img src='../assets/img/video.png'>Video_File_85684.mov</a></p>
     ";
 
-//for latest post - will be programmatically added in
-$update = "<h2>" . $assnTitle . "</h2>" . $date . "<br>" . $assnDesc;
-
-$oldupdate = "<h2>" . $assnTitle . "</h2>" . $date . "<br>" . $oldAssnDesc;
-
 
 include('../header.php');
 ?>
 
 <html>
+    
 <body>
 
 <div class="main-container">
 <center>
     <div class="all-updates">
-        <!-- ADD A NEW ASSIGNMENT -->
+        <!-- ADD A NEW ANNOUNCEMENT -->
             <div class="prev-update"><h1 id="add-h1">Add a new Announcement</h1>
                 <div class="add-new-update">
-                    <form id="add-new-assn">
+                    
+                    <form action="postAnnouncement.php" id="add-new-assn" method="post">
                         
-                    <input type="text" placeholder="Title of Announcement"><br>
+                    <input type="text" placeholder="Title of Announcement" name="announcementTitle" required><br>
                     Posting Date: <?php echo $currentDate; ?>
+                        
+                    <input type="hidden" name="annDate" value="<?php echo $currentDate; ?>">
 
                         <br>
-                        <textarea id="textarea" method="post" type="submit" name="announcementMsg" placeholder="Description and Instructions for announcement"></textarea>
+                        <textarea id="textarea" method="post" type="submit" name="message"></textarea>
                         <br>
 
                         <div class="dload">
@@ -63,12 +61,15 @@ include('../header.php');
                             <input type="checkbox" name="file" value="file">
                             <img src="../assets/img/download.png">File.file<br></div>
 
-                    </form>
-                        
                         <button>Attach files</button>
                         <button>Delete files</button>
                         <button>Save Draft</button>
-                        <button>Submit</button>
+                        <br>
+                        <input type="submit" value="Submit" />
+                    </form>
+                        
+                        
+                        
                         
                     
                     
@@ -77,32 +78,42 @@ include('../header.php');
                     </div> 
 
                 <!-- current announcement -->
-                <div class="current-update">
+                
                     
                     <?php 
-                    echo $update;
-                    ?>
-
-                </div>
-                
-                
-                
-                <!-- contains older announcements -->
-                <div class="prev-update">
-                    <div class="update">
-                    <?php 
-                    echo $oldupdate;
-                    ?>
-                    </div>
+                        $conn = new mysqli("localhost","root","", "Red-Velvet");
+                        if(!$conn) {echo "error";}
                     
-                    <div class="update">
-                    <?php 
-                    echo $oldupdate;
-                    ?>
+                        $latestPostSQL ="SELECT * from Announcements ORDER BY announcementID DESC LIMIT 1";
+                    
+                        $result = $conn->query($latestPostSQL);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                        echo "<div class='current-update'><h2>" . $row["announcementTitle"] . "</h2>" . "Date Posted: " . $row["datePosted"] . "<br>" . $row["message"] . "</div>";
+                        }
+                    } else {
+                    echo "";
+                        }
+         
+                 //contains older announcements
                         
-                    </div> 
+                    $earlierPostsSQL="SELECT * FROM Announcements ORDER BY announcementID DESC LIMIT 10000 OFFSET 1";
+                    
+                    $result = $conn->query($earlierPostsSQL);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                        echo "<div class='prev-update'><h2>" . $row["announcementTitle"] . "</h2>" . "Date Posted: " . $row["datePosted"] . "<br>" . $row["message"] . "</div>";
+                        }
+                    } else {
+                    echo "";
+                        }
+                    
+                    ?>
               
-                </div>
+                
             </div>
         
         </center>

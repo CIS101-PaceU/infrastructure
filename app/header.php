@@ -1,22 +1,23 @@
+<html>
+<head>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+        <script>
+            tinymce.init({ selector:'textarea' });
+        </script>    
+</head>
+
+</html>
+
 <?php
 
-//prevent printing errors
-//error_reporting(0);
 
-//include config file to set up db
-
-//include logic to determine who is logged in
 
 
 //variables for user roles
 //if user is logged in and isRole --> display a certain header
-//$isTeacher = false;
-//$isAdmin = false;
-//$isStudent = false;
 
 //common for everyone using the system
-$name = "xxx"; //programmatically grabs name of user from db
-$greeting = "Welcome, $name!";
+$greeting = "Welcome, xxx!";
 
 //specific to teacher and admin
 $crn = "1000"; //grabbed from db
@@ -130,8 +131,6 @@ include('config.php');
                         $assn = "<a id='this-link' href='assignments.php'>Assignments</a>"; }
 
                         echo $assn; ?>
-                </li>
-
                 </li>
 
                 <li id="nav-grade"><?php 

@@ -12,7 +12,7 @@ $thisPage = "Home";
 
 include('../header.php');
 
-include('../dashboard.php');
+include('dashboard.php');
 
 include('../footer.php');
 ?>
