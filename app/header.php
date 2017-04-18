@@ -1,3 +1,9 @@
+<?php
+$connection = mysqli_connect("localhost","root","","red-velvet") or die("Error " . mysqli_error($connection));
+ include('session.php');
+ $user_check = $_SESSION['login_user'];
+ $user_fName = $_SESSION['login_fName'];
+?>
 <html>
 <head>
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
@@ -17,7 +23,7 @@
 //if user is logged in and isRole --> display a certain header
 
 //common for everyone using the system
-$greeting = "Welcome, xxx!";
+$greeting = "Welcome, ". $user_fName;
 
 //specific to teacher and admin
 $crn = "1000"; //grabbed from db
@@ -85,7 +91,7 @@ include('config.php');
        <!-- only show if user is logged in -->
         <div class="logged-in"><span style="float:right;">
     <?php echo "$greeting"; ?><br>
-    <a href="#">Help</a> <a href="#">Logout</a> 
+    <a href="#">Help</a> <a href="../logout.php">Logout</a> 
         </span>
     </div>
 
