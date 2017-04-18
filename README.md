@@ -1,12 +1,17 @@
-# infrastructure
+# modifying tables in DB:
 
-To serve the php app with XAMPP, you need to specify the document root in `httpd.conf` file, which is located in the `xampfiles/etc` directory.
+**Announcement Table:**
+- announcementID --> int, autoIncrement
+- roleID
+- datePosted --> varchar
+- announcementTitle
+- message --> longtext(21,844)
+- CRN --> int(10), join with CRN from Course
 
-Here is an example of the changes you need to make, but the WP directory will be different on your local machine. Leave the orginal setting commented so you can go back to it if necessary
+**Assignment Table**
+- assignmentID --> int, auto increment
+- courseID
+- assignmentTitle
+- assignmentDescription --> longText(21,844)
 
-```php
-# DocumentRoot "/Applications/XAMPP/xamppfiles/htdocs"
-DocumentRoot "/Users/William/projects/red-velvet/infrastructure/WP"
-# <Directory "/Applications/XAMPP/xamppfiles/htdocs">
-<Directory "/Users/William/projects/red-velvet/infrastructure/WP">
-```
+question --> shouldn't submissionNo and gradeAttempt be in Submissions Table?
