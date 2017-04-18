@@ -74,10 +74,7 @@ include('config.php');
         <div class="nav-title">
             <center>
                 <!--need to check logic for link on button -->
-                <a href="/"><img src="
-                <?php if($belowRoot == true){
-                echo "$isBelowRoot";
-            } ?>assets/img/Pace_logo.png" id="logo"></a>
+                <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
                 <h1>CIS 101 PORTAL</h1>
             </center>
         </div>
@@ -97,10 +94,7 @@ include('config.php');
 
             <div class="nav-title" alight="left">
             <!--need to check logic for link on button -->
-                <a href="/"><img src="
-                    <?php if($belowRoot == true){
-                    echo "$isBelowRoot";
-                } ?>assets/img/Pace_logo.png" id="logo"></a>
+                <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
                <h1>CIS 101 PORTAL</h1>
 
                <?php 

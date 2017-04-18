@@ -47,7 +47,7 @@
             <div class="nav-title" alight="left">
                    <div>
                        <center>
-                        <a href="/"><img src="img/Pace_logo.png" id="logo"></a>
+                        <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
                        <h1>LOG IN</h1>
                            </center>
                     </div>
