@@ -59,11 +59,7 @@ include('config.php');
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel='stylesheet' type='text/css' href="
-    <?php //checks if file is below root to link to resource
-    if($belowRoot == true){
-        echo "$isBelowRoot";
-    } ?>stylesheets/screen.css">
+    <link rel='stylesheet' type='text/css' href="/stylesheets/screen.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
