@@ -1,3 +1,9 @@
+<?php
+$connection = mysqli_connect("localhost","root","","red-velvet") or die("Error " . mysqli_error($connection));
+ include('session.php');
+ $user_check = $_SESSION['login_user'];
+ $user_fName = $_SESSION['login_fName'];
+?>
 <html>
 <head>
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
@@ -17,7 +23,7 @@
 //if user is logged in and isRole --> display a certain header
 
 //common for everyone using the system
-$greeting = "Welcome, xxx!";
+$greeting = "Welcome, ". $user_fName;
 
 //specific to teacher and admin
 $crn = "1000"; //grabbed from db
@@ -41,6 +47,7 @@ $grade = "<a id='head-links' href='grades.php'>Grades/Attendance</a>";
 $material = "<a id='head-links' href='courseMaterial.php'>Course Material</a>";
 $disc = "<a id='head-links' href='discussionBoard.php'>Discussion Board</a>";
 $diffSect = "<a href='home.php'><li>Choose a Different Section</li></a>";
+$studView = "<a href=''><li>Student View</li></a>";
 //$group = "<a id='head-links' href='group.php'>Group Project</a>";
 
 
@@ -53,11 +60,7 @@ include('config.php');
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel='stylesheet' type='text/css' href="
-    <?php //checks if file is below root to link to resource
-    if($belowRoot == true){
-        echo "$isBelowRoot";
-    } ?>stylesheets/screen.css">
+    <link rel='stylesheet' type='text/css' href="/stylesheets/screen.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
@@ -68,10 +71,7 @@ include('config.php');
         <div class="nav-title">
             <center>
                 <!--need to check logic for link on button -->
-                <a href="/"><img src="
-                <?php if($belowRoot == true){
-                echo "$isBelowRoot";
-            } ?>assets/img/Pace_logo.png" id="logo"></a>
+                <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
                 <h1>CIS 101 PORTAL</h1>
             </center>
         </div>
@@ -85,16 +85,13 @@ include('config.php');
        <!-- only show if user is logged in -->
         <div class="logged-in"><span style="float:right;">
     <?php echo "$greeting"; ?><br>
-    <a href="#">Help</a> <a href="#">Logout</a> 
+    <a href="#">Help</a> <a href="../logout.php">Logout</a> 
         </span>
     </div>
 
             <div class="nav-title" alight="left">
             <!--need to check logic for link on button -->
-                <a href="/"><img src="
-                    <?php if($belowRoot == true){
-                    echo "$isBelowRoot";
-                } ?>assets/img/Pace_logo.png" id="logo"></a>
+                <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
                <h1>CIS 101 PORTAL</h1>
 
                <?php 
@@ -154,13 +151,28 @@ include('config.php');
                     echo $disc; ?>
                 </li>
 
+                <?php
+                    if($isStudent == false) {
+                        echo "<li id='nav-disc'><a id='head-links' href=''>Student View</a></li>";
+                    
+                    }
+                ?>
+                
+                <?php
+                    if($isStudent == false) {
+                        echo "<li id='nav-disc'><a id='head-links' href=''>Instructor View</a></li>";
+                    
+                    }
+                ?>
             
                 <?php
-                    if($isTeacher==true) {
+                    if($isStudent==false) {
                         echo "<li id='nav-disc'><a id='head-links' href='home.php'>Choose Another Section</a></li>";
                     
                     }
                 ?>
+                
+                
                <!-- <li id="nav-group"><?php 
                     //if ($thisPage == "Group Project") {
                     //$group = "<a id='this-link' href='group.php'>Group Project</a>"; }
@@ -256,9 +268,15 @@ include('config.php');
                 }
                 ?></a>
         
-            <?php if($isTeacher==true){
+        <?php if($isStudent==false){
+                echo $studView;
+            } ?> 
+        
+            <?php if($isStudent == false){
                 echo $diffSect;
             } ?>
+        
+        
 <!--            <a href="group.php">
                 <?/**
                 if($thisPage=="Group Project") {

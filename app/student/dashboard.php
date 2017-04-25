@@ -41,9 +41,23 @@ $discussionBoardTitle ="Title of Update";//WILL BE PULLED FROM DATABASE
 
             <div class = "box" id="assn-box">
                 <h2>assignment</h2>
-                <h3 id="main-assn">Title of Update</h3>
-                <p id="main-assn-date">03/06/2017</p>
-                <p id="main-assn-desc"> <?php echo $fillerText; ?></p>
+                
+                <?php
+                $latestPostSQL ="SELECT * from Assignment ORDER BY assignmentID DESC LIMIT 1";
+                
+                $result = $conn->query($latestPostSQL);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                        echo "<h3>" . $row["assignmentTitle"] . "</h3><p id='main-ann-date'><span class='bold-text'>" . "Due Date: " . $row["dueDate"] . "</span></p><p id='main-ann-desc'>" . 
+                            substr($row["assignmentDescription"], 0, 225) . "...</p>";
+                        }
+                    } else {
+                    echo "";
+                        }
+            ?>
+
+                
                 <a href='assignments.php'>View More...</a>
             </div>
 
