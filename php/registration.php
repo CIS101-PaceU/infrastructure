@@ -22,7 +22,7 @@
           // If result matched $myusername and $mypassword, table row must be 1 row
 
           if($result) {
-             $error = "User Register Successfully. Please login to continue."
+            // echo "User Register Successfully. Please login to continue."
              header("location: login.php");
           }else {
              $error = "Unable to register user";
@@ -68,16 +68,12 @@
                             <input type="radio" name="student" name="role" value="student" checked="checked"> Student<br>   
                             
                             <br>
-                            <button id="sub" type = "submit" value = " Submit" >Log In</button>
+                            <button id="sub" type = "submit" value = " Submit" >Register</button>
                             <br>
-
-                            <span><?php echo $error; ?></span>
                         </form>
                     </div>       
                 </center>
-    
     </body>
-
         <?php
     include('footer.php');
 ?>
