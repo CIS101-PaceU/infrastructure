@@ -3,8 +3,11 @@
    session_start();
 
    if(isset($_SESSION['login_user'])){
-    //header("location: index.php");
-       header("location: teacher/home.php");
+       if($_SESSION['login_role'] == "Student"){
+             header("location: student/classHome.php");
+         } else if($_SESSION['login_role'] == "Instructor"){
+             header("location: teacher/home.php");
+         }
    }
 
    if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,22 +15,28 @@
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
        
-      $sql = "SELECT userID, role, firstName FROM user WHERE username = '$myusername' and password = '$mypassword'";
+      $sql = "SELECT u.userID, u.firstName, r.role FROM user u
+        JOIN user_role r ON u.userID = r.userID
+        WHERE u.username = '$myusername' and u.password = '$mypassword'";
+       
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
    
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
-    
       if($count == 1) {
-         //session_register("myusername");
          $_SESSION['login_user'] = $myusername;
          $_SESSION['login_userID'] = $row['userID'];
          $_SESSION['login_role'] = $row['role'];
          $_SESSION['login_fName'] = $row['firstName'];
-          
-         header("location: teacher/home.php");
+         
+         if($_SESSION['login_role'] == "Student"){
+             header("location: student/classHome.php");
+         } else if($_SESSION['login_role'] == "Instructor"){
+             header("location: teacher/home.php");
+         }
+         
       }else {
          $error = "Your Username or Password is invalid";
       }
@@ -65,7 +74,7 @@
                             <br>
                             <button id="sub" type = "submit" value = " Submit" >Log In</button>
                             <br>
-                            <a href="regist">Register?</a> <span> | </span> <a href="">Forgot password?</a>
+                            <a href="registration.php">Register?</a> <span> | </span> <a href="">Forgot password?</a>
                            <!-- <span><?php echo $error; ?></span>-->
                         </form>
                     </div>       
