@@ -2,6 +2,7 @@
 
 **user table**
 - needs password column, perhaps delete password table -- why was it separate?
+- added role column to user table
 
 **Announcement Table:**
 - announcementID --> int, autoIncrement
