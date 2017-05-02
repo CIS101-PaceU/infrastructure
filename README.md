@@ -5,7 +5,7 @@
 - added role column to user table
 
 **Course table**
-- added userID column after courseID (to show which class belongs to which teacher... is it necessary to Join this table?)
+- added userID column after courseID (to show which class belongs to which teacher... is there a better way to do this?)
 
 **Announcement Table:**
 - announcementID --> int, autoIncrement
