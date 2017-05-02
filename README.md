@@ -4,6 +4,9 @@
 - needs password column, perhaps delete password table -- why was it separate?
 - added role column to user table
 
+**Course table**
+- added profID (as a join with userID from user table as a column)
+
 **Announcement Table:**
 - announcementID --> int, autoIncrement
 - roleID
