@@ -1,4 +1,7 @@
-# modifying tables in DB:
+# modifying tables in DB v3:
+
+**user table**
+- needs password column, perhaps delete password table -- why was it separate?
 
 **Announcement Table:**
 - announcementID --> int, autoIncrement
