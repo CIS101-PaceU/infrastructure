@@ -3,6 +3,8 @@
 **user table**
 - needs password column, perhaps delete password table -- why was it separate?
 - added role column to user table
+**announcements table**
+- announcement id should be auto-increment
 
 **Course table**
 - added userID column after courseID (to show which class belongs to which teacher... is there a better way to do this?)
