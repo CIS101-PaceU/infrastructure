@@ -16,6 +16,7 @@
 - announcementTitle
 - message --> longtext(21,844)
 - CRN --> int(10), join with CRN from Course
+- changed assignmentDescription to mediumtext 20,000
 
 **Assignment Table**
 - assignmentID --> int, auto increment
