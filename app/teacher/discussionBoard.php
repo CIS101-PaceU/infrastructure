@@ -5,10 +5,10 @@
     //logic for login
     $belowRoot = true;
     $isLoggedIn = true;
-    $isStudent = true;
+    $isStudent = false;
     $showNav = true;
-    $displayClass = false;
-    $isTeacher=FALSE;
+    $displayClass = true;
+    $isTeacher=true;
     $thisPage="Discussion Board";
 
     include('../header.php');

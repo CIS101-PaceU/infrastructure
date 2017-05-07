@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-/* line 5, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,45 +25,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/3E946713-77F9-4538-8145-AC3B83872AAB/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../private/var/folders/q3/4fq4k53j3t188dy2q3qsfkq00000gr/T/AppTranslocation/4334E982-E8EC-4D11-A00C-8193836C6146/d/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -375,26 +375,27 @@ a:hover {
   text-align: left;
   margin-top: 50px;
   margin-bottom: 50px;
+  cursor: pointer;
 }
 
-/* line 271, ../sass/screen.scss */
+/* line 272, ../sass/screen.scss */
 .update {
   margin-top: 20px;
 }
 
-/* line 276, ../sass/screen.scss */
+/* line 277, ../sass/screen.scss */
 .dload img {
   max-height: 18px;
 }
 
 /** DROPDOWN MENU **/
-/* line 285, ../sass/screen.scss */
+/* line 286, ../sass/screen.scss */
 .styled-select {
   overflow: hidden;
   border: none;
 }
 
-/* line 291, ../sass/screen.scss */
+/* line 292, ../sass/screen.scss */
 .styled-select select {
   padding: 10px;
   font-size: 18px;
@@ -406,32 +407,32 @@ a:hover {
   -webkit-appearance: none;
 }
 
-/* line 302, ../sass/screen.scss */
+/* line 303, ../sass/screen.scss */
 .styled-select select:focus {
   outline: none;
   background-color: #01508d;
   color: #ffc61e;
 }
 
-/* line 308, ../sass/screen.scss */
+/* line 309, ../sass/screen.scss */
 .my-classes {
   padding: 30px;
   border: #b1b1b1 1px solid;
   text-align: left;
   margin-top: 20px;
 }
-/* line 314, ../sass/screen.scss */
+/* line 315, ../sass/screen.scss */
 .my-classes h2 {
   text-decoration: underline;
 }
 
 /** PROF ASSIGNMENT PAGE **/
-/* line 320, ../sass/screen.scss */
+/* line 321, ../sass/screen.scss */
 #class-name {
   background-color: #ffc61e;
 }
 
-/* line 323, ../sass/screen.scss */
+/* line 324, ../sass/screen.scss */
 .prev-update textarea {
   width: 100%;
   height: 20em;
@@ -439,7 +440,7 @@ a:hover {
   border: 1px solid black;
 }
 
-/* line 330, ../sass/screen.scss */
+/* line 331, ../sass/screen.scss */
 .prev-update input {
   font-size: 18px;
   max-width: 20em;
@@ -448,31 +449,31 @@ a:hover {
 }
 
 @media screen and (max-width: 1000px) {
-  /* line 341, ../sass/screen.scss */
+  /* line 342, ../sass/screen.scss */
   body {
     padding: 3px;
   }
 
-  /* line 346, ../sass/screen.scss */
+  /* line 347, ../sass/screen.scss */
   .nav-title h1 {
     font-size: 20px;
   }
-  /* line 347, ../sass/screen.scss */
+  /* line 348, ../sass/screen.scss */
   .nav-title #logo {
     width: 150px;
   }
 
-  /* line 352, ../sass/screen.scss */
+  /* line 353, ../sass/screen.scss */
   .nav-links {
     display: none;
   }
 
-  /* line 356, ../sass/screen.scss */
+  /* line 357, ../sass/screen.scss */
   .menu, .hamburger, .cross {
     display: block;
   }
 
-  /* line 360, ../sass/screen.scss */
+  /* line 361, ../sass/screen.scss */
   .menu {
     width: 98%;
   }

@@ -55,7 +55,7 @@ $diffSect = "<a href='home.php'><li>Choose a Different Section</li></a>";
         <div class="nav-title">
             <center>
                 <!--need to check logic for link on button -->
-                <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
+                <div><img src="/assets/img/Pace_logo.png" id="logo"></div>
                 <h1>CIS 101 PORTAL</h1>
             </center>
         </div>
@@ -75,7 +75,7 @@ $diffSect = "<a href='home.php'><li>Choose a Different Section</li></a>";
 
             <div class="nav-title" alight="left">
             <!--need to check logic for link on button -->
-                <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
+                <div><img src="/assets/img/Pace_logo.png" id="logo"></div>
                <h1>CIS 101 PORTAL</h1>
 
                <?php 

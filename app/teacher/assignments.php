@@ -132,20 +132,6 @@ $currentDate = date("Y/m/d");
             });
         });
         
-        
-        
-$(document).ready(function(){
-    $('.add-new-update').click(function(){
-        var prev = $(this).prev('#add-h1');
-        $(this).siblings('#add-h1').not(prev).slideUp("slow");
-        prev.slideToggle("slow");
-    });
-    
-    $('#add-h1').click(function(){
-        $(this).siblings('#add-h1').slideUp("slow");
-        $(this).slideToggle("slow");
-    });
-});
     
     </script>
     
