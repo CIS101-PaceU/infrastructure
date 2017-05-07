@@ -8,7 +8,7 @@ $displayClass = false;
 
 $showNav = true;
 
-$thisPage = "Announcements";
+$thisPage = "Assignments";
 
 include('../header.php');
 include('../config.php');
