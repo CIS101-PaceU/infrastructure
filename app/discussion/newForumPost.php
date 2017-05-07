@@ -20,7 +20,8 @@
     }
     else // Insert succesfull, redirect to discussion board
     {
-        header('Location: ../' . $_SESSION['login_role'] . '/discussionBoard.php');
+        $role = strtolower($_SESSION['login_role']) == 'instructor' ? 'teacher' : 'student';
+        header('Location: ../' . $role . '/discussionBoard.php');
     }
     $conn->close();
 ?>
