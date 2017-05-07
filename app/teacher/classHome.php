@@ -12,13 +12,6 @@ $thisPage = "Home";
 
 include('../header.php');
 
-if(!isset($_SESSION['crnSes'])){
-?>
-   <script>
-       window.location = ('home.php');
-</script>
-<?php }
-
 include('dashboard.php');
 
 include('../footer.php');
