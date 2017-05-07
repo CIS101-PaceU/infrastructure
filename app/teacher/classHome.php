@@ -1,9 +1,5 @@
 <?php
 
-//logic for login
-
-//CLASS SECTION MUST BE PROGRAMMATICALLY BROUGHT IN!!!
-
 $belowRoot = true;
 $isLoggedIn = true;
 $isTeacher = true;

@@ -131,6 +131,7 @@ $currentDate = date("Y/m/d");
                 $(".add-new-update").slideToggle("fast");
             });
         });
+        
     
     </script>
     

@@ -1,5 +1,5 @@
 <?php
-   $db = mysqli_connect("localhost","root","","red-velvet");
+   include ('config.php');
    session_start();
 
    if(isset($_SESSION['login_user'])){
@@ -12,14 +12,14 @@
 
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+      $myusername = mysqli_real_escape_string($conn,$_POST['username']);
+      $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
        
       $sql = "SELECT u.userID, u.firstName, r.role FROM user u
         JOIN user_role r ON u.userID = r.userID
         WHERE u.username = '$myusername' and u.password = '$mypassword'";
        
-      $result = mysqli_query($db,$sql);
+      $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
    
       $count = mysqli_num_rows($result);

@@ -22,6 +22,10 @@ body {
     line-height: 1.5;
 }
 
+b { font-weight: $bold; }
+i { font-style:italic; }
+u { text-decoration: underline; }
+
 header{
 	width:100%;  
 	height:60px; 
@@ -262,6 +266,7 @@ background-color: $pace-blue;}
     text-align: left;
     margin-top: 50px;
     margin-bottom: 50px;
+    cursor: pointer;
 }
 
 .update{

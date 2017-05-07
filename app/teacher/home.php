@@ -1,8 +1,7 @@
 <?php
-
 //logic for login
 
-$belowRoot = true;
+//$belowRoot = true;
 $isLoggedIn = true;
 $isTeacher = true;
 $isStudent = false;
@@ -11,45 +10,87 @@ $showNav = false; //don't display navigation if teacher hasn't selected class fr
 
 $thisPage = "Prof Class Home";
 
-
 include('../header.php');
+$user_id = $_SESSION['login_userID'];
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    
+    $selectedClass = $_POST['selectClass'];
+
+    $arrayObject = $_SESSION['arrayObject'][$selectedClass];
+    
+    $_SESSION['crnSes'] = $arrayObject[0];
+    $_SESSION['daySes'] = $arrayObject[1];
+    $_SESSION['timeSes'] = $arrayObject[2];
+    
+    $url='classHome.php';
+    echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '.$url.'">';
+}
 ?>
 
 <html>
 <body>
     <div class="main-container">
         <h1>My CIS 101 Classes</h1>
-
+        
             <div class="my-classes">
                 <center>
+                    
+                <form id="selectForm" action ="" method = "post">
                 <div class="styled-select">
-                    <select class="the-select">
+                    <select name="selectClass" class="the-select">
+                   
                         <optgroup label="CIS 101">
-                            
-                            <!-- PROGRAMMATICALLY LOOP THROUGH SECTION TITLES FOR OPTIONS -->
-                            
-                            <!-- HOW TO MAKE THE FIRST OPTION UNSELECTABLE? -->
+                        
+                            <!-- CLEAN THIS, PHP SHOULD BE IN ITS OWN FILE -->
                             <option>Select your class: </option>
-                            <option>MON | 6:15pm - 9pm</option>
-                            <option>WEDS | 06:10pm-08:10pm</option>
-                            <option>THURS | 07:55am-09:55am</option>
+                            <?php 
+                            
+                            include ('../config.php');
+                            
+                            $classInfoSQL = ("SELECT CRN, Days, Time from course where userID='$user_id' ")or die(mysql_error());
+                            
+                            $result = $conn->query($classInfoSQL);
+                            $count=0;
+                            if ($result->num_rows > 0) { 
+                                
+                                while($row = $result->fetch_assoc()) {
+                                    
+                                    
+                                    $crnNo = $row["CRN"];
+                                    $classDay = $row["Days"];
+                                    $classTime = $row["Time"];
+                                    
+                                    echo '<option value="'.$count.'"> '.$classDay. $classTime.'</option>';
+                                    
+                                    $arrayObject[] = array($crnNo, $classDay, $classTime);
+                                    $count=$count+1;
+
+                                    $_SESSION['arrayObject'] = $arrayObject;
+                                }
+                                
+                            } else {
+                                echo "";
+                            }
+                            
+                            ?>
                         </optgroup>
                     </select>
                 </div>
+                </form>
                 </center>
-            
             </div>
         </div>
 
 <script>
 //using options to navigate to the different pages
 $('.styled-select').change(function(){
-window.location = ('classHome.php');
+    $("#selectForm").submit();
+    //window.location = ('classHome.php');
+    
 });
     
 </script>
-    
-
 </body>
 
 </html>

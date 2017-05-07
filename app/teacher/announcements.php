@@ -1,8 +1,6 @@
 <?php
 
-//logic for login
 
-$belowRoot = true;
 $isLoggedIn = true;
 $isTeacher = true;
 $isStudent = false;
@@ -15,9 +13,9 @@ $thisPage = "Announcements";
 date_default_timezone_set("America/New_York");
 $currentDate = date("m/d/Y") . " " . date("G:i:s");
 
-//for older and latest posts - will be programmatically added in
+//$crnNo = $_SESSION['crnSes'];
 
-$oldAssnDesc = "Integer aliquam ornare augue, vitae placerat sem tristique eu. Maecenas molestie ut mi non rhoncus.";
+
 
 $assnTitle = "Assignment Title";
 $assnDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -31,6 +29,7 @@ $assnDesc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
 
 
 include('../header.php');
+include('../config.php');
 ?>
 
 <html>
@@ -81,7 +80,7 @@ include('../header.php');
                 
                     
                     <?php 
-                        $conn = new mysqli("localhost","root","", "Red-Velvet");
+                        
                         if(!$conn) {echo "error";}
                     
                         $latestPostSQL ="SELECT * from Announcements ORDER BY announcementID DESC LIMIT 1";
@@ -129,14 +128,6 @@ include('../header.php');
                     $(".add-new-update").slideToggle("fast");
                 });
             });
-            
-            //logic to submit announcement
-            
-            <?php 
-            
-            $sql = "INSERT INTO `Announcements` (`announcementID`, `roleID`, `message`, `announcementTitle`, `ID`) VALUES (\'823\', \'342\', \'dsfgfdfsa\', \'hii\', \'sfsw\')";
-            
-            ?>
         
         </script> 
     
