@@ -27,7 +27,7 @@ include('../config.php');
             <?php 
                 
             
-                $latestPostSQL ="SELECT * from Announcements ORDER BY announcementID DESC LIMIT 1";
+                $latestPostSQL ="SELECT * from Announcements ORDER BY datePosted DESC LIMIT 1";
             
                 $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
@@ -46,7 +46,7 @@ include('../config.php');
             <div class = "box" id="assn-box">
                 <h2>Assignments</h2>
                 <?php
-                $latestPostSQL ="SELECT * from assignment ORDER BY assignmentID DESC LIMIT 1";
+                $latestPostSQL ="SELECT * from assignment ORDER BY dueDate DESC LIMIT 1";
                 
                 $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
@@ -66,7 +66,7 @@ include('../config.php');
             <div class = "box" id="grades-box">
                 <h2>Grades/Attendance</h2>
                 <?php
-                $latestPostSQL ="SELECT * from assignment ORDER BY assignmentID DESC LIMIT 1";
+                $latestPostSQL ="SELECT * from assignment ORDER BY dueDate DESC LIMIT 1";
             
             $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
