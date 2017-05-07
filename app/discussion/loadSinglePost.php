@@ -1,18 +1,19 @@
 <?php
-    $discId = htmlspecialchars($_GET["disc"]);
+    $discId = htmlspecialchars($_GET['disc']);
 
     // Select the specific post the user requested
-    $sql = "SELECT discussionID, discussionTitle, discussionText, postDate, userName 
+    $sql = 'SELECT discussionID, discussionTitle, discussionText, postDate, firstName, lastName 
       FROM discussion_board_posts d
       JOIN user u ON d.userID = u.userID
-      WHERE discussionID=" . $discId;
+      WHERE discussionID=' . $discId;
     $result = $conn->query($sql);
 
     // Select the replies of the specific post
-    $replySql = "SELECT discussionID, replyText, userName, replyDate 
+    $replySql = 'SELECT discussionID, replyText, firstName, lastName, replyDate 
       FROM discussion_board_replies d
       JOIN user u ON d.userID = u.userID
-      WHERE discussionID = " . $discId;
+      WHERE discussionID = ' . $discId . '
+      ORDER BY d.replyDate';
     $replies = $conn->query($replySql);
 
     // Display the specific post
