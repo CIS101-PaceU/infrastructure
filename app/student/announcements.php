@@ -1,17 +1,19 @@
 <?php
-
-$belowRoot = true;
+    
 $isLoggedIn = true;
-$isTeacher = true;
+$isTeacher = false;
+
 $isStudent = true;
-$displayClass=false; //display the class name after the prof selects section from dropdown
-$showNav = true; //don't display navigation if teacher hasn't selected class from drowpdown
+$displayClass = false;
+
+$showNav = true;
 
 $thisPage = "Announcements";
 
 include('../header.php');
-?>
+include('../config.php');
 
+?>
 
 <html>
     
@@ -20,13 +22,13 @@ include('../header.php');
 <div class="main-container">
 <center>
     <div class="all-updates">
-        
-        <h1>Announcements</h1><br>
+<h1 id="add-h1">Announcements</h1> <br>
+
                 <!-- current announcement -->
                 
                     
                     <?php 
-                        $conn = new mysqli("localhost","root","", "Red-Velvet");
+                        
                         if(!$conn) {echo "error";}
                     
                         $latestPostSQL ="SELECT * from Announcements ORDER BY announcementID DESC LIMIT 1";
@@ -74,14 +76,6 @@ include('../header.php');
                     $(".add-new-update").slideToggle("fast");
                 });
             });
-            
-            //logic to submit announcement
-            
-            <?php 
-            
-            $sql = "INSERT INTO `Announcements` (`announcementID`, `roleID`, `message`, `announcementTitle`, `ID`) VALUES (\'823\', \'342\', \'dsfgfdfsa\', \'hii\', \'sfsw\')";
-            
-            ?>
         
         </script> 
     
@@ -89,10 +83,9 @@ include('../header.php');
 
 
 </html>
-    
-</html>
 
 <?php
 
 include('../footer.php');
+
 ?>

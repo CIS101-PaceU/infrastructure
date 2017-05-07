@@ -1,14 +1,23 @@
 <?php
-$connection = mysqli_connect("localhost","root","","red-velvet") or die("Error " . mysqli_error($connection));
+ include ('config.php');
  include('session.php');
  $user_check = $_SESSION['login_user'];
  $user_fName = $_SESSION['login_fName'];
+
+
+if(isset($_SESSION['crnSes'])){
+    $crnNo = $_SESSION['crnSes'];
+    $classDay = $_SESSION['daySes'];
+    $classTime = $_SESSION['timeSes'];
+    $section = "<h1 id='class-name'><span class='bold'> " . $classDay . " | " . $classTime . "</span></h1>";
+}
+
 ?>
 <html>
 <head>
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
         <script>
-            tinymce.init({ selector:'textarea' });
+            tinymce.init({ selector:'textarea', statusbar: false, branding: false });
         </script>    
 </head>
 
@@ -16,43 +25,18 @@ $connection = mysqli_connect("localhost","root","","red-velvet") or die("Error "
 
 <?php
 
-
-
-
-//variables for user roles
-//if user is logged in and isRole --> display a certain header
-
-//common for everyone using the system
 $greeting = "Welcome, ". $user_fName;
-
-//specific to teacher and admin
-$crn = "1000"; //grabbed from db
-$courseID = 1; //grabbed from db
-$courseNo = 100; //grabbed from db
-$courseName = "CIS"; //grabbed from db
-$courseDay = "MON"; /** should be grabbed from db, courseDay is not in db **/
-$courseTime = "6:15pm - 9pm"; /** should be grabbed from db, courseTime is not in db **/
-$section = $courseDay . " | " . $courseName . " " . $courseNo . " " . $courseTime;
-
-//for pages below root
-$isBelowRoot="../";
 
 
 //navigation links
 $home = "<a id='head-links' href='classHome.php'>Home</a>";
 $ann = "<a id='head-links' href='announcements.php'>Announcements</a>";
 $assn = "<a id='head-links' href='assignments.php'>Assignments</a>";
-//$students = "<a id='head-links' href='students.php'>Students</a>";
 $grade = "<a id='head-links' href='grades.php'>Grades/Attendance</a>";
 $material = "<a id='head-links' href='courseMaterial.php'>Course Material</a>";
 $disc = "<a id='head-links' href='discussionBoard.php'>Discussion Board</a>";
 $diffSect = "<a href='home.php'><li>Choose a Different Section</li></a>";
-$studView = "<a href=''><li>Student View</li></a>";
 //$group = "<a id='head-links' href='group.php'>Group Project</a>";
-
-
-//use db throughout app
-include('config.php');
 
 ?>
 
@@ -96,7 +80,7 @@ include('config.php');
 
                <?php 
                 if($displayClass == true) {
-                    echo "<h1 id='class-name'>$section</h1>";
+                    echo $section;
                 }
                ?>
             </div>
@@ -151,28 +135,13 @@ include('config.php');
                     echo $disc; ?>
                 </li>
 
-                <?php
-                    if($isStudent == false) {
-                        echo "<li id='nav-disc'><a id='head-links' href=''>Student View</a></li>";
-                    
-                    }
-                ?>
-                
-                <?php
-                    if($isStudent == false) {
-                        echo "<li id='nav-disc'><a id='head-links' href=''>Instructor View</a></li>";
-                    
-                    }
-                ?>
             
                 <?php
-                    if($isStudent==false) {
+                    if($isTeacher==true) {
                         echo "<li id='nav-disc'><a id='head-links' href='home.php'>Choose Another Section</a></li>";
                     
                     }
                 ?>
-                
-                
                <!-- <li id="nav-group"><?php 
                     //if ($thisPage == "Group Project") {
                     //$group = "<a id='this-link' href='group.php'>Group Project</a>"; }
@@ -268,15 +237,9 @@ include('config.php');
                 }
                 ?></a>
         
-        <?php if($isStudent==false){
-                echo $studView;
-            } ?> 
-        
-            <?php if($isStudent == false){
+            <?php if($isTeacher==true){
                 echo $diffSect;
             } ?>
-        
-        
 <!--            <a href="group.php">
                 <?/**
                 if($thisPage=="Group Project") {

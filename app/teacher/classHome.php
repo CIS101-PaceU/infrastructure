@@ -1,9 +1,5 @@
 <?php
 
-//logic for login
-
-//CLASS SECTION MUST BE PROGRAMMATICALLY BROUGHT IN!!!
-
 $belowRoot = true;
 $isLoggedIn = true;
 $isTeacher = true;
@@ -15,6 +11,13 @@ $thisPage = "Home";
 
 
 include('../header.php');
+
+if(!isset($_SESSION['crnSes'])){
+?>
+   <script>
+       window.location = ('home.php');
+</script>
+<?php }
 
 include('dashboard.php');
 

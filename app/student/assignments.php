@@ -1,6 +1,5 @@
 <?php
-
-$belowRoot = true;
+    
 $isLoggedIn = true;
 $isTeacher = false;
 
@@ -9,10 +8,10 @@ $displayClass = false;
 
 $showNav = true;
 
-$thisPage = "Assignments";
+$thisPage = "Announcements";
 
-include '../header.php';
-include '../config.php';
+include('../header.php');
+include('../config.php');
 
 ?>
 
@@ -35,21 +34,22 @@ include '../config.php';
 <div class="main-container">
 <center>
     <div class="all-updates">
-        
-        <h1>Assignments</h1><br>
+        <!-- ADD A NEW ASSIGNMENT -->
+            <h1 id="add-h1">Assignments</h1>
+ 
 
-                <!-- current assignments -->
+                <!-- current announcement -->
                 <?php 
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
                     
-                        $latestPostSQL ="SELECT * from Assignment ORDER BY dueDate ASC LIMIT 1";
+                        $latestPostSQL ="SELECT * from Assignment ORDER BY assignmentID DESC LIMIT 1";
                     
                         $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='current-update'><h2>" . $row["assignmentTitle"] . "</h2>" . "<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . "<br>" . "<br>" . $row["assignmentDescription"] . "<br><a href=''>Submit Assignment</a></div>";
+                        echo "<div class='current-update'><h2>" . $row["assignmentTitle"] . "</h2>" . "<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . "<br>" . "<br>" . $row["assignmentDescription"] . "<br><a href=''>Submit Assignment</a> | <a id='toggleGrade'>View Grade</a><br><div class='showGrade'>Grade: 98% <br> Professor Comments: Too much.</div></div>";
                         }
                     } else {
                     echo "";
@@ -57,14 +57,16 @@ include '../config.php';
         
         
                     //contains older announcements   
-                    $earlierPostsSQL="SELECT * FROM Assignment ORDER BY dueDate ASC LIMIT 10000 OFFSET 1";
+                    $earlierPostsSQL="SELECT * FROM Assignment ORDER BY assignmentID DESC LIMIT 10000 OFFSET 1";
+        
+                    //combine submission and assignment tables
                     
                     $result = $conn->query($earlierPostsSQL);
                     
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='prev-update'><h2>" . $row["assignmentTitle"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . $row["assignmentDescription"] . "<br><a href=''>Submit Assignment</a></div>";
+                        echo "<div class='prev-update'><h2>" . $row["assignmentTitle"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . $row["assignmentDescription"] . "<br><a href='#'>Submit Assignment</a> | <a id='toggleGrade'>View Grade</a><br><div class='showGrade'>Example Grade: 68% <br> Professor Comments: Not enough.</div></div>";
                         }
                     } else {
                     echo "";
@@ -78,14 +80,17 @@ include '../config.php';
 </center>
 </div>
     
-    <script>
+<script>
         
     //toggle assignment module
+    //toggles all at once, need to change
         $(document).ready(function(){
-            $(".add-new-update").hide();
+            $(".showGrade").hide();
 
-            $("#add-h1").click(function() {
-                $(".add-new-update").slideToggle("fast");
+            $("#toggleGrade").click(function() {
+                $(".showGrade").slideToggle.hide();
+                
+                
             });
         });
     
@@ -93,3 +98,10 @@ include '../config.php';
     
 </body>
 </html>
+
+
+<?php
+
+include('../footer.php');
+
+?>

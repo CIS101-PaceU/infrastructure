@@ -1,5 +1,7 @@
 <?php
 
+//logic for login
+
 $belowRoot = true;
 $isLoggedIn = true;
 $isTeacher = true;
@@ -51,7 +53,7 @@ include '../config.php';
         $result = $conn->query($earlierPostsSQL);
         
         if ($result->num_rows > 0) {
-                      // output data of each row
+                        // output data of each row
                         while($row = $result->fetch_assoc()) {
                         echo "<div class='prev-update'><h2>" . $row["assignmentTitle"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . $row["assignmentDescription"] . "<br><a href=''>Edit Assignment</a> | <a href='assignmentSubmissions.php'>View and/or Grade Submissions</a></div>";
                         }
