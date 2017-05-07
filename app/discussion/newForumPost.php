@@ -3,7 +3,8 @@
     include('../config.php');
     include('../session.php');
     $pTitle = $_POST['forum_title'];
-    $pText = mysql_real_escape_string($_POST['forum_text']);
+    $pText = $_POST['forum_text'];
+//    $pText = mysqli_escape_string($_POST['forum_text']);
     $pDate = (new DateTime())->format('Y-m-d H:i:s');
 
     // Insert the new post

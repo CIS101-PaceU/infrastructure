@@ -16,7 +16,7 @@
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
        
       $sql = "SELECT u.userID, u.firstName, r.role FROM user u
-        JOIN user_role r ON u.userID = r.userID
+        JOIN User_Role r ON u.userID = r.userID
         WHERE u.username = '$myusername' and u.password = '$mypassword'";
        
       $result = mysqli_query($conn,$sql);

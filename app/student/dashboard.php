@@ -51,7 +51,7 @@ include('../config.php')
             <div class = "box" id="grades-box">
                 <h2>Grades/Attendance</h2>
                 <?php
-                $latestPostSQL ="SELECT * from Assignment ORDER BY assignmentID DESC LIMIT 1";
+                $latestPostSQL ="SELECT * from assignment ORDER BY assignmentID DESC LIMIT 1";
             
             $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {

@@ -43,7 +43,7 @@ include('../config.php');
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
                     
-                        $latestPostSQL ="SELECT * from Assignment ORDER BY assignmentID DESC LIMIT 1";
+                        $latestPostSQL ="SELECT * from assignment ORDER BY dueDate DESC LIMIT 1";
                     
                         $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
@@ -57,7 +57,7 @@ include('../config.php');
         
         
                     //contains older announcements   
-                    $earlierPostsSQL="SELECT * FROM Assignment ORDER BY assignmentID DESC LIMIT 10000 OFFSET 1";
+                    $earlierPostsSQL="SELECT * FROM assignment ORDER BY dueDate DESC LIMIT 10000 OFFSET 1";
         
                     //combine submission and assignment tables
                     

@@ -83,7 +83,7 @@ include('../config.php');
                         
                         if(!$conn) {echo "error";}
                     
-                        $latestPostSQL ="SELECT * from Announcements ORDER BY announcementID DESC LIMIT 1";
+                        $latestPostSQL ="SELECT * from Announcements ORDER BY datePosted DESC LIMIT 1";
                     
                         $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
@@ -97,7 +97,7 @@ include('../config.php');
          
                  //contains older announcements
                         
-                    $earlierPostsSQL="SELECT * FROM Announcements ORDER BY announcementID DESC LIMIT 10000 OFFSET 1";
+                    $earlierPostsSQL="SELECT * FROM Announcements ORDER BY datePosted DESC LIMIT 10000 OFFSET 1";
                     
                     $result = $conn->query($earlierPostsSQL);
                     

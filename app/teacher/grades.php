@@ -30,7 +30,7 @@ include '../config.php';
             
             <?php
             
-            $latestPostSQL ="SELECT * from Assignment ORDER BY dueDate ASC LIMIT 1";
+            $latestPostSQL ="SELECT * from assignment ORDER BY dueDate ASC LIMIT 1";
             
             $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
@@ -48,7 +48,7 @@ include '../config.php';
         
         <?php
         
-        $earlierPostsSQL="SELECT * FROM Assignment ORDER BY dueDate ASC LIMIT 10000 OFFSET 1";
+        $earlierPostsSQL="SELECT * FROM assignment ORDER BY dueDate ASC LIMIT 10000 OFFSET 1";
         
         $result = $conn->query($earlierPostsSQL);
         
