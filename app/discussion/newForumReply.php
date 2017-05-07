@@ -3,7 +3,7 @@
     include('../config.php');
     include('../session.php');
     $pText = $_POST['reply_text'];
-    $pDate = (new DateTime())->format('Y-m-d');
+    $pDate = (new DateTime())->format('Y-m-d H:i:s');
     $pID = $_POST['disc'];
 
     // Insert the new reply

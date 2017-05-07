@@ -12,7 +12,8 @@
     $replySql = 'SELECT discussionID, replyText, firstName, lastName, replyDate 
       FROM discussion_board_replies d
       JOIN user u ON d.userID = u.userID
-      WHERE discussionID = ' . $discId;
+      WHERE discussionID = ' . $discId . '
+      ORDER BY d.replyDate';
     $replies = $conn->query($replySql);
 
     // Display the specific post

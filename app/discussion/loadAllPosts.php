@@ -2,7 +2,8 @@
     // Select all of the posts from the database
     $sql = 'SELECT discussionID, discussionTitle, discussionText, postDate, firstName, lastName 
         FROM discussion_board_posts d
-        JOIN user u ON u.userID = d.userID';
+        JOIN user u ON u.userID = d.userID
+        ORDER BY d.postDate';
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) // There are some posts, display them
@@ -11,7 +12,8 @@
         while($row = $result->fetch_assoc()) {
             $replySql = 'SELECT discussionID, replyText, replyDate 
               FROM discussion_board_replies
-              WHERE discussionID = ' . $row['discussionID'];
+              WHERE discussionID = ' . $row['discussionID'] . '
+              ORDER BY replyDate';
             $replies = $conn->query($replySql);
             include('discPostMarkup.php');
         }

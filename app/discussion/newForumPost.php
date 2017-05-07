@@ -4,7 +4,7 @@
     include('../session.php');
     $pTitle = $_POST['forum_title'];
     $pText = mysql_real_escape_string($_POST['forum_text']);
-    $pDate = (new DateTime())->format('Y-m-d');
+    $pDate = (new DateTime())->format('Y-m-d H:i:s');
 
     // Insert the new post
     $sql = 'INSERT INTO discussion_board_posts(discussionTitle, discussionText, postDate, userID)
