@@ -22,7 +22,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $_SESSION['crnSes'] = $arrayObject[0];
     $_SESSION['daySes'] = $arrayObject[1];
     $_SESSION['timeSes'] = $arrayObject[2];
-
+    
+    $url='classHome.php';
+    echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '.$url.'">';
 }
 ?>
 
@@ -34,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="my-classes">
                 <center>
                     
-                <form id="selectForm" action = "" method = "post">
+                <form id="selectForm" action ="" method = "post">
                 <div class="styled-select">
                     <select name="selectClass" class="the-select">
                    
@@ -84,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //using options to navigate to the different pages
 $('.styled-select').change(function(){
     $("#selectForm").submit();
-    window.location = ('classHome.php');
+    //window.location = ('classHome.php');
     
 });
     
