@@ -2,12 +2,12 @@
 
 //Configures database
   $servername = "localhost";
-  $username = "root";
+  $username = "portal";
   $password = "";
-  $dbname = "Red-Velvet";
+  $dbname = "portal-db";
 
   // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
+  $conn = new mysqli($servername, $username, $password, $dbname, 3316);
 
 //$link = new MySQLi('localhost', 'root','','Red-Velvet'); //is this outdated?
 
