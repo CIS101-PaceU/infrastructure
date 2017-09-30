@@ -74,24 +74,13 @@
                             <br>
                             <button id="sub" type = "submit" value = " Submit" >Log In</button>
                             <br>
-                            <a href="registration.php">Register?</a> <span> | </span> <a href="">Forgot password?</a>
+                            <a href="">Forgot password?</a>
                            <!-- <span><?php echo $error; ?></span>-->
                         </form>
                     </div>       
                 </center>
         
         <!-- php logic -->
-        
-    <script>
-        //toggle registration form.
-        $(document).ready(function(){
-            $( ".reg" ).hide();
-            $(".reg-btn").click(function(){
-        $(".reg").slideToggle("slow");
-            });
-        });
-      
-    </script>
     
     </body>
 

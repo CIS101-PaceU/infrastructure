@@ -2,14 +2,12 @@
 
 //Configures database
   $servername = "localhost";
-  $username = "root";
+  $username = "portal";
   $password = "";
-  $dbname = "Red-Velvet";
+  $dbname = "portal-db";
 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
-
-//$link = new MySQLi('localhost', 'root','','Red-Velvet'); //is this outdated?
 
 if (!$conn) {
     echo "Error: Cannot connect to database." . PHP_EOL;
