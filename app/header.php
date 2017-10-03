@@ -27,16 +27,25 @@ if(isset($_SESSION['crnSes'])){
 
 $greeting = "Welcome, ". $user_fName;
 
+//$home2 = $_SESSION['login_role'] . "";
+$path = $_SESSION['login_role'];
 
 //navigation links
-$home = "<a id='head-links' href='classHome.php'>Home</a>";
-$ann = "<a id='head-links' href='announcements.php'>Announcements</a>";
-$assn = "<a id='head-links' href='assignments.php'>Assignments</a>";
-$grade = "<a id='head-links' href='grades.php'>Grades/Attendance</a>";
-$material = "<a id='head-links' href='courseMaterial.php'>Course Material</a>";
-$disc = "<a id='head-links' href='discussionBoard.php'>Discussion Board</a>";
-$diffSect = "<a href='home.php'><li>Choose a Different Section</li></a>";
+$home = "<a id='head-links' href='/" . $path . "/classHome.php'>Home</a>";
+$ann = "<a id='head-links' href='/" . $path . "/announcements.php'>Announcements</a>";
+$assn = "<a id='head-links' href='/" . $path . "/assignments.php'>Assignments</a>";
+
+$material = "<a id='head-links' href='/" . $path . "/courseMaterial.php'>Course Material</a>";
+$disc = "<a id='head-links' href='/" . $path . "/discussionBoard.php'>Discussion Board</a>";
+$diffSect = "<a href='/" . $path . "/home.php'><li>Choose a Different Section</li></a>";
 //$group = "<a id='head-links' href='group.php'>Group Project</a>";
+
+//new tabs
+$attendance_link = "<a id='head-links' href='/" . $path . "/attendance/index.php'>Attendance</a>";
+$excel_link = "<a id='head-links' href='/" . $path . "/excel/index.php'>Excel Grading</a>";
+$reporting_link = "<a id='head-links' href='/" . $path . "/reporting/index.php'>Reporting</a>";
+$html_link = "<a id='head-links' href='/" . $path . "/html/index.php'>HTML Grading</a>";
+$text_link = "<a id='head-links' href='/" . $path . "/text/index.php'>Text Grading</a>";
 
 ?>
 
@@ -69,7 +78,7 @@ $diffSect = "<a href='home.php'><li>Choose a Different Section</li></a>";
        <!-- only show if user is logged in -->
         <div class="logged-in"><span style="float:right;">
     <?php echo "$greeting"; ?><br>
-    <a href="#">Help</a> <a href="../logout.php">Logout</a> 
+    <a href="#">Help</a> <a href="/logout.php">Logout</a> 
         </span>
     </div>
 
@@ -97,48 +106,84 @@ $diffSect = "<a href='home.php'><li>Choose a Different Section</li></a>";
             <ul>
                <li id="nav-ann"><?php 
                     if ($thisPage == "Home") {
-                        $home = "<a id='this-link' href='classHome.php'>Home</a>"; }
+                        $home = "<a id='this-link' href='/" . $path . "/classHome.php'>Home</a>"; }
                         echo $home; ?>
                 </li>
 
                 <li id="nav-ann"><?php 
                     if ($thisPage == "Announcements") {
-                        $ann = "<a id='this-link' href='announcements.php'>Announcements</a>"; }
+                        $ann = "<a id='this-link' href='/" . $path . "/announcements.php'>Announcements</a>"; }
                         echo $ann; ?>
                 </li>
 
                 <li id="nav-assn"><?php 
                     if ($thisPage == "Assignments") {
-                        $assn = "<a id='this-link' href='assignments.php'>Assignments</a>"; }
+                        $assn = "<a id='this-link' href='/" . $path . "/assignments.php'>Assignments</a>"; }
 
                         echo $assn; ?>
                 </li>
 
-                <li id="nav-grade"><?php 
-                    if ($thisPage == "Grades") {
-                    $grade = "<a id='this-link' href='grades.php'>Grades/Attendance</a>"; }
-
-                    echo $grade; ?>
-                </li>
-
-                <li id="nav-mat"><?php 
-                    if ($thisPage == "Course Material") {
-                    $material = "<a id='this-link' href='courseMaterial.php'>Course Material</a>"; }
-
-                    echo $material; ?>
-                </li>
-
                 <li id="nav-disc"><?php 
                     if ($thisPage == "Discussion Board") {
-                    $disc = "<a id='this-link' href='discussionBoard.php'>Discussion Board</a>"; }
+                    $disc = "<a id='this-link' href='/" . $path . "/discussionBoard.php'>Discussion Board</a>"; }
 
                     echo $disc; ?>
                 </li>
 
+                 <?php 
+                     if($isTeacher==true) {
+                     ?>
+                        <li id="nav-attendance"><?php 
+                            if($thisPage == "Attendance") {
+                                $attendance_link = "<a id='this-link' href='/" . $path . "/attendance/index.php'>Attendance</a>";
+                            }
+
+                            echo $attendance_link; ?>
+                        </li>
+
+                     <?php
+                     }
+                 ?>
+
+
+
+                <li id="nav-excel"><?php 
+                    if($thisPage == "Excel") {
+                        $excel_link = "<a id='this-link' href='/" . $path . "/excel/index.php'>Excel Grading</a>";
+                    }
+
+                    echo $excel_link; ?>
+                </li>
+
+                <li id="nav-reporting"><?php 
+                    if($thisPage == "Reporting") {
+                        $reporting_link = "<a id='this-link' href='/" . $path . "/reporting/index.php'>Reporting</a>";
+                    }
+
+                    echo $reporting_link; ?>
+                </li>
+
+                <li id="nav-html"><?php 
+                    if($thisPage == "HTML Grading") {
+                        $html_link = "<a id='this-link' href='/" . $path . "/html/index.php'>HTML Grading</a>";
+                    }
+
+                    echo $html_link; ?>
+                </li>
+
+                <li id="nav-text"><?php 
+                    if($thisPage == "Text Grading") {
+                        $text_link = "<a id='this-link' href='/" . $path . "/text/index.php'>Text Grading</a>";
+                    }
+
+                    echo $text_link; ?>
+                </li>
+
+
             
                 <?php
                     if($isTeacher==true) {
-                        echo "<li id='nav-disc'><a id='head-links' href='home.php'>Choose Another Section</a></li>";
+                        echo "<li id='nav-disc'><a id='head-links' href='/" . $path . "/home.php'>Choose Another Section</a></li>";
                     
                     }
                 ?>
@@ -209,15 +254,7 @@ $diffSect = "<a href='home.php'><li>Choose a Different Section</li></a>";
                 ?>
                 </a> -->
 
-            <a href="grades.php">
-                <?
-                if($thisPage=="Grades") {
-                    echo "<li class='this-menu'>Grades/Attendance</li>";
-                } else {
-                    echo "<li>Grades/Attendance</li>";
-                }
-                ?>
-                </a>
+
 
             <a href="courseMaterial.php">
                 <?

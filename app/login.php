@@ -6,7 +6,7 @@
        if($_SESSION['login_role'] == "Student"){
              header("location: student/classHome.php");
          } else if($_SESSION['login_role'] == "Instructor"){
-             header("location: teacher/home.php");
+             header("location: Instructor/home.php");
          }
    }
 
@@ -34,7 +34,7 @@
          if($_SESSION['login_role'] == "Student"){
              header("location: student/classHome.php");
          } else if($_SESSION['login_role'] == "Instructor"){
-             header("location: teacher/home.php");
+             header("location: instructor/home.php");
          }
          
       }else {
