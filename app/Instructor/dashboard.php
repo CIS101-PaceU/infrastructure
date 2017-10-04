@@ -63,22 +63,6 @@ include('../config.php');
                 <a href='assignments.php'>View More...</a>
             </div>
 
-            <div class = "box" id="grades-box">
-                <h2>Grades/Attendance</h2>
-                <?php
-                $latestPostSQL ="SELECT * from assignment ORDER BY dueDate DESC LIMIT 1";
-            
-            $result = $conn->query($latestPostSQL);
-                        if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                        echo "<h3>" . $row["assignmentTitle"] . "</h3>" . "<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . "<br>" . $row["assignmentDescription"] . "<br><a href=''>Edit Assignment</a> | <a href='assignmentSubmissions.php'>View and/or Grade Submissions</a>";
-                        }
-                    } else {
-                    echo "No assignments yet.";
-                        }
-                ?>
-            </div>
 
             <div class = "box" id="material-box">
                 <h2>course material</h2>
