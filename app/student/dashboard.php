@@ -6,8 +6,6 @@ $fillerText ="Morbi et tellus sapien. Phasellus volutpat neque ut nunc semper, i
 $datePosted = "03/06/2017"; //WILL BE PULLED FROM DATABASE
 $announcementTitle ="Title of Update";//WILL BE PULLED FROM DATABASE
 $assignmentTitle ="Title of Update";//WILL BE PULLED FROM DATABASE
-$gradesTitle ="Title of Update";//WILL BE PULLED FROM DATABASE
-$courseMaterialTitle ="Title of Update";//WILL BE PULLED FROM DATABASE
 $discussionBoardTitle ="Title of Update";//WILL BE PULLED FROM DATABASE
    
 include('../config.php')
@@ -46,14 +44,6 @@ include('../config.php')
                 <p id="main-assn-date">03/06/2017</p>
                 <p id="main-assn-desc"> <?php echo $fillerText; ?></p>
                 <a href='assignments.php'>View More...</a>
-            </div>
-
-            <div class = "box" id="material-box">
-                <h2>course material</h2>
-                <h3 id="main-mat">Video on Excel</h3>
-                <p id="main-mat-date">03/06/2017</p>
-                <p id="main-mat-desc"> <?php echo "Watch the video here..." ?></p>
-                <a href='courseMaterial.php'>View More...</a>
             </div>
 
             <div class = "box" id="disc-box">
