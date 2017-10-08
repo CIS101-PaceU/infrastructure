@@ -1,7 +1,7 @@
 <?php
-// Reporting Team:
-// Please do not modify this page
-// Begin your work on reporting.php
+## Reporting Team:
+## Please DO NOT MODIFY this page
+## Begin your work on reporting.php
 ?>
 
 <?php
