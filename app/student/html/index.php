@@ -1,4 +1,10 @@
 <?php
+// HTML Grading Team:
+// Please do not modify this page
+// Begin your work on html_grading.php
+?>
+
+<?php
 
 $belowRoot = true;
 $isLoggedIn = true;

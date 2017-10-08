@@ -1,4 +1,10 @@
 <?php
+// Text Grading Team:
+// Please do not modify this page
+// Begin your work on text.php
+?>
+
+<?php
 
 $belowRoot = true;
 $isLoggedIn = true;

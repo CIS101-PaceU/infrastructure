@@ -1,4 +1,10 @@
 <?php
+// Attendance Team:
+// Please do not modify this page
+// Begin your work on attendance.php
+?>
+
+<?php
 
 $belowRoot = true;
 $isLoggedIn = true;

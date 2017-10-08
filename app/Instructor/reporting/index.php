@@ -1,4 +1,10 @@
 <?php
+// Reporting Team:
+// Please do not modify this page
+// Begin your work on reporting.php
+?>
+
+<?php
 
 $belowRoot = true;
 $isLoggedIn = true;
