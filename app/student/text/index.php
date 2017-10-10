@@ -1,7 +1,9 @@
 <?php
-// Text Grading Team:
-// Please do not modify this page
-// Begin your work on text.php
+## Text Grading Team:
+## Please DO NOT modify this page
+## Begin your work on text.php
+##
+## Thank you!!!
 ?>
 
 <?php
