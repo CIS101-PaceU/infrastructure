@@ -1,14 +1,39 @@
 .side-nav {
-  width: 25%;
+  height: 100%;
+  // max-width: 250px;
   background-color: $lapis-lazuli;
+  border: 2px solid $lapis-lazuli !important;
+  position: absolute;
 
   @include mobile {
-    width: 50%;
+    width: 100%;
+    max-width: none;
   }
 }
 
 .side-nav--bio {
+  min-width: 250px;
   background: $white;
+  padding-top: 70px;
+  padding-bottom: 1em;
+
+  .fa {
+    color: $cyan-azure;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  p {
+    margin: 1em;
+  }
+
+  @include mobile {
+    padding-top: 75px;
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .side-nav--links {
@@ -23,8 +48,13 @@
 
     li {
       list-style: none;
+      text-transform: uppercase;
     }
   }
+}
+
+.side-nav--bio__section {
+  color: $lapis-lazuli;
 }
 
 .nav-button {
@@ -39,3 +69,27 @@
       color: $lapis-lazuli;
     }
 }
+
+/** select course **/
+
+.styled-select {
+    overflow: hidden;
+    border: none;
+
+    select {
+      padding:10px;
+      font-size: 14px;
+      background-color: $peach;
+      color: $white;
+      width: 83%;
+      border: 0;
+      border-radius: 5px;
+      -webkit-appearance: none;
+
+      &:focus {
+        outline: none;
+        background-color: $peach;
+        color: $white;
+      }
+    }
+ }

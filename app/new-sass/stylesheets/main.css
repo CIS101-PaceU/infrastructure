@@ -18,6 +18,13 @@ hr {
   width: 75%;
   background: #dce3e9; }
 
+.create-announcement {
+  padding: 2em; }
+  .create-announcement h2 {
+    margin: 0;
+    color: #fff;
+    background: #e59274; }
+
 .button {
   display: inline-block;
   padding: 7px 25px;
@@ -48,6 +55,15 @@ hr {
   border-color: #5ac541; }
   .button--green:hover {
     color: #5ac541; }
+
+.dash--notifications {
+  border: 2px solid #e59274;
+  width: 100%; }
+
+.dash--section h2 {
+  background: #e59274;
+  color: white;
+  margin: 0; }
 
 a {
   text-decoration: none; }
@@ -81,6 +97,7 @@ a {
   background: #fff;
   border: 1px solid #dce3e9;
   max-width: 50%;
+  padding-bottom: .75em;
   margin: auto;
   -webkit-align-self: center;
   -moz-align-self: center;
@@ -143,12 +160,16 @@ a {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  font-size: 14px; }
   .login-form--social .login-form--social__button {
-    margin: auto;
+    margin: 5px;
     justify-content: center;
     width: 50%;
-    display: flex; }
+    display: flex;
+    border: 1px solid #dce3e9;
+    border-radius: 5px;
+    padding: 5px; }
     .login-form--social .login-form--social__button a {
       display: inline-block;
       color: #267ba0; }
@@ -156,7 +177,8 @@ a {
       .login-form--social .login-form--social__button {
         width: 100%; } }
   .login-form--social img {
-    max-height: 25px; }
+    max-height: 25px;
+    vertical-align: middle; }
   @media only screen and (max-width: 767px) {
     .login-form--social {
       -webkit-box-direction: normal;
@@ -164,17 +186,52 @@ a {
       -webkit-flex-direction: column;
       -moz-flex-direction: column;
       -ms-flex-direction: column;
-      flex-direction: column; } }
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      width: 80%; } }
+
+.main-page {
+  display: flex; }
+
+.main-content {
+  padding-top: 80px;
+  margin: auto; }
+
+.portal-section h1 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 300; }
+.portal-section i {
+  color: #257b7a; }
 
 .side-nav {
-  width: 25%;
-  background-color: #267ba0; }
+  height: 100%;
+  background-color: #267ba0;
+  border: 2px solid #267ba0 !important;
+  position: absolute; }
   @media only screen and (max-width: 767px) {
     .side-nav {
-      width: 50%; } }
+      width: 100%;
+      max-width: none; } }
 
 .side-nav--bio {
-  background: #fff; }
+  min-width: 250px;
+  background: #fff;
+  padding-top: 70px;
+  padding-bottom: 1em; }
+  .side-nav--bio .fa {
+    color: #5085c7; }
+  .side-nav--bio h3 {
+    text-align: center; }
+  .side-nav--bio p {
+    margin: 1em; }
+  @media only screen and (max-width: 767px) {
+    .side-nav--bio {
+      padding-top: 75px;
+      width: 100%;
+      max-width: none; } }
 
 .side-nav--links {
   background-color: #267ba0; }
@@ -183,7 +240,11 @@ a {
   .side-nav--links ul {
     padding: 0; }
     .side-nav--links ul li {
-      list-style: none; }
+      list-style: none;
+      text-transform: uppercase; }
+
+.side-nav--bio__section {
+  color: #267ba0; }
 
 .nav-button {
   display: inline-block;
@@ -195,8 +256,27 @@ a {
     background-color: #fff;
     color: #267ba0; }
 
+/** select course **/
+.styled-select {
+  overflow: hidden;
+  border: none; }
+  .styled-select select {
+    padding: 10px;
+    font-size: 14px;
+    background-color: #e59274;
+    color: #fff;
+    width: 83%;
+    border: 0;
+    border-radius: 5px;
+    -webkit-appearance: none; }
+    .styled-select select:focus {
+      outline: none;
+      background-color: #e59274;
+      color: #fff; }
+
 body {
-  margin: 0px; }
+  margin: 0;
+  padding: 0; }
 
 .top-nav {
   background: white;
@@ -205,6 +285,8 @@ body {
   top: 0;
   width: 100%;
   padding: 5px;
+  position: absolute;
+  z-index: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -221,12 +303,7 @@ body {
     -webkit-align-content: center;
     -moz-align-content: center;
     -ms-flex-line-pack: center;
-    align-content: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    justify-content: center; }
+    align-content: center; }
   .top-nav img {
     max-height: 50px;
     display: inline-block;
@@ -236,5 +313,12 @@ body {
     color: #00307f;
     text-transform: uppercase;
     margin: 0; }
+
+/** enabled only if logged in **/
+.light {
+  background: #5ac541;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; }
 
 /*# sourceMappingURL=main.css.map */

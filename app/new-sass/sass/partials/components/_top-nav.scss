@@ -1,5 +1,6 @@
 body {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .top-nav {
@@ -9,14 +10,16 @@ body {
   top: 0;
   width: 100%;
   padding: 5px;
+  position: absolute;
+  z-index: 1;
   @include flexbox;
 
   div {
-    max-width: 1000px;
-    @include flexbox;
-    margin: auto;
-    @include align-content(center);
-    @include justify-content(center);
+     max-width: 1000px;
+     @include flexbox;
+     margin: auto;
+     @include align-content(center);
+    // @include justify-content(center);
   }
 
   img {
@@ -31,4 +34,12 @@ body {
     text-transform: uppercase;
     margin: 0;
   }
+}
+
+/** enabled only if logged in **/
+.light {
+  background: $green;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }

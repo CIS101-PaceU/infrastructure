@@ -15,6 +15,7 @@
   // width: 400px;
   border: 1px solid $platinum;
   max-width: 50%;
+  padding-bottom: .75em;
 
   @include mobile {
     max-width: 90%;
@@ -81,11 +82,16 @@
 .login-form--social {
   @include flexbox;
 
+  font-size: 14px;
+
   .login-form--social__button {
-    margin: auto;
+    margin: 5px;
     justify-content: center;
     width: 50%;
     display: flex;
+    border: 1px solid $platinum;
+    border-radius: 5px;
+    padding: 5px;
 
     a {
       display: inline-block;
@@ -99,9 +105,14 @@
 
   img {
     max-height: 25px;
+    vertical-align: middle;
   }
 
   @include mobile {
     @include flex-direction(column);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
   }
 }

@@ -36,16 +36,14 @@
           
           <div class="login-form--social__button">
             <a href="#">
-              <img src="/assets/signin/google-logo.png">
-              <p>Continue with Google</p>
+              <img src="/assets/signin/google-logo.png"> Continue with Google
           </a>
           </div>
 
           <div class="login-form--social__button">
             
             <a href="#">
-              <img src="/assets/signin/facebook-logo.png">
-              <p>Continue with Facebook</p>
+              <img src="/assets/signin/facebook-logo.png"> Continue with Facebook
             </a>
 
           </div>
