@@ -161,7 +161,6 @@ a {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  justify-content: center;
   font-size: 14px; }
   .login-form--social .login-form--social__button {
     margin: 5px;
@@ -180,6 +179,18 @@ a {
   .login-form--social img {
     max-height: 25px;
     vertical-align: middle; }
+  @media only screen and (max-width: 767px) {
+    .login-form--social {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      width: 80%; } }
 
 .main-page {
   display: flex; }

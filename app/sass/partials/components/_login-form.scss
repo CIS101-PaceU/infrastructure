@@ -85,6 +85,8 @@
 
   font-size: 14px;
 
+  font-size: 14px;
+
   .login-form--social__button {
     margin: 5px;
     justify-content: center;
@@ -109,11 +111,11 @@
     vertical-align: middle;
   }
 
-  // @include mobile {
-  //   @include flex-direction(column);
-  //   justify-content: center;
-  //   align-items: center;
-  //   margin: 0 auto;
-  //   width: 80%;
-  // }
+  @include mobile {
+    @include flex-direction(column);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+  }
 }
