@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
-<style>
-div {
-   width: 60%;
-   
-}
-</style>
+
 <body>
 <div>
 <form action="uploads.php" method="post" enctype="multipart/form-data">
