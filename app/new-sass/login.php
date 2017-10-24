@@ -3,6 +3,8 @@
 <head>
   <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
 </head>
+
+
 <body class="login-container">
 
   <div class="login-container--main">
@@ -19,8 +21,8 @@
         
         <h2>Log Into Your Account</h2>
 
-        <input type="text" placeholder="PACE UNIVERSITY ID" name="email" required>
-        <input type="password" placeholder="PASSWORD" name="psw" required>
+        <input type="text" placeholder="PACE UNIVERSITY ID" name="username" required>
+        <input type="password" placeholder="PASSWORD" name="password" required>
 
         <br />
 

@@ -1,0 +1,119 @@
+.login-container {
+  background: $flash;
+  //margin: 30px;
+}
+
+.login-container--main {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+.login-form {
+  background: $white;
+  // height: 300px;
+  // width: 400px;
+  border: 1px solid $platinum;
+  max-width: 50%;
+  padding-bottom: .75em;
+
+  @include mobile {
+    max-width: 90%;
+  }
+
+  margin: auto;
+  @include align-self(center);
+
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+
+  width: 450px;
+  box-shadow: 5px 5px 5px $drop-shadow;
+
+  h2 {
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
+.login-form--sign-links {
+  @include flexbox;
+}
+
+.login-button {
+  display: inline-block;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  background: $ice;
+  border: 1px solid $platinum;
+  border-top: none;
+  border-right: none;
+  color: $grey-blue;
+}
+
+.login-button.active {
+  background: $white;
+  color: $black;
+  border-bottom: none;
+}
+
+.login-form--content {
+  text-align: center;
+
+  input {
+    width: 75%;
+    height: 35px;
+    background: $white !important;
+    color: $platinum;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid $platinum;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+}
+
+.login-form--social {
+  @include flexbox;
+  justify-content: center;
+
+  font-size: 14px;
+
+  .login-form--social__button {
+    margin: 5px;
+    justify-content: center;
+    width: 50%;
+    display: flex;
+    border: 1px solid $platinum;
+    border-radius: 5px;
+    padding: 5px;
+
+    a {
+      display: inline-block;
+      color: $lapis-lazuli;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  img {
+    max-height: 25px;
+    vertical-align: middle;
+  }
+
+  // @include mobile {
+  //   @include flex-direction(column);
+  //   justify-content: center;
+  //   align-items: center;
+  //   margin: 0 auto;
+  //   width: 80%;
+  // }
+}
