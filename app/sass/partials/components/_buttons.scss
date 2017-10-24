@@ -1,0 +1,39 @@
+.button {
+  display: inline-block;
+  padding: 7px 25px;
+  text-decoration: none;
+  font-size: 12px;
+  min-width: 100px;
+  min-height: 25px;
+  cursor: pointer;
+  line-height: 25px;
+  transition: 0.5s all ease;
+  border-radius: 5px;
+  border: 1px solid;
+  color: white;
+  text-transform: uppercase;
+  margin: auto;
+
+  &:hover{
+    background-color: $white;
+    text-decoration: none;
+  }
+}
+
+.button--teal {
+  background-color: $lapis-lazuli;
+  border-color: $lapis-lazuli;
+
+  &:hover {
+    color: $lapis-lazuli;
+  }
+}
+
+.button--green {
+  background-color: $green;
+  border-color: $green;
+
+  &:hover {
+    color: $green;
+  }
+}

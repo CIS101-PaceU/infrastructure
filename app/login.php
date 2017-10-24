@@ -42,51 +42,81 @@
       }
    }
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>CIS 101 Portal: Log In</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/screen.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     
-    <body>
-        <div class="head-container">
-            
-            <div class="nav-title" alight="left">
-                   <div>
-                       <center>
-                        <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
-                       <h1>LOG IN</h1>
-                           </center>
-                    </div>
-                </div>
+<body class="login-container">
+
+   <div class="top-nav">
+     <div>
+        <img src="/assets/Pace_logo.png">
+        <h2>Introduction to <br />Computing</h2>
+    </div>
+  </div>
+
+  <div class="login-container--main">
+    
+    <div class="login-form">
+
+        <div class="login-form--sign-links">
+          <a class="login-button" href="#">Sign up</a>
         
-           <!-- log in form -->
-            <br>
-                <center>
-                    <p>Enter your Pace username and password.</p> 
-                    <div class="login-form">
-                        <form action = "" method = "post">
-                            <input type="text" name = "username" class="form-input" placeholder="Pace ID"><br>
-                            <input type="password" name = "password" class="form-input" placeholder="Password">
+          <a class="login-button active" href="#">Sign In</a>
+        </div>
 
-                            <br>
-                            <button id="sub" type = "submit" value = " Submit" >Log In</button>
-                            <br>
-                            <a href="">Forgot password?</a>
-                           <!-- <span><?php echo $error; ?></span>-->
-                        </form>
-                    </div>       
-                </center>
+      <div class="login-form--content active">
         
-        <!-- php logic -->
+        <h2>Log Into Your Account</h2>
 
-    </body>
+        <form action = "" method = "post">
 
-        <?php
-    include('footer.php');
-?>
+        <input type="text" placeholder="PACE UNIVERSITY ID" name="username" required>
+        <input type="password" placeholder="PASSWORD" name="password" required>
+
+        <br />
+
+        <button id="sub" type="submit" class="button button--teal">Sign In</button>
+
+      </form>
+
+        <br />
+        <p><a class="teal-link" href="#">Forgot your password?</a></p>
+
+        <hr />
+
+        <p>Or sign in using one of these other services:</p>
+
+        <div class="login-form--social">
+          
+          <div class="login-form--social__button">
+            <a href="#">
+              <img src="/assets/signin/google-logo.png"> Continue with Google
+          </a>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+</body>
+
 
 </html>
     
