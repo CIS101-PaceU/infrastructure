@@ -21,7 +21,6 @@ include '../../header.php';
 
 <?php 
 include 'text.php';
-
 include '../../footer.php';
 
 ?>
