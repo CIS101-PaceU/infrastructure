@@ -3,6 +3,32 @@ body {
   padding: 0;
 }
 
+.login-container .top-nav {
+  display: flex !important; 
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    vertical-align: baseline;
+  }
+  h2 {
+    display: inline-block;
+    @include iphone {
+      font-size: 18px;
+    }
+  }
+  @include tablet {
+    display: flex;
+  }
+
+  @include mobile {
+    display: flex;
+  }
+}
+
+
 .top-nav {
   background: white;
   box-shadow: 5px 5px 5px $drop-shadow;
@@ -14,16 +40,53 @@ body {
   z-index: 1;
   @include flexbox;
 
-  div {
-     max-width: 1000px;
-     @include flexbox;
-     margin: auto;
-     @include align-content(center);
-    // @include justify-content(center);
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+
+  // div {
+  //    max-width: 1000px;
+  //    @include flexbox;
+  //    margin: auto;
+  //    @include align-content(center);
+  //   // @include justify-content(center);
+  // }
+
+  .top-nav__signedin {
+    @include flexbox;
+    // margin: 20px;
+    @include align-content(center);
+    // max-width: 1000px;
+    width: 100%;
+
+   .flex {
+    width: 50%;
+
+    &:first-of-type{
+      justify-content: flex-start;
+    }
+  }
+  }
+
+  .top-nav--light {
+    @include flexbox;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+
+    h4 {
+      margin: 0;
+      padding-left: 5px;
+
+    }
   }
 
   img {
-    max-height: 60px;
+    max-height: 50px;
     display: inline-block;
     vertical-align: middle;
     margin-right: 20px;
@@ -42,4 +105,6 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  display: inline-block;
+
 }

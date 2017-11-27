@@ -1,0 +1,36 @@
+.prof-create {
+  background: $peach;
+  text-transform: uppercase;
+  padding: .25em;
+  h2 {
+    color: $white;
+    text-align: center;
+
+  }
+}
+
+.create-controls {
+  padding: 1em;
+
+  #post-title {
+    width: 200px;
+    font-size: 14px;
+  }
+}
+
+input[type=submit] {
+  display: inline-block;
+  background: $lapis-lazuli;
+  border: 0;
+  text-transform: uppercase;
+  height: 35px;
+  color: white;
+  font-weight: 400;
+  padding: 10px;
+
+  &:hover {
+    background: $dark-lapis;
+    cursor: pointer;
+  }
+
+}
