@@ -118,6 +118,6 @@ $currentDate = date("Y/m/d");
 
 <?php
 
-include '../footer.php';
+//include '../../footer.php';
 
 ?>

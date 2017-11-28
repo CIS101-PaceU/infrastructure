@@ -49,14 +49,15 @@ VALUES
 
 if($conn->query($sql) === TRUE)
 {
-echo "Your post was submitted. Go <a href='index.php'>back</a> or go <a href='classHome.php'>home</a>.";
+echo "Your post was submitted. Go <a href='text/index.php'>back</a> or go <a href='classHome.php'>home</a>.";
 } else {
 echo "An error. Contact the adminstrator. Or go <a href='classHome.php'>home</a>.";
+echo $conn;
 }
 
 $conn->close();
 
-include('../footer.php');
+include('../../footer.php');
 
 
 ?>
