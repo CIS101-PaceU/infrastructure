@@ -1,13 +1,40 @@
+.side-nav-disabled {
+  @include mobile {
+   display: none;
+   transition: width .5s ease;
+  }
+}
+
 .side-nav {
-  height: 100%;
-  // max-width: 250px;
   background-color: $lapis-lazuli;
-  border: 2px solid $lapis-lazuli !important;
-  position: absolute;
+  border-left: 2px solid $lapis-lazuli;
+  border-right: 2px solid $lapis-lazuli;
+
+  .assn-title {
+    padding: 10px;
+  }
+
+  .logo {
+    text-align: center;
+    img {
+      display: none;
+
+      @include tablet {
+        display: inline-block;
+        width: 100px;  
+      }
+
+      @include mobile {
+        display: inline-block;
+        width: 100px;
+      }     
+     }
+  }
 
   @include mobile {
-    width: 100%;
-    max-width: none;
+    // width: 100%;
+    // max-width: none;
+     display: none;
   }
 }
 
@@ -17,22 +44,40 @@
   padding-top: 70px;
   padding-bottom: 1em;
 
+  img {
+    max-width: 100px;
+  }
+
+  @include tablet {
+    padding-top: 15px !important;
+  }
+
+  @include mobile {
+    padding-top: 0 !important;
+    width: 100%;
+    max-width: none;
+  }
+
   .fa {
     color: $cyan-azure;
   }
 
   h3 {
     text-align: center;
+
+    @include mobile {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    @include tablet {
+      margin-top: 0;
+      padding-top: 0;
+    }
   }
 
   p {
     margin: 1em;
-  }
-
-  @include mobile {
-    padding-top: 75px;
-    width: 100%;
-    max-width: none;
   }
 }
 
@@ -49,6 +94,7 @@
     li {
       list-style: none;
       text-transform: uppercase;
+      color: $white;
     }
   }
 }
@@ -59,7 +105,7 @@
 
 .nav-button {
     display: inline-block;
-    border-radius: 5px;
+    // border-radius: 5px;
     padding: 10px;
     width: 75%;
     
@@ -70,8 +116,19 @@
     }
 }
 
-/** select course **/
+.nav-active {
+  text-decoration: none;
+  background-color: $white;
+  color: $lapis-lazuli !important;
+}
 
+/** sub-class assignments **/
+.sub-class {
+  padding-left: 25px;
+  font-size: 14px;
+}
+
+/** select course **/
 .styled-select {
     overflow: hidden;
     border: none;
@@ -83,8 +140,13 @@
       color: $white;
       width: 83%;
       border: 0;
-      border-radius: 5px;
+      border-radius: 0;
       -webkit-appearance: none;
+
+      @include mobile {
+        font-size: 18px;
+        width: 100%;
+      }
 
       &:focus {
         outline: none;
@@ -93,3 +155,50 @@
       }
     }
  }
+
+
+/** mobile navigation **/
+.enable-mobile,
+.disable-mobile { 
+  display: none;
+
+  @include tablet {
+    // display: block;
+    cursor: pointer;
+    color: $lapis-lazuli;
+    transition: color .5s ease;
+    font-size: 35px;
+    text-align: right;
+    margin-right: 10px;
+
+    &:hover {
+      color: $peach;
+    }
+  }
+
+  @include mobile {
+    // display: block;
+    cursor: pointer;
+    color: $lapis-lazuli;
+    transition: color .5s ease;
+    font-size: 35px;
+    text-align: right;
+    margin-right: 10px;
+
+    &:hover {
+      color: $peach;
+    }
+  }
+}
+
+.disable-mobile {
+  display: none;
+}
+
+
+
+
+
+
+
+

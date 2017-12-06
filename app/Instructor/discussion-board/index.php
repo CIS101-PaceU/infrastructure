@@ -1,6 +1,6 @@
 <?php 
 
- $activePage = 'reporting';
+ $activePage = 'discussion board';
  $isInstructor = true;
 
 ?>
@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>instructor -- reporting</title>
+  <title>instructor -- discussion board</title>
   <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -29,7 +29,7 @@
 
   <div class="main-content">
     <?php 
-    include('reporting.php');
+    include('discussion-board.php');
   ?>
 
   </div>

@@ -81,10 +81,14 @@
 
 .login-form--social {
   @include flexbox;
-  justify-content: center;
-
+  justify-content: center; 
   font-size: 14px;
 
+<<<<<<< de9efd504ad166d70ba8f33e5686cb3728e0458a
+  font-size: 14px;
+
+=======
+>>>>>>> Update code and styles for login page
   .login-form--social__button {
     margin: 5px;
     justify-content: center;
@@ -109,11 +113,11 @@
     vertical-align: middle;
   }
 
-  // @include mobile {
-  //   @include flex-direction(column);
-  //   justify-content: center;
-  //   align-items: center;
-  //   margin: 0 auto;
-  //   width: 80%;
-  // }
+  @include mobile {
+    @include flex-direction(column);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+  }
 }
