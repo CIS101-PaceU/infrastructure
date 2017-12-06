@@ -1,7 +1,3 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 body {
   line-height: 1.5; }
 
@@ -29,7 +25,6 @@ header {
     text-transform: uppercase;
     text-decoration: underline; }
 
-/** CSS FOR LOGIN INDEX **/
 /** LINK STYLES **/
 .nav-links li {
   display: inline-block; }
@@ -56,9 +51,6 @@ a {
 
 .hamburger, .cross {
   background: none;
-  /**position:absolute;
-  top:0px;
-  left:0; **/
   line-height: 45px;
   padding: 5px 15px 0px 15px;
   border: 0;

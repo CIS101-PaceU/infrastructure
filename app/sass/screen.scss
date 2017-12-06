@@ -1,19 +1,8 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
-//@import "compass/reset";
-
 body {
-    //padding: 20px;
-    //margin: 20px;
-    //background-color: white;
-    //font-family: $roboto-sans;
     line-height: 1.5;
 }
 
-b { }// font-weight: $bold; }
+b { }
 i { font-style:italic; }
 u { text-decoration: underline; }
 
@@ -23,25 +12,6 @@ header{
 	line-height:60px;
 	border-bottom:1px solid #dddddd;
 }
-
-// h1 {
-//     font-size: 30px;
-//     font-weight: $bold;
-//     color: $pace-blue;
-// }
-
-// h2 {
-//     font-size: 20px;
-//     font-weight: $bold;
-//     color: $pace-blue;
-// }
-
-// h3 {
-//     font-size: 14px;
-//     font-weight: $bold;
-//     color: black;
-//     text-decoration: underline;
-// }
 
 .hide{
     display:none;
@@ -59,43 +29,6 @@ header{
     }
 }
 
-button{
-    // background-color: $pace-blue;
-    // color:$pace-yellow;
-    // font-weight:500;
-    // border: none;
-    // cursor: pointer;
-    // font-size: 16px;
-}
-
-input[type=submit]{
-    // background-color: $pace-blue;
-    // color:$pace-yellow;
-    // font-weight:500;
-    // border: none;
-    // cursor: pointer;
-    // font-size: 16px;
-}
-
-
-/** CSS FOR LOGIN INDEX **/
-.login-form{
-    // max-width: 350px;
-    // font-size:16px;
-    // font-weight: $bold;
-    // padding: 10px;
-    // border: 3px solid $pace-yellow;
-    
-    // #sub{
-    //     font-size:16px;
-    // }
-    
-    // .form-input{
-    // font-size: 16px;
-    // width: 15em;
-    // height: 2em;
-    // }
-}
 
 /** LINK STYLES **/
 
@@ -109,13 +42,8 @@ input[type=submit]{
 //basic general links
 a {
     text-decoration: none;
-    // color: $pace-blue;
-    //font-weight: $bold;
 }
 
-a:hover{
-    //color: $pace-yellow;
-}
 
 .bold-text{
     font-weight: bold;
@@ -123,26 +51,17 @@ a:hover{
 
 //navigation bar links
 #head-links{
-    //border: 1px solid $pace-blue;
     border-radius: 5px;
     padding: 3px;
-    //color: $pace-blue;
     background-color: white;
     text-decoration: none;
 }
 
-#head-links:hover { 
-   // color: $pace-yellow;
-    //background-color: $pace-blue;
-}
 
 //selected nav bar link
 #this-link {
-   // border: 1px solid $pace-blue;
     border-radius: 5px;
     padding: 3px;
-   // color: $pace-yellow;
-   // background-color: $pace-blue;
 }
 
 /** HAMBURGER MENU **/
@@ -152,12 +71,8 @@ a:hover{
 
 .hamburger, .cross{
     background:none;
-    /**position:absolute;
-    top:0px;
-    left:0; **/
     line-height:45px;
     padding:5px 15px 0px 15px;
-    //color: $pace-yellow;
     border:0;
     font-size:1.4em;
     font-weight:bold;
@@ -185,29 +100,21 @@ a:hover{
     padding:15px 0 15px 0; 
      }
 .menu li:hover{
-    display: block;    
-    // background:$pace-blue; 
-    padding:15px 0 15px 0; 
-    //border-bottom:$pace-blue 1px solid;
+    display: block; 
+    padding:15px 0 15px 0;
 }
 .menu ul li a { text-decoration:none;  margin: 0px; color:#fff;
 }
-.menu ul li a:hover {  
-    //color: $pace-yellow; 
+.menu ul li a:hover { 
     text-decoration:none;
 }
-.menu a{text-decoration:none; 
-    // color:$pace-blue;
+.menu a{text-decoration:none;
 }
-.menu a:hover{text-decoration:none; 
-    // color:$pace-yellow;
-// background-color: $pace-blue;
+.menu a:hover{text-decoration:none;
 }
 
 //selected menu item
 .this-menu {
-    //background-color: $pace-blue;
-    //color: $pace-yellow;
     font-weight: 800;
 }
 
@@ -217,7 +124,6 @@ a:hover{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    //justify-content: space-between;
 }
 
 //home page content boxes
@@ -232,12 +138,10 @@ a:hover{
     text-align: justify;
 }
 
-
 /** index page **/
 .box > h2 {
     text-decoration: underline;
     text-transform: uppercase;
-    //color: $pace-blue;
     font-weight: 900;
 }
 
@@ -252,7 +156,6 @@ a:hover{
 
 .current-update{
     padding: 30px;
-   // border: $pace-blue 5px solid;
     max-width: 900px;
     text-align: left;
 }
@@ -279,20 +182,16 @@ a:hover{
 
 
 //professor page
-
 /** DROPDOWN MENU **/
 .styled-select {
     overflow: hidden;
     border: none;
-    //opacity: 0.8;
  }
 
 .styled-select select {
   padding:10px;
   font-size: 18px;
   font-weight: 800px;
-  //background-color: $pace-blue;
-  //color: $pace-yellow;
   border: 0;
   border-radius: 0;
   -webkit-appearance: none;
@@ -300,8 +199,6 @@ a:hover{
 
  .styled-select select:focus {
   outline: none;
-  //background-color: $pace-blue;
-  //color: $pace-yellow;
  }
 
 .my-classes {
@@ -310,15 +207,12 @@ a:hover{
     text-align: left;
     margin-top: 20px;
     
-    h2{
+    h2 {
         text-decoration: underline;
     }
 }
 
 /** PROF ASSIGNMENT PAGE **/
-#class-name{
-    //background-color:$pace-yellow;
-}
 .prev-update textarea {
     width: 100%;
     height: 20em;
@@ -332,33 +226,3 @@ a:hover{
     min-width: 15em;
     border: 1px solid black;
 }
-
-
-// //adjust for mobile sizes
-// @media screen and (max-width:1000px) {
-    
-//     body{
-//         padding: 3px;
-//     }
-    
-//     .nav-title{
-//         h1{ font-size: 20px; }
-//         #logo{
-//             width: 150px;
-//         }
-//     }
-
-//     .nav-links{
-//         display:none;
-//     }
-    
-//     .menu, .hamburger, .cross{
-//     display:block;
-//     }
-    
-//     .menu {
-//         width: 98%;
-//     }
-
-// }
-

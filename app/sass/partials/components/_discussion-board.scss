@@ -1,0 +1,37 @@
+.discussion-post-preview {
+  // max-width: 80%;
+  background: $light-steel;
+  padding: 2em;
+  color: $cyan-azure;
+  // border-radius: 10px;
+  margin-bottom: 1em;
+  @include flexbox;
+
+   a {
+     color: $lapis-lazuli;
+     text-decoration: none;
+     @include flexbox;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     text-align: center;
+
+     &:hover {
+       text-decoration: none;
+     }
+
+     span {
+       width: 30%;
+     }
+   }
+
+}
+
+.discussion-preview-title {
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

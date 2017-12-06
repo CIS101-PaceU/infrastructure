@@ -4,9 +4,10 @@
 
    if(isset($_SESSION['login_user'])){
        if($_SESSION['login_role'] == "Student"){
-             header("location: student/classHome.php");
+             header("location: student/dashboard/");
          } else if($_SESSION['login_role'] == "Instructor"){
-             header("location: Instructor/home.php");
+             //header("location: Instructor/home.php");
+           header("location: instructor/dashboard/");
          }
    }
 
@@ -15,7 +16,7 @@
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
        
-      $sql = "SELECT u.userID, u.firstName, r.role FROM user u
+      $sql = "SELECT u.userID, u.firstName, u.lastName, r.role FROM user u
         JOIN User_Role r ON u.userID = r.userID
         WHERE u.username = '$myusername' and u.password = '$mypassword'";
        
@@ -30,11 +31,13 @@
          $_SESSION['login_userID'] = $row['userID'];
          $_SESSION['login_role'] = $row['role'];
          $_SESSION['login_fName'] = $row['firstName'];
+         $_SESSION['login_lName'] = $row['lastName'];
          
          if($_SESSION['login_role'] == "Student"){
-             header("location: student/classHome.php");
+             header("location: student/dashboard/");
          } else if($_SESSION['login_role'] == "Instructor"){
-             header("location: instructor/home.php");
+             // header("location: instructor/home.php");
+           header("location: instructor/dashboard/");
          }
          
       }else {
