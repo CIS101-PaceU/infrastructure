@@ -1,7 +1,6 @@
 <?php
    include ('config.php');
    session_start();
-
    if(isset($_SESSION['login_user'])){
        if($_SESSION['login_role'] == "Student"){
              header("location: student/classHome.php");
@@ -9,34 +8,37 @@
              header("location: Instructor/home.php");
          }
    }
-
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
+      // username and password sent from form
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
-       
+      $mypassword = mysqli_real_escape_string($conn,$_POST['password']);
+
       $sql = "SELECT u.userID, u.firstName, r.role FROM user u
-        JOIN User_Role r ON u.userID = r.userID
+        JOIN user_role r ON u.userID = r.userID
         WHERE u.username = '$myusername' and u.password = '$mypassword'";
-       
+
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-   
+
       $count = mysqli_num_rows($result);
-      
+
       // If result matched $myusername and $mypassword, table row must be 1 row
       if($count == 1) {
          $_SESSION['login_user'] = $myusername;
          $_SESSION['login_userID'] = $row['userID'];
          $_SESSION['login_role'] = $row['role'];
          $_SESSION['login_fName'] = $row['firstName'];
-         
+
+        $sql="INSERT INTO sessions(user,login,flag) VALUES ('$myusername',now(),0)";
+        $result=mysqli_query($conn,$sql);
+        $_SESSION['last_activity']=time();
+
          if($_SESSION['login_role'] == "Student"){
              header("location: student/classHome.php");
          } else if($_SESSION['login_role'] == "Instructor"){
              header("location: instructor/home.php");
          }
-         
+
       }else {
          $error = "Your Username or Password is invalid";
       }
@@ -49,10 +51,10 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
-    
+
     <body>
         <div class="head-container">
-            
+
             <div class="nav-title" alight="left">
                    <div>
                        <center>
@@ -61,11 +63,11 @@
                            </center>
                     </div>
                 </div>
-        
+
            <!-- log in form -->
             <br>
                 <center>
-                    <p>Enter your Pace username and password.</p> 
+                    <p>Enter your Pace username and password.</p>
                     <div class="login-form">
                         <form action = "" method = "post">
                             <input type="text" name = "username" class="form-input" placeholder="Pace ID"><br>
@@ -77,9 +79,9 @@
                             <a href="">Forgot password?</a>
                            <!-- <span><?php echo $error; ?></span>-->
                         </form>
-                    </div>       
+                    </div>
                 </center>
-        
+
         <!-- php logic -->
 
     </body>
@@ -89,5 +91,3 @@
 ?>
 
 </html>
-    
-    

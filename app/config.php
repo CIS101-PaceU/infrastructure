@@ -1,13 +1,18 @@
 <?php
 
 //Configures database
-  $servername = "localhost";
-  $username = "portal";
-  $password = "";
-  $dbname = "portal-db";
+ $servername = "phpmyadmin.cw74xrxhh0s2.us-east-1.rds.amazonaws.com";
+
+$username = "phpmyadmin";
+
+$password = "CIS101portal-db";
+
+$dbname = "portal-db";
+
+$port = 3306;
 
   // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname, 3316);
+  $conn = new mysqli($servername, $username, $password, $dbname,$port);
 
 //$link = new MySQLi('localhost', 'root','','Red-Velvet'); //is this outdated?
 
