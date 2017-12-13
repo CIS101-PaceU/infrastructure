@@ -3,8 +3,11 @@
     $sql = 'SELECT discussionID, discussionTitle, discussionText, postDate, firstName, lastName 
         FROM discussion_board_posts d
         JOIN user u ON u.userID = d.userID
-        ORDER BY d.postDate';
+        ORDER BY d.postDate DESC';
     $result = $conn->query($sql);
+
+    // Display the form to add a post
+        include('newPostMarkup.php');
 
     if ($result->num_rows > 0) // There are some posts, display them
     {
@@ -17,8 +20,7 @@
             $replies = $conn->query($replySql);
             include('discPostMarkup.php');
         }
-        // Display the form to add a post
-        include('newPostMarkup.php');
+        
     } 
     else // There are no posts
     {

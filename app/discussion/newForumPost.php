@@ -19,10 +19,10 @@
         echo 'Error: ' . $sql . '<br/>' . $conn->error;
         include('../footer.php');
     }
-    else // Insert succesfull, redirect to discussion board
+    else // Insert succesful, redirect to discussion board
     {
-        $role = strtolower($_SESSION['login_role']) == 'instructor' ? 'teacher' : 'student';
-        header('Location: ../' . $role . '/discussionBoard.php');
+        $role = strtolower($_SESSION['login_role']) == 'instructor' ? 'instructor' : 'student';
+        header('Location: ../' . $role . '/discussion-board/index.php');
     }
     $conn->close();
 ?>

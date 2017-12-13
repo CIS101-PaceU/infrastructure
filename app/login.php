@@ -7,7 +7,7 @@
              header("location: student/dashboard/");
          } else if($_SESSION['login_role'] == "Instructor"){
              //header("location: Instructor/home.php");
-           header("location: instructor/dashboard/");
+           header("location: instructor/home.php");
          }
    }
 
@@ -17,7 +17,7 @@
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
        
       $sql = "SELECT u.userID, u.firstName, u.lastName, r.role FROM user u
-        JOIN User_Role r ON u.userID = r.userID
+        JOIN user_role r ON u.userID = r.userID
         WHERE u.username = '$myusername' and u.password = '$mypassword'";
        
       $result = mysqli_query($conn,$sql);
@@ -37,7 +37,7 @@
              header("location: student/dashboard/");
          } else if($_SESSION['login_role'] == "Instructor"){
              // header("location: instructor/home.php");
-           header("location: instructor/dashboard/");
+           header("location: instructor/home.php");
          }
          
       }else {
@@ -51,7 +51,6 @@
         <title>CIS 101 Portal: Log In</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/screen.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     
@@ -107,20 +106,10 @@
         </div>
 
       </div>
-
-
       </div>
-
-
-
-
-
-
     </div>
 
 </body>
 
-
 </html>
-    
     

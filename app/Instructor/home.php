@@ -1,20 +1,13 @@
 <?php
+  include('../session.php');
 //logic for login
-
-//$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = true;
-$isStudent = false;
-$displayClass=false; //display the class name after the prof selects section from dropdown
-$showNav = false; //don't display navigation if teacher hasn't selected class from drowpdown
-
-$thisPage = "Prof Class Home";
-
-include('../header.php');
 $user_id = $_SESSION['login_userID'];
 
+  $user_check = $_SESSION['login_user'];
+  $user_fName = $_SESSION['login_fName'];
+  $user_lName = $_SESSION['login_lName'];
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
     $selectedClass = $_POST['selectClass'];
 
     $arrayObject = $_SESSION['arrayObject'][$selectedClass];
@@ -23,22 +16,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $_SESSION['daySes'] = $arrayObject[1];
     $_SESSION['timeSes'] = $arrayObject[2];
     
-    $url='classHome.php';
+    $url='dashboard/';
     echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '.$url.'">';
 }
+
 ?>
 
 <html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+</head>
 <body>
-    <div class="main-container">
-        <h1>My CIS 101 Classes</h1>
+    <div class="home-page main-container">
+        <h1><?php echo $user_fName."'s" ?> CIS 101 Classes</h1>
+        <h2>Please select your course from the drop down menu below:</h2>
         
             <div class="my-classes">
-                <center>
-                    
+                <center>         
                 <form id="selectForm" action ="" method = "post">
                 <div class="styled-select">
-                    <select name="selectClass" class="the-select">
+                    <select name="selectClass" class="the-select" onchange='document.getElementById("selectForm").submit()'>
                    
                         <optgroup label="CIS 101">
                         
@@ -81,20 +79,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </center>
             </div>
         </div>
-
-<script>
-//using options to navigate to the different pages
-$('.styled-select').change(function(){
-    $("#selectForm").submit();
-    //window.location = ('classHome.php');
-    
-});
-    
-</script>
 </body>
-
 </html>
-
-<?php
-include('../footer.php');
-?>

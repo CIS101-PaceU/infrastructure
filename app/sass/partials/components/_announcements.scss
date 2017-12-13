@@ -1,7 +1,10 @@
 .section-heading {
-  background: $peach;
+  background: $lapis-lazuli;
   color: white;
   padding: .5em;
+  @include flexbox;
+  justify-content: center;
+  align-items: center;
 
   h2 {
     display: inline-block;
