@@ -1,19 +1,5 @@
 <?php
 
-	$belowRoot = true;
-	$isLoggedIn = true;
-	$showNav = true;
-	$displayClass =true;
-	$isTeacher = true;
-
-	$thisPage="Post Excel Assignment";
-	include ('readExcel.php');
-	
-	include '../../header.php';
-	include('../../config.php');
-	//include('../../session.php');
-	?>
-
 <html>
     
     <head>

@@ -15,7 +15,8 @@ include 'PHPExcel.php';
 $userID =$_SESSION['login_userID'];
     // Make sure an ID was passed
     if(true) {
-        $currentDateTime = date("Y-m-d h:i:sa");
+        date_default_timezone_set("America/New_York");
+        $currentDateTime = date("Y-m-d H:i:sa");
 		$currentDate = date("Y-m-d");
         $assignmentID=$_GET['assignmentID'];
 		//$assignmentID = 824708;

@@ -1,16 +1,5 @@
 <?php
 
-//logic for login
-
-$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = true;
-
-$isStudent = false;
-$displayClass = true;
-
-$showNav = true;
-
 $thisPage = "Edit Assignments";
 
 include '../../header.php';

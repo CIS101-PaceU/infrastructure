@@ -1,11 +1,5 @@
 	<?php
 
-	$belowRoot = true;
-	$isLoggedIn = true;
-	$showNav = true;
-	$displayClass =true;
-	$isTeacher = true;
-
 	$thisPage="Post Excel Assignment";
 	include ('readExcel.php');
 	

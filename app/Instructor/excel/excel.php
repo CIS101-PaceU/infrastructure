@@ -1,17 +1,5 @@
 <?php
-
-//logic for login
-
-$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = true;
-
-$isStudent = false;
-$displayClass = true;
-
-$showNav = true;
-
-$thisPage = "Excel Assignments";
+$thisPage = "Student Excel Assignments";
 
 
 include '../../config.php';
