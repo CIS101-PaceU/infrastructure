@@ -23,9 +23,16 @@ hr {
   font-weight: 700; }
 
 .section-heading {
-  background: #e59274;
+  background: #267ba0;
   color: white;
-  padding: .5em; }
+  padding: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
   .section-heading h2 {
     display: inline-block;
     margin: 0;
@@ -97,6 +104,12 @@ hr {
     width: 200px;
     font-size: 14px; }
 
+input[type=text] {
+  height: 20px;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 10px; }
+
 input[type=submit] {
   display: inline-block;
   background: #267ba0;
@@ -105,7 +118,8 @@ input[type=submit] {
   height: 35px;
   color: white;
   font-weight: 400;
-  padding: 10px; }
+  padding: 10px;
+  margin-top: 10px; }
   input[type=submit]:hover {
     background: #216c8c;
     cursor: pointer; }
@@ -121,7 +135,7 @@ input[type=submit] {
 
 .discussion-post-preview {
   background: #a8d0da;
-  padding: 2em;
+  padding: .5em;
   color: #5085c7;
   margin-bottom: 1em;
   display: -webkit-box;
@@ -151,6 +165,53 @@ input[type=submit] {
   text-transform: uppercase; }
   .discussion-preview-title:hover {
     text-decoration: underline; }
+
+.forum-post-group {
+  margin-left: 40px;
+  margin-right: 20px;
+  margin-bottom: 40px; }
+  .forum-post-group .forum-title {
+    font-weight: 700; }
+  .forum-post-group .forum-date {
+    font-size: 12px; }
+  .forum-post-group p {
+    margin-top: 0; }
+
+.new-post-header {
+  margin-bottom: 5px;
+  font-weight: 700; }
+
+.all-announcements {
+  padding-bottom: 1em; }
+
+.forum-preview {
+  padding-left: 1em;
+  padding-right: 1em; }
+  .forum-preview p {
+    padding-bottom: 10px !important;
+    padding-top: 0 !important;
+    margin: 0; }
+
+.forum-replies {
+  font-size: 12px;
+  color: #267ba0;
+  padding: 1em; }
+
+.discussion-post-complete {
+  border: 2px solid #a8d0da; }
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-family: sans-serif; }
+  .home-page h1, .home-page h2 {
+    text-align: center; }
+  .home-page h1 {
+    margin-bottom: 0; }
+  .home-page h2 {
+    margin-top: 0; }
 
 a {
   text-decoration: none; }
@@ -222,7 +283,7 @@ a {
   border: 1px solid #dce3e9;
   border-top: none;
   border-right: none;
-  color: #7897b4; }
+  color: #3b3b3b; }
 
 .login-button.active {
   background: #fff;
@@ -235,7 +296,7 @@ a {
     width: 75%;
     height: 35px;
     background: #fff !important;
-    color: #dce3e9;
+    color: #267ba0;
     font-family: 'Open Sans', sans-serif;
     border: 1px solid #dce3e9;
     padding-left: 15px;
@@ -248,6 +309,7 @@ a {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
   font-size: 14px; }
   .login-form--social .login-form--social__button {
     margin: 5px;
@@ -308,7 +370,6 @@ html {
       width: 100%;
       max-width: none; } }
 
-/** animated hamburger menu **/
 .nav-bio {
   text-align: center; }
 
@@ -333,21 +394,16 @@ html {
   left: -5px;
   cursor: pointer;
   opacity: 0;
-  /* hide this */
   z-index: 2;
-  /* and place it over the hamburger */
   -webkit-touch-callout: none; }
 
-/*
- * Just a quick hamburger
- */
 #menuToggle span {
   display: block;
   width: 33px;
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: #267ba0;
+  background: #e59274;
   z-index: 1;
   transform-origin: 4px 0px;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
@@ -358,32 +414,18 @@ html {
 #menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%; }
 
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
 #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #e59274; }
 
-/*
- * But let's hide the middle one.
- */
 #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2); }
 
-/*
- * Ohyeah and the last one should go the other direction
- */
 #menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px); }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
 #menu {
   position: absolute;
   width: 100%;
@@ -394,14 +436,10 @@ html {
   border: 2px solid #267ba0;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
 
-/*
- * And let's slide it in from the left
- */
 #menuToggle input:checked ~ ul {
   transform: none; }
 
@@ -412,6 +450,14 @@ html {
 .portal-section i {
   color: #257b7a; }
 
+.current-update {
+  margin-top: 2em;
+  border: 3px solid #267ba0;
+  padding: 10px; }
+
+.prev-update {
+  margin-top: 2em; }
+
 @media only screen and (max-width: 767px) {
   .side-nav-disabled {
     display: none;
@@ -419,8 +465,7 @@ html {
 
 .side-nav {
   background-color: #267ba0;
-  border-left: 2px solid #267ba0;
-  border-right: 2px solid #267ba0; }
+  height: 100vh; }
   .side-nav .assn-title {
     padding: 10px; }
   .side-nav .logo {
@@ -440,6 +485,7 @@ html {
       display: none; } }
 
 .side-nav--bio {
+  border-right: 2px solid #267ba0;
   min-width: 250px;
   background: #fff;
   padding-top: 70px;
@@ -556,6 +602,23 @@ html {
 .disable-mobile {
   display: none; }
 
+.selected-course a {
+  background: #e59274;
+  color: white;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em; }
+  .selected-course a:hover {
+    background: white;
+    color: #267ba0;
+    text-decoration: none; }
+
+@media only screen and (max-width: 767px) {
+  .assn-title {
+    margin-left: 10px; } }
+
 body {
   margin: 0;
   padding: 0; }
@@ -636,6 +699,9 @@ body {
     color: #00307f;
     text-transform: uppercase;
     margin: 0; }
+
+.top-nav--light a:visited {
+  color: #267ba0; }
 
 /** enabled only if logged in **/
 .light {

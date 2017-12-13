@@ -1,5 +1,13 @@
 
 <?php 
+  include('session.php');
+
+  if(isset($_SESSION['crnSes'])){
+    $crnNo = $_SESSION['crnSes'];
+    $classDay = $_SESSION['daySes'];
+    $classTime = $_SESSION['timeSes'];
+    $section = "<h1 id='class-name'><span class='bold'> " . $classDay . " | " . $classTime . "</span></h1>";
+}
 
   //for new posts
 date_default_timezone_set("America/New_York");
@@ -16,7 +24,7 @@ $currentDate = $date . ' ' . $time;
         </script>  
 
 <div class="dashboard-container">
-  <div class="section-heading"><h2>W | 03:30 - 05:30PM</h2></div>
+  <div class="section-heading"><h2><?php echo $_SESSION['daySes'] . '|' . $_SESSION['timeSes']; ?></h2></div>
 
   <div class="announcements-container">
     
@@ -52,19 +60,32 @@ $currentDate = $date . ' ' . $time;
 
         <?php 
             
-            if(!$conn) {echo "error";}
+            if(!$conn) { echo "error"; }
         
-            $latestPostSQL ="SELECT * from Announcements ORDER BY datePosted DESC LIMIT 10";
+            $latestPostSQL ="SELECT * from Announcements ORDER BY datePosted DESC LIMIT 1";
         
             $result = $conn->query($latestPostSQL);
             if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-            echo "<div class='entry announcement-entry'><h3>" . $row["announcementTitle"] . "</h3>" . "<p><span class='date'>" . $row["datePosted"] . "</span><br>" . $row["message"] . "</p><hr /></div>";
+            echo "<div class='current-update entry announcement-entry'><h3>" . $row["announcementTitle"] . "</h3>" . "<p><span class='date'>" . $row["datePosted"] . "</span><br>" . $row["message"] . "</p></div>";
             }
         } else {
         echo "";
             }
+
+            $earlierPostsSQL="SELECT * FROM Announcements ORDER BY datePosted DESC LIMIT 300 OFFSET 1";
+
+            $result = $conn->query($earlierPostsSQL);
+            
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                echo "<div class='prev-update entry announcement-entry'><h3>" . $row["announcementTitle"] . "</h3>" . "<p><span class='date'>" . $row["datePosted"] . "</span><br>" . $row["message"] . "<hr /></div>";
+                }
+            } else {
+            echo "";
+                }
         
         ?>
         

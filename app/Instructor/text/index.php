@@ -15,7 +15,7 @@
 <body>
 
   <?php 
-  include('../../topnav-logged.php');
+  include('../../header.php');
   include('../../mobile-nav.php');
 ?>
 

@@ -99,6 +99,14 @@ body {
   }
 }
 
+.top-nav--light {
+  a {
+    &:visited {
+      color: $lapis-lazuli;
+    }
+  }
+}
+
 /** enabled only if logged in **/
 .light {
   background: $green;
@@ -106,5 +114,4 @@ body {
   height: 10px;
   border-radius: 50%;
   display: inline-block;
-
 }
