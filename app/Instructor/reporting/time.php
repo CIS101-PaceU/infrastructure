@@ -23,7 +23,19 @@ text-align:center;
 height:25px;
 
 }
+table {
+    border-collapse: collapse;
+    width: 20%;
+}
+
+th, td {
+    text-align: left;
+    padding: 4px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
 </style>
+
 </head>
 <vody>
 

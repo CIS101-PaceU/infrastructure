@@ -9,7 +9,7 @@
       $output = fopen("php://output", "w");
       fputcsv($output, array('Assignment ID', 'Student ID','Cheated From'));
 
-      $result= mysqli_query($conn,"select assignmentID,isCheated,cheatedFrom from submission");
+      $result= mysqli_query($conn,"select assignmentID,userID,cheatedFrom from submission where ischeated='TRUE'");
 
       while($row = mysqli_fetch_assoc($result))
       {

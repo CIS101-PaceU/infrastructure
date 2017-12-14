@@ -16,7 +16,7 @@
    if(isset($_SESSION['timeout']))
    {
     $diff=time()-$_SESSION['timeout'];
-    if($diff>300)
+    if($diff>1800)
     {
      $sql="UPDATE sessions SET logout=now(),flag= 1, activity = TIMESTAMPDIFF(MICROSECOND,login,logout) DIV 1000000 where flag = 0";
       $result=mysqli_query($conn,$sql);
