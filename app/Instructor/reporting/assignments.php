@@ -1,14 +1,16 @@
 <?php include '../../config.php'; ?>
 <?php
-$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = false;
-$isStudent = true;
-$displayClass=true; //display the class name after the prof selects section from dropdown
-$showNav = true; //don't display navigation if teacher hasn't selected class from drowpdown
-include '../../header.php';
+
+ $activePage = 'reporting';
+ $isInstructor = true;
+
 ?>
-<html><head><style>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>instructor -- reporting</title>
+  <style>
 .ta1
 {
 
@@ -24,8 +26,25 @@ height:25px;
 
 }
 </style>
+<link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<vody>
+<body>
+
+<?php
+include('../../header.php');
+include('../../mobile-nav.php');
+?>
+
+
+<div class="main-page">
+
+   <?php
+     include("../../navigation.php");
+    ?>
+
+
+<div class="main-content">
 
   <a id='head-links' href='index.php'>back</a>
   <h2> Select the Assignment </h2>
@@ -60,7 +79,4 @@ if ($result->num_rows > 0) {
   echo mysqli_error($conn);
 }
 ?>
-<?php
-include '../../footer.php';
-
-?>
+</div>

@@ -1,19 +1,20 @@
 <?php include '../../config.php'; ?>
 <?php
-$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = false;
-$isStudent = true;
-$displayClass=true; //display the class name after the prof selects section from dropdown
-$showNav = true; //don't display navigation if teacher hasn't selected class from drowpdown
-include '../../header.php';
+
+ $activePage = 'reporting';
+ $isInstructor = true;
+
 ?>
+
+<!DOCTYPE html>
 <html>
+<head>
+  <title>instructor -- reporting</title>
 <style>
 .topright {
   position: fixed;
    top: 50%;
-   right: 0;
+   right: 3%;
    width: 300px;
    border: 3px solid #73AD21;
 }
@@ -29,6 +30,26 @@ th, td {
 
 tr:nth-child(even){background-color: #f2f2f2}
 </style>
+<link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<?php
+include('../../header.php');
+include('../../mobile-nav.php');
+?>
+
+
+<div class="main-page">
+
+   <?php
+     include("../../navigation.php");
+    ?>
+
+
+<div class="main-content">
+
 
 <!--<a id='head-links' href='bargraph.php'>Graph</a>-->
 
@@ -78,7 +99,4 @@ echo mysqli_error($conn);
 }
 
 ?>
-<?php
-include '../../footer.php';
-
-?>
+</div>

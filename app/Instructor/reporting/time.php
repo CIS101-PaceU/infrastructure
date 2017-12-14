@@ -1,14 +1,16 @@
 <?php include '../../config.php'; ?>
 <?php
-$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = false;
-$isStudent = true;
-$displayClass=true; //display the class name after the prof selects section from dropdown
-$showNav = true; //don't display navigation if teacher hasn't selected class from drowpdown
-include '../../header.php';
+
+ $activePage = 'reporting';
+ $isInstructor = true;
+
 ?>
-<html><head><style>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>instructor -- reporting</title>
+  <style>
 .ta1
 {
 
@@ -36,15 +38,32 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 </style>
 
+<link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<vody>
+<body>
+
+<?php
+include('../../header.php');
+include('../../mobile-nav.php');
+?>
+
+
+<div class="main-page">
+
+   <?php
+     include("../../navigation.php");
+    ?>
+
+
+<div class="main-content">
 
   <a id='head-links' href='index.php'>back</a>
 <form method='post' action='time_report.php'>
 <input type='submit' name='export_excel' id='head-links' value='Download Report'>
 
 </form>
-  <h2> Amount of time spent by students on web-site </h2>
+  <h2> Time spent by students on web-site </h2>
 <?php
 $result= mysqli_query($conn,"select user, SUM(activity) DIV 60 AS 'time' from sessions GROUP BY user ORDER BY time");
 
@@ -63,7 +82,4 @@ echo"<tr><td class='ta1'><b> Student ID </b></td> <td class='ta1'><b> Time(in mi
   echo mysqli_error($conn);
 }
 ?>
-<?php
-include '../../footer.php';
-
-?>
+</div>

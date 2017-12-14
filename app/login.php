@@ -1,19 +1,22 @@
 <?php
    include ('config.php');
    session_start();
+
    if(isset($_SESSION['login_user'])){
        if($_SESSION['login_role'] == "Student"){
-             header("location: student/classHome.php");
+             header("location: student/dashboard/");
          } else if($_SESSION['login_role'] == "Instructor"){
-             header("location: Instructor/home.php");
+             //header("location: Instructor/home.php");
+           header("location: instructor/home.php");
          }
    }
+
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']);
 
-      $sql = "SELECT u.userID, u.firstName, r.role FROM user u
+      $sql = "SELECT u.userID, u.firstName, u.lastName, r.role FROM user u
         JOIN user_role r ON u.userID = r.userID
         WHERE u.username = '$myusername' and u.password = '$mypassword'";
 
@@ -28,15 +31,18 @@
          $_SESSION['login_userID'] = $row['userID'];
          $_SESSION['login_role'] = $row['role'];
          $_SESSION['login_fName'] = $row['firstName'];
+         $_SESSION['login_lName'] = $row['lastName'];
 
-        $sql="INSERT INTO sessions(user,login,flag) VALUES ('$myusername',now(),0)";
-        $result=mysqli_query($conn,$sql);
-        $_SESSION['last_activity']=time();
+
 
          if($_SESSION['login_role'] == "Student"){
-             header("location: student/classHome.php");
+           $sql="INSERT INTO sessions(user,login,flag) VALUES ('$myusername',now(),0)";
+          $result=mysqli_query($conn,$sql);
+          $_SESSION['last_activity']=time();
+             header("location: student/dashboard/");
          } else if($_SESSION['login_role'] == "Instructor"){
-             header("location: instructor/home.php");
+             // header("location: instructor/home.php");
+           header("location: instructor/home.php");
          }
 
       }else {
@@ -44,50 +50,70 @@
       }
    }
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>CIS 101 Portal: Log In</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
 
-    <body>
-        <div class="head-container">
+<body class="login-container">
 
-            <div class="nav-title" alight="left">
-                   <div>
-                       <center>
-                        <a href="/"><img src="/assets/img/Pace_logo.png" id="logo"></a>
-                       <h1>LOG IN</h1>
-                           </center>
-                    </div>
-                </div>
+   <div class="top-nav">
+     <div>
+        <img src="/assets/Pace_logo.png">
+        <h2>Introduction to <br />Computing</h2>
+    </div>
+  </div>
 
-           <!-- log in form -->
-            <br>
-                <center>
-                    <p>Enter your Pace username and password.</p>
-                    <div class="login-form">
-                        <form action = "" method = "post">
-                            <input type="text" name = "username" class="form-input" placeholder="Pace ID"><br>
-                            <input type="password" name = "password" class="form-input" placeholder="Password">
+  <div class="login-container--main">
 
-                            <br>
-                            <button id="sub" type = "submit" value = " Submit" >Log In</button>
-                            <br>
-                            <a href="">Forgot password?</a>
-                           <!-- <span><?php echo $error; ?></span>-->
-                        </form>
-                    </div>
-                </center>
+    <div class="login-form">
 
-        <!-- php logic -->
+        <div class="login-form--sign-links">
+          <a class="login-button" href="#">Sign up</a>
 
-    </body>
+          <a class="login-button active" href="#">Sign In</a>
+        </div>
 
-        <?php
-    include('footer.php');
-?>
+      <div class="login-form--content active">
+
+        <h2>Log Into Your Account</h2>
+
+        <form action = "" method = "post">
+
+        <input type="text" placeholder="PACE UNIVERSITY ID" name="username" required>
+        <input type="password" placeholder="PASSWORD" name="password" required>
+
+        <br />
+
+        <button id="sub" type="submit" class="button button--teal">Sign In</button>
+
+      </form>
+
+        <br />
+        <p><a class="teal-link" href="#">Forgot your password?</a></p>
+
+        <hr />
+
+        <p>Or sign in using one of these other services:</p>
+
+        <div class="login-form--social">
+
+          <div class="login-form--social__button">
+            <a href="#">
+              <img src="/assets/signin/google-logo.png"> Continue with Google
+          </a>
+          </div>
+
+        </div>
+
+      </div>
+      </div>
+    </div>
+
+</body>
 
 </html>

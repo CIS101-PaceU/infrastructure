@@ -1,1 +1,1 @@
-<p>This is the html grading page. Put your content here.</p>
+<p>We're here on the html grading page! Updated code for this class today!</p>

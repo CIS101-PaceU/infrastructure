@@ -1,14 +1,16 @@
 <?php include '../../config.php'; ?>
 <?php
-$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = false;
-$isStudent = true;
-$displayClass=true; //display the class name after the prof selects section from dropdown
-$showNav = true; //don't display navigation if teacher hasn't selected class from drowpdown
-include '../../header.php';
+
+ $activePage = 'reporting';
+ $isInstructor = true;
+
 ?>
-<html><head><style>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>instructor -- reporting</title>
+  <style>
 .ta1
 {
 
@@ -24,20 +26,37 @@ height:25px;
 
 }
 table {
-    border-collapse: collapse;
-    width: 20%;
+border-collapse: collapse;
+width: 20%;
 }
 
 th, td {
-    text-align: left;
-    padding: 4px;
+text-align: left;
+padding: 4px;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
 
 </style>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
+  <?php
+  include('../../header.php');
+  include('../../mobile-nav.php');
+?>
+
+
+<div class="main-page">
+
+     <?php
+       include("../../navigation.php");
+      ?>
+
+
+  <div class="main-content">
   <!--<a id='head-links' href='bargraph.php'>Graph</a>-->
   <a id='head-links' href='index.php'>back</a>
 <form method='post' action='attendance_report.php'>
@@ -63,7 +82,4 @@ echo" <td class='ta1'><b> Marks </b></td></tr> ";
   echo mysqli_error($conn);
 }
 ?>
-<?php
-include '../../footer.php';
-
-?>
+</div>

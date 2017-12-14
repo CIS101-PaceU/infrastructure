@@ -1,29 +1,40 @@
-<?php
-// Text Grading Team:
-// Please do not modify this page
-// Begin your work on text.php
-?>
-
-<?php
-
-$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = false;
-$isStudent = true;
-$displayClass=true; //display the class name after the prof selects section from dropdown
-$showNav = true; //don't display navigation if teacher hasn't selected class from drowpdown
-
-$thisPage = "Text Grading";
-
-include '../../header.php';
-?>
-
-
 <?php 
-include 'text.php';
 
-include '../../footer.php';
+ $activePage = 'text';
+ $isInstructor = false;
 
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>instructor -- text</title>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 
+  <?php 
+  include('../../header.php');
+  include('../../mobile-nav.php');
+?>
+
+
+<div class="main-page">
+  
+     <?php 
+       include("../../navigation.php");
+      ?>
+    
+
+  <div class="main-content">
+    <?php 
+    include('text.php');
+  ?>
+
+  </div>
+
+</div>
+
+</body>
+</html>
