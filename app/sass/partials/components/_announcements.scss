@@ -1,0 +1,49 @@
+.section-heading {
+  background: $lapis-lazuli;
+  color: white;
+  padding: .5em;
+  @include flexbox;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    display: inline-block;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+
+.create-announcement {
+  padding: 2em;
+  h2 {
+    margin: 0;
+    color: $white;
+    background: $peach;
+  }
+}
+
+.announcements-container {
+  h1, h2 {
+    text-transform: uppercase;
+  }
+}
+
+
+.announcement-entry {
+  h3, p {
+    margin: 0;
+  }
+}
+
+.all-announcements {
+  margin-left: 20px;
+  margin-right: 20px;
+
+  p:first-of-type {
+    padding-top: 20px;
+  }
+
+  p:last-of-type{
+    padding-bottom: 25px;
+  }
+}

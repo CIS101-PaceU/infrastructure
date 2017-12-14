@@ -1,0 +1,19 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-family: sans-serif;
+
+  h1, h2 {
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}
