@@ -1,1 +1,0 @@
-<p>This is the html grading page. Put your content here.</p>
