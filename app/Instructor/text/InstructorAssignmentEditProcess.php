@@ -24,23 +24,26 @@ echo $getGrade;
 echo $getSubId;
 echo $getAssId;
 echo $getStudId;
-
+echo $getAssName;
+echo $getInstructions;
+echo $getAssId;
+echo $getDueDate;
 
 */
 
-$getGrade = $_POST["grade"];
-$getSubId = $_POST["subId"];
+//include 'text.php';
+$getAssName = $_POST["assName"];
+$getInstructions = $_POST["Instructions"];
+$getDueDate = $_POST["dueDate"];
 $getAssId = $_POST["assId"];
-$getStudId = $_POST["studId"];
 
 
-
-$sql="UPDATE text_grades SET grade='".$getGrade."' where subId='". $getSubId ."'";
+$sql="UPDATE text_assignment SET assName='".$getAssName."',Instructions='".$getInstructions."',dueDate='".$getDueDate."' where assId='". $getAssId ."'";
 //VALUES ('".$getStudId."','".$getAssId."','".$getGrade."','".$getSubId."')";
 
 if($conn->query($sql) === TRUE)
 {
-    echo "Your post was submitted. Go <a href='textSubmissions.php?assId=".$getAssId."'>back</a> or go <a href='classHome.php'>home</a>.";
+    echo "Your post was submitted. Go <a href='index.php'>back</a> or go <a href='classHome.php'>home</a>.";
 } else {
     echo "An error. Contact the adminstrator. Or go <a href='classHome.php'>home</a>.";
 }

@@ -12,8 +12,8 @@ include('../../header.php');
 include('../../config.php');
 
 
-/*
 
+/*
 echo $_POST["assName"],$_POST["Instructions"],$_POST["dueDate"];
 
 $sql="INSERT into text_assignment (assName,Instructions,dueDate)
@@ -29,15 +29,16 @@ Instructor/text/textSubmissions.php?assId=1
 
 
 */
-
+$getNote = $_GET["notes"];
+$getRemark = $_GET["remark"];
 $getGrade = $_GET["grade"];
 $getSubId = $_GET["subId"];
 $getAssId = $_GET["assId"];
 $getStudId = $_GET["studId"];
 
-$sql="INSERT into text_grades (studId,assId,grade,subId)
+$sql="INSERT into text_grades (studId,assId,grade,subId,remark,notes)
 VALUES
-('".$getStudId."','".$getAssId."','".$getGrade."','".$getSubId."')";
+('".$getStudId."','".$getAssId."','".$getGrade."','".$getSubId."','".$getRemark."','".$getNote."')";
 
 if($conn->query($sql) === TRUE)
 {

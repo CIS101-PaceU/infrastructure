@@ -1,9 +1,7 @@
 
-
 <center><h1>Text Assignments</h1></center>
 <center><p>Create, assign, grade and manage text assignments.</p></center>
 
-<center><a id="head-links" href="/Instructor/home.php">Grade Assignments</a></center>
 
 <?php
 date_default_timezone_set("America/New_York");
@@ -40,16 +38,6 @@ $currentDate = date("Y/m/d");
                         <br>
                         <textarea id="textarea" method="post" type="submit" name="Instructions"></textarea>
                         <br>
-
-                        <div class="dload">
-
-                            <!--Programmatically add files -->
-                            <input type="checkbox" name="file" value="file">
-                            <img src="../assets/img/download.png">File.file<br></div>
-
-                        <button>Attach files</button>
-                        <button>Delete files</button>
-                        <button>Save Draft</button><br>
                         <input type="submit" value="Submit" />
                     </form>
                         
@@ -71,7 +59,15 @@ $currentDate = date("Y/m/d");
                         if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='current-update'><h2>" . $row["assName"] . "</h2>" . "<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Instructions: " . $row["Instructions"] . "<br><a href=''>Edit Assignment</a> | <a href='textSubmissions.php?assId=". $row["assId"] . "'>View and/or Grade Submissions</a></div>";
+                        echo "<div class='current-update'><div id='divAss". $row["assId"] ."'><h2>" . $row["assName"] . "</h2>" . "<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Instructions: " . $row["Instructions"] ."</div>". 
+                        "<div id='assDiv". $row["assId"] ."' style='display: none;'><form action='InstructorAssignmentEditProcess.php' method='post' id='add-new-assn'>
+                        <input type='text' name='assId' value='". $row["assId"] ."' style='display: none;' required><br>
+                        <input type='text' name='assName' value='". $row["assName"] ."' required><br>
+                        <p>Due Date: <input type='text' name='dueDate' class='datepicker' value='" . $row["dueDate"] . "' required></p>                        
+                            <br><textarea id='textarea' method='post' type='submit' name='Instructions'>" . $row["Instructions"] . "</textarea><br>
+                            <input type='submit' value='Edit' />
+                        </form></div>" .
+                        "<br><span href='#' style='text-decoration: none; color: #01508d; font-weight: 700;' onclick='EditAssignmentToggle(".$row["assId"].");'>Edit Assignment</span> | <a href='textSubmissions.php?assId=". $row["assId"] . "'>View and/or Grade Submissions</a></div>";
                         }
                     } else {
                     echo "";
@@ -86,7 +82,15 @@ $currentDate = date("Y/m/d");
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='prev-update'><h2>" . $row["assName"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Instructions: " . $row["Instructions"] . "<br><a href=''>Edit Assignment</a> | <a href='textSubmissions.php?assId=". $row["assId"] . "'>View and/or Grade Submissions</a></div>";
+                        echo "<div class='prev-update'><div id='divAss". $row["assId"] ."'><h2>" . $row["assName"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Instructions: " . $row["Instructions"] ."</div>"
+                        ."<div id='assDiv". $row["assId"] ."' style='display: none;'><form action='InstructorAssignmentEditProcess.php' method='post' id='add-new-assn'>
+                        <input type='text' name='assId' value='". $row["assId"] ."' style='display: none;' required><br> 
+                    <input type='text' name='assName' value='". $row["assName"] ."' required><br>
+                    <p>Due Date: <input type='text' name='dueDate' class='datepicker' value='" . $row["dueDate"] . "' required></p>                        
+                        <br><textarea id='textarea' method='post' type='submit' name='Instructions'>" . $row["Instructions"] . "</textarea><br>
+                        <input type='submit' value='Edit' />
+                    </form></div>" .
+                        "<br><span href='#' style='text-decoration: none; color: #01508d; font-weight: 700;' onclick='EditAssignmentToggle(".$row["assId"].");'>Edit Assignment</span> | <a href='textSubmissions.php?assId=". $row["assId"] . "'>View and/or Grade Submissions</a></div>";
                         }
                     } else {
                     echo "";
@@ -110,16 +114,25 @@ $currentDate = date("Y/m/d");
                 $(".add-new-update").slideToggle("fast");
             });
         });
-        
+    
+    //toggle edit assignment module
+        function EditAssignmentToggle(assId){
+            if($("#assDiv"+assId).css('display') == 'none' ){
+                $("#assDiv"+assId).show();
+            } else{
+                $("#assDiv"+assId).hide();
+            }
+
+            if($("#divAss"+assId).css('display') == 'none' ){
+                $("#divAss"+assId).show();
+            } else{
+                $("#divAss"+assId).hide();
+            }
+            
+        }
+
     
     </script>
     
 </body>
 </html>
-
-
-<?php
-
-//include '../../footer.php';
-
-?>

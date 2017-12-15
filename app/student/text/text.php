@@ -54,25 +54,30 @@ $currentDate = date("Y/m/d");
                     </div>  current-update -->
 
                 <?php 
+                        $myId = $_SESSION['login_user'];
+                        echo $myId;
+                        echo "<center><h1>Completed Assignments</h1></center>";
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
                     
-                        $latestPostSQL ="SELECT * from text_assignment ORDER BY dueDate DESC LIMIT 1";
-                    
+                        //$latestPostSQL ="SELECT * from text_assignment ORDER BY dueDate DESC LIMIT 1";
+                        $latestPostSQL = "SELECT * FROM text_submission t1 LEFT JOIN text_grades t2 ON t1.subId = t2.subId where t1.studId = '".$myId."'";
                         $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='current-update'> <form action='StudentSubmission.php' method='post' id='add-new-assn'> <h2 id='add-h". $row['assId'] ."' onClick='displayAssignment(". $row['assId'] .")' >" . $row["assName"] . "</h2>" . "<div class='add-new-update". $row['assId'] ."' style='display: none;'> <input type='text' name='assId' value='" . $row['assId'] ."' style='display: none;'>  <span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Instructions: " . $row["Instructions"] . "<br></br> <input type='text' name='studId' placeholder='Enter Student ID' required> <br></br>" . " 
-                        <textarea id='textarea' method='post' type='submit' name='assText'> </textarea> </br> <input type='submit' value='Submit'/> </form> </div></div>";
+                        echo "<div class='prev-update'> <form action='StudentSubmission.php' method='post' id='add-new-assn'> <h2 id='add-h". $row['assId'] ."' onClick='displayAssignment(". $row['assId'] .")' > Assignment " . $row["assId"] . "</h2>" . "<div class='add-new-update". $row['assId'] ."' style='display: none;'> <input type='text' name='assId' value='" . $row['assId'] ."' style='display: none;'>  <span class='bold-text'>Grade: " . $row["grade"] . "</span><br>Remark: " . $row["remark"] . "</br> <h2>Submission:</h2></br>" . " 
+                        <textarea id='textarea' method='post' type='submit' name='assText'> ". $row['assText'] ." </textarea> </br> </form> </div></div>";
+                        //echo "<div class='prev-update'> <h2 id='add-h". $row['assId'] ."'>" . $row["assId"] . "</h2> </div>";
                         }
                     } else {
                     echo "";
                         }
-        
-        
-                    //contains older announcements   
-                    $earlierPostsSQL="SELECT * FROM text_assignment ORDER BY dueDate DESC LIMIT 10000 OFFSET 1";
+                    
+                    echo "<center><h1>New Assignments</h1></center>";
+                    //contains older announcements
+
+                    $earlierPostsSQL="SELECT * FROM text_assignment where assId NOT IN (SELECT assId FROM text_submission WHERE studId = '".$myId."')";
                     
                     $result = $conn->query($earlierPostsSQL);
                     
@@ -84,7 +89,7 @@ $currentDate = date("Y/m/d");
                         }
                     } else {
                     echo "";
-                        }
+                        } 
 
                 ?>
                 

@@ -28,7 +28,7 @@ include('../../config.php');
     //$conn = new mysqli("localhost","root","", "Red-Velvet");
     $assignId = $_GET["assId"];
                         if(!$conn) {echo "error";}                    
-    $latestPostSQL ="SELECT t1.assId,t1.studId,t1.subDate,t2.grade,t1.assText,t1.subId from text_submission t1 LEFT JOIN text_grades t2 on t1.subId=t2.subId where t1.assId=".$assignId;
+    $latestPostSQL ="SELECT t1.assId,t1.studId,t1.subDate,t2.grade,t1.assText,t1.subId,t2.remark,t2.notes from text_submission t1 LEFT JOIN text_grades t2 on t1.subId=t2.subId where t1.assId=".$assignId;
     //SELECT * from text_submission t1 LEFT JOIN text_grades t2 on t1.subId=t2.subId where t1.assId=1      
     //SELECT * from text_submission where assId=".$assignId  
     $result = $conn->query($latestPostSQL);
@@ -54,6 +54,10 @@ include('../../config.php');
       <option value='D-'>
       <option value='F'>
     </datalist>
+    <br><a href=''>Remark for student</a>
+    <br><input type='text' name='remark'>
+    <br><a href=''>Notes</a>
+    <br><input type='text' name='notes' value='". $row['notes'] ."'>
     <input type='text' name='subId' value='" . $row['subId'] ."' style='display: none;'>
     <input type='text' name='studId' value='" . $row['studId'] ."' style='display: none;'>
     <input type='text' name='assId' value='" . $assignId ."' style='display: none;'>
@@ -76,6 +80,10 @@ include('../../config.php');
         <option value='D-'>
         <option value='F'>
       </datalist>
+      <br><a href=''>Remark for student</a>
+      <br><input type='text' name='remark' value='". $row['remark'] ."'>
+      <br><a href=''>Notes</a>
+      <br><input type='text' name='notes'  value='". $row['notes'] ."'>
       <input type='text' name='subId' value='" . $row['subId'] ."' style='display: none;'>
       <input type='text' name='studId' value='" . $row['studId'] ."' style='display: none;'>
       <input type='text' name='assId' value='" . $assignId ."' style='display: none;'>

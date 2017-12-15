@@ -1,4 +1,5 @@
 <?php
+//
 
 $belowRoot = true;
 $isLoggedIn = true;
@@ -9,10 +10,10 @@ $isTeacher = true;
 $thisPage="Post Text Assignment";
 
 include('../../header.php');
-include('../../config.php');
-
 
 /*
+
+
 $sql="INSERT into text_assignment (assName,Instructions,dueDate)
 VALUES
 ('".$_POST["assName"]."','".$_POST["Instructions"]."','".$_POST["dueDate"]."')";
@@ -34,9 +35,10 @@ $sql="INSERT into text_assignment (assName,Instructions,dueDate)
 VALUES
 ('".$_POST["assName"]."','".$_POST["Instructions"]."','".$_POST["dueDate"]."')";
 
-
+include 'index.php';
 */
 
+include('../../config.php');
 $sql="INSERT into text_assignment (assName,Instructions,dueDate)
 VALUES
 ('".$_POST["assName"]."','".$_POST["Instructions"]."','".$_POST["dueDate"]."')";
