@@ -1,5 +1,4 @@
 
-
 <center><h1>Text Assignments</h1></center>
 <center><p>View, write, submit and manage your text assignments.</p></center>
 

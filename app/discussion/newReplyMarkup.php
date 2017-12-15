@@ -1,4 +1,9 @@
-<form class='forum-post-group' method='post' action='../discussion/newForumReply.php'>
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+        <script>
+            tinymce.init({ selector:'textarea', statusbar: false, branding: false });
+        </script> 
+
+<form class='forum-post-group' method='post' action='../../discussion/newForumReply.php'>
   <div class='new-post-header'>Reply to this post</div>
   <textarea class='new-post-text' placeholder='Type your reply here' name='reply_text'></textarea>
   <input name='disc' type='hidden' value=' <?php echo $discId; ?>' />

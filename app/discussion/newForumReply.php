@@ -20,8 +20,13 @@
     }
     else // Insert successful, redirect to specific discussion board post
     {
-        $role = strtolower($_SESSION['login_role']) == 'instructor' ? 'teacher' : 'student';
-        header('Location: ../' . $role . '/discussionBoard.php?disc=' . $pID);
+        $role = strtolower($_SESSION['login_role']) == 'instructor' ? 'instructor' : 'student';
+        header('Location: ../' . $role . '/discussion-board/index.php?disc=' . $pID);       
     }
     $conn->close();
 ?>
+
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>
+    tinymce.init({ selector:'textarea', statusbar: false, branding: false });
+</script> 
