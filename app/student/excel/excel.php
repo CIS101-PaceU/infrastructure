@@ -2,6 +2,7 @@
 <html>
     
     <head>
+    <title>student excel</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -24,16 +25,24 @@
 
                 <!-- current announcement -->
                 <?php 
+
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
                     
-                        $latestPostSQL ="SELECT * from assignment where assignmentType='Excel' ORDER BY assignmentID DESC LIMIT 1";
-                    
+					// code edited on 12/13/2017
+						$id = $_SESSION["login_userID"];
+						$sql= "SELECT MAX(submissionOrder) AS maximum FROM submission where userID='$id'";
+						$result= mysqli_query($conn,$sql);
+						$row = mysqli_fetch_assoc($result);
+						$maximum = $row['maximum'];
+					
+                       $latestPostSQL ="SELECT * from assignment where assignmentType='Excel' ORDER BY assignmentID DESC LIMIT 1";
+						
                         $result = $conn->query($latestPostSQL);
-                        if ($result->num_rows > 0) {
-                        // output data of each row
+                        if ($result->num_rows > 0 ) {
+                         //output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='current-update'><h2>" . $row["assignmentTitle"] . "</h2>" . "<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . "<br>" . "<br>" . $row["assignmentDescription"] . "<br><a href='studenthomepage.php?assignmentID=" . $row["assignmentID"] . "'>Submit Assignment</a> | <a id='toggleGrade'>View Grade</a><br><div class='showGrade'>Grade: 98% <br> Professor Comments: Too much.</div></div>";
+                        echo "<div class='current-update'><h2>" . $row["assignmentTitle"] ."</h2>" . "<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . "<br>" . "<br>" . $row["assignmentDescription"] . "<br><a href='studenthomepage.php?assignmentID=" . $row["assignmentID"] . "'>Submit Assignment</a> | <a id='toggleGrade' href='viewGrade.php?assignmentID=" . $row["assignmentID"]. "'>View Grade</a><br><div class='showGrade'>Grade: 98% <br> Professor Comments: Too much.</div></div>";
                         }
                     } else {
                     echo "<h2 id='add-h1'> No Assignments Yet </h2>";
@@ -50,7 +59,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='prev-update'><h2>" . $row["assignmentTitle"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . "<br>" . "<br>" . $row["assignmentDescription"] . "<br><a href='studenthomepage.php?assignmentID=" . $row["assignmentID"] . "'>Submit Assignment</a> | <a id='toggleGrade'>View Grade</a><br><div class='showGrade'>Example Grade: 68% <br> Professor Comments: Not enough.</div></div>";
+                        echo "<div class='prev-update'><h2>" . $row["assignmentTitle"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . "<br>" . "<br>" . $row["assignmentDescription"] . "<br><a href='studenthomepage.php?assignmentID=" . $row["assignmentID"] . "'>Submit Assignment</a> | <a id='toggleGrade' href='viewGrade.php?assignmentID=" . $row["assignmentID"] . "'>View Grade</a><br><div class='showGrade'>Example Grade: 68% <br> Professor Comments: Not enough.</div></div>";
                         }
                     } else {
                     echo "";

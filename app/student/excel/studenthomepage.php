@@ -1,8 +1,9 @@
 	<?php
+	$thisPage = "Excel Ass Submission";
 
-	$thisPage = "Excel Assignment Submission";
-
-	include '../../header.php';
+	include('../../header.php');
+	include('../../mobile-nav.php');
+	
 	?>
 	<?php
 	include 'PHPExcel.php';            // External plugin..
@@ -14,22 +15,36 @@
 	Welcome Page
 	</title>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="/resources/demos/style.css">
+	<link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+	
 	</head>
 
 	<body>
-	<div class="main-container">
-	<center>
-		<div class="all-updates">
+	<div class="main-page">
+	<?php
+	include('../../navigation.php');	
+	$assignmentID =$_GET['assignmentID'];
+	$result = $conn->query("SELECT * FROM assignment where assignmentID = '$assignmentID'");
+	
+			  if ($result->num_rows > 0) {
+				  while($row = $result->fetch_assoc()) {
+					  $assignmentTitle =$row["assignmentTitle"];
+					}
+			  }
+	?>
+	<div class="main-content">
+	
+		<div class="dashboard-container">
 				<h1 id="add-h1">Submit Assignment</h1>
-				<div class='current-update'>
+				
+				<div class='create-controls'>
 					<form action="" method="post" class="myClass" enctype="multipart/form-data">
 		<fieldset>
-		<label>Assignment ID:</label> 
-		<?php echo $_GET['assignmentID']; ?> </br>
+		<label>Assignment Title:</label> 
+		<?php echo $assignmentTitle; ?> </br>
 		<label>Download Prompt File:</label> 
 		<a href='download.php?assignmentID=<?php echo $_GET['assignmentID']; ?>' class="active">Click Here</a>
 		<br/>
@@ -48,15 +63,20 @@
 				$assignmentID =$_GET['assignmentID'];
 				$fileName = $_FILES["excelFile"]["name"];
 				$filePath = $_FILES["excelFile"]["tmp_name"];
-			$result = mysqli_query($conn, "SELECT * FROM differences where assignmentID = '$assignmentID'");
+				$userid= $_SESSION["login_userID"];
+			$result = mysqli_query($conn, "SELECT lastDownload FROM excel_promptFileInfo where assignmentID = '$assignmentID' and userID='$userid'");
+			$r = mysqli_num_rows($result);
+			if($r > 0){
+			
+			$result = mysqli_query($conn, "SELECT * FROM excel_difference where assignmentID = '$assignmentID'");
 			
 			$keyData = array(); $p =0;
 			foreach($result as $row)
 			{	
 				$keyData[$p] = [
-						'Value' => $row["KeyFormula"],
-						'Index' => $row["Cell"],
-						'CalculateValue' => $row["Value"]
+						'Value' => $row["keyFormula"],
+						'Index' => $row["cell"],
+						'CalculateValue' => $row["value"]
 						];
 				$p++;		
 			}
@@ -70,7 +90,7 @@
 			else{	
 			$fileData = mysqli_real_escape_string($conn,file_get_contents($_FILES["excelFile"]["tmp_name"]));
 			$submissionOrder =0;
-			$result = mysqli_query($conn, "SELECT Max(submissionOrder) FROM `submissionsdata` WHERE assignmentID='$assignmentID' and userID ='$userID' ");
+			$result = mysqli_query($conn, "SELECT Max(submissionOrder) FROM `submission` WHERE assignmentID='$assignmentID' and userID ='$userID' ");
 			while ($row = $result->fetch_assoc()) {
 				if($row['Max(submissionOrder)'] != null){
 									$submissionOrder=  $row['Max(submissionOrder)'];
@@ -79,19 +99,21 @@
 									}
 									}
 							} 
-			$result = mysqli_query($conn, "SELECT * FROM `excelassignments` WHERE assignmentID='$assignmentID' ");
+			$result = mysqli_query($conn, "SELECT * FROM `excel_assignment` WHERE assignmentID='$assignmentID' ");
 			while ($row = $result->fetch_assoc()) {
 									$userVariableCell=  $row['userVariableCell'];
 									}
-			$result = mysqli_query($conn, "SELECT * FROM `promptfileinfo` WHERE assignID='$assignmentID' ");
+			$result = mysqli_query($conn, "SELECT * FROM `excel_promptFileInfo` WHERE assignmentID='$assignmentID' and userID ='$userID' order by promptID desc limit 1");
+			
 			while ($row = $result->fetch_assoc()) {
-									$uniqueVariable=  $row['uniqueVariable'];
+									$uniqueVariable=  $row["uniqueVariable"];
+									
 									}						
-			$query = "insert into submissionsdata(assignmentID,submittedDate,submittedFile,userID,submissionOrder,gradesEarned,updateTime,submittedUserVariable,isCheated) values('$assignmentID','$currentDate','$fileData','$userID','$submissionOrder','NA','$currentDateTime','NA','NO')";
+			$query = "insert into submission(assignmentID,dateSubmitted,submittedFile,userID,submissionOrder,grade,submittedUserVariable,isCheated) values('$assignmentID','$currentDate','$fileData','$userID','$submissionOrder','NA','NA','NO')";
 								if($conn->query($query) === TRUE)
 		{
 								
-								$result = mysqli_query($conn, "SELECT MAX(submissionID) FROM submissionsdata where assignmentID = '$assignmentID'");
+								$result = mysqli_query($conn, "SELECT MAX(submissionID) FROM submission where assignmentID = '$assignmentID'");
 								while ($row = $result->fetch_assoc()) {
 									$submissionID=  $row['MAX(submissionID)'];
 									}
@@ -149,13 +171,13 @@
 							{
 								$earnPoints =0.2;
 								$totalPoints =$totalPoints + $earnPoints;
-								$query = "insert into submissiondifference(submissionID,Cell,submittedFormula,submittedValue,pointsEarned) values('$submissionID','{$submittedData[$i][$j]['Index']}','{$submittedData[$i][$j]['Value']}','{$submittedData[$i][$j]['CalculateValue']}',0.2)";
+								$query = "insert into excel_submissionDiff(submissionID,Cell,submittedFormula,submittedValue,pointsEarned) values('$submissionID','{$submittedData[$i][$j]['Index']}','{$submittedData[$i][$j]['Value']}','{$submittedData[$i][$j]['CalculateValue']}',0.2)";
 								$query_run = mysqli_query($conn,$query);
 							}
 							else
 							{
 								$earnPoints =0.0;
-								$query = "insert into submissiondifference(submissionID,Cell,submittedFormula,submittedValue,pointsEarned) values('$submissionID','{$submittedData[$i][$j]['Index']}','{$submittedData[$i][$j]['Value']}','{$submittedData[$i][$j]['CalculateValue']}',0.0)";
+								$query = "insert into excel_submissionDiff(submissionID,Cell,submittedFormula,submittedValue,pointsEarned) values('$submissionID','{$submittedData[$i][$j]['Index']}','{$submittedData[$i][$j]['Value']}','{$submittedData[$i][$j]['CalculateValue']}',0.0)";
 								$query_run = mysqli_query($conn,$query);
 							}
 							}
@@ -174,38 +196,52 @@
 				}
 				
 			}
-			$query = "update submissionsdata set submittedUserVariable = '$userVariableSubmitted' where submissionID = '$submissionID'"; 
+			$query = "update submission set submittedUserVariable = '$userVariableSubmitted' where submissionID = '$submissionID'"; 
 			$query_run = mysqli_query($conn,$query);
-			$result = mysqli_query($conn, "SELECT SUM(PotentialPoints) FROM `differences` WHERE assignmentID ='$assignmentID'");
+			$result = mysqli_query($conn, "SELECT SUM(PotentialPoints) FROM `excel_difference` WHERE assignmentID ='$assignmentID'");
 								while ($row = $result->fetch_assoc()) {
 									$PotentialPoints=  $row['SUM(PotentialPoints)'];
 									}
-			$result = mysqli_query($conn, "SELECT SUM(pointsEarned) FROM submissiondifference where submissionID = '$submissionID'");
+			$result = mysqli_query($conn, "SELECT SUM(pointsEarned) FROM excel_submissionDiff where submissionID = '$submissionID'");
 								while ($row = $result->fetch_assoc()) {
 									$pointsEarned=  $row['SUM(pointsEarned)'];
-									}	
-			if($uniqueVariable !=$userVariableSubmitted){
-				$isCheated ="TRUE";
-				$pointsEarned =0;
-			}
-			else{
-					$isCheated ="FALSE";
-				}					
-			$query = "update submissionsdata set gradesEarned = '$pointsEarned'  , isCheated ='$isCheated' where submissionID = '$submissionID' "; 
+									}
+			
+				if($uniqueVariable !=$userVariableSubmitted){
+					$isCheated ="TRUE";
+					$pointsEarned =0;
+					$result = mysqli_query($conn, "SELECT * FROM `excel_promptFileInfo` WHERE uniqueVariable ='$userVariableSubmitted'");
+					while ($row = $result->fetch_assoc()) {
+						$cheatedFrom  = $row['userID'];	
+					}
+
+				}
+				else{
+						$isCheated ="FALSE";
+						$cheatedFrom  = '';	
+					}
+			
+					
+								
+			$query = "update submission set grade = '$pointsEarned'  , isCheated ='$isCheated' , cheatedFrom ='$cheatedFrom' where submissionID = '$submissionID' "; 
 			$query_run = mysqli_query($conn,$query);
 								echo "<b>Potential Points/ Earned Points : $PotentialPoints / $pointsEarned   </b>" ;
 			
 			$message = "Total of " . $d . " differences verified and score is displayed" ;
-			echo "<script type='text/javascript'>alert('$message');</script>";
+			//echo "<script type='text/javascript'>alert('$message');</script>";
 				}	
 			
+		}
+		}else{
+			 echo '<h4>You have not downloaded the prompt file.Please download the prompt file first.</h4>';
 		}
 		}
 		?>
 		
 		</form> 
 		
-				</div>        
+				</div>    
+				<?php echo "Go <a href='../excel/'>back</a>.";?>    
 		</div>
 
 	</center>
@@ -214,6 +250,3 @@
 	</body>
 	</html>
 
-	<?php
-	include '../../footer.php';
-	?>

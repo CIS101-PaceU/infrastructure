@@ -13,14 +13,16 @@ include '../../config.php';
 include 'PHPExcel.php';
 
 $userID =$_SESSION['login_userID'];
+
     // Make sure an ID was passed
     if(true) {
         date_default_timezone_set("America/New_York");
         $currentDateTime = date("Y-m-d H:i:sa");
-		$currentDate = date("Y-m-d");
+        $currentDate = date("Y-m-d");
+        $usercell =$userID . $currentDate;
         $assignmentID=$_GET['assignmentID'];
 		//$assignmentID = 824708;
-           $query = "SELECT * from excelassignments where assignmentID='$assignmentID'";
+           $query = "SELECT * from excel_assignment where assignmentID='$assignmentID'";
 		   //echo $assignmentID;
            $result = mysqli_query($conn,$query);  
              if($result) { 
@@ -33,7 +35,7 @@ $userID =$_SESSION['login_userID'];
                     //$promptFileType=$row['promptFileType']; 		
 					$promptFileSize=$row['promptFileSize'];
                     $promptFilePath =$row['promptFilePath'];
-					$filename ='Assignment1.xlsx';
+					$filename ='Assignment.xlsx';
                     $userVariableCell=$row['userVariableCell'];
 
                     $inputFileType = PHPExcel_IOFactory::identify($promptFilePath);
@@ -44,7 +46,7 @@ $userID =$_SESSION['login_userID'];
                             'color' => array('rgb' => 'ffffff'),
                         ));
                     $rownum = filter_var($userVariableCell, FILTER_SANITIZE_NUMBER_INT);
-		            $objPHPExcel->getActiveSheet()->setCellValue($userVariableCell, $userID);
+		            $objPHPExcel->getActiveSheet()->setCellValue($userVariableCell, $usercell);
                     $objPHPExcel->getActiveSheet()->getStyle($userVariableCell)->applyFromArray($styleArray);
                     $objPHPExcel->getActiveSheet()->getRowDimension($rownum)->setVisible(false);
                     $writer = PHPExcel_IOFactory::createWriter($objPHPExcel, "Excel2007");
@@ -52,8 +54,8 @@ $userID =$_SESSION['login_userID'];
                     
 
 
-                    $query = "insert into promptfileinfo(userID,assignID,promptFile,uniqueVariable,lastDownload) 
-                    values($userID,'$assignmentID','',$userID,'$currentDateTime')";
+                    $query = "insert into excel_promptFileInfo(userID,assignmentID,promptFile,uniqueVariable,lastDownload) 
+                    values('$userID','$assignmentID','','$usercell','$currentDateTime')";
                     $conn->query($query);
 $promptFileSize = filesize(dirname($promptFilePath). "/" .$filename);
 

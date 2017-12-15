@@ -1,12 +1,24 @@
 <?php
 
+$activePage = 'excel';
+$isInstructor = true;
+include ('readExcel.php');
+include('../../session.php');
+include('../../config.php');
+include('../../header.php');
+include('../../mobile-nav.php');
+$thisPage="Post Excel Assignment";
+$userID =$_SESSION['login_userID'];
+?>
+<!DOCTYPE html>
 <html>
-    
-    <head>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <head>
+    <title>instructor -- dashboard announcements</title>
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-    <style>
+  <body>
+      <style>
 table {
     border: 1px solid black;
     border-collapse: collapse;
@@ -34,17 +46,33 @@ border: 1px solid #01508d;
 }
 </style>
 <body>
-<div class="main-container">
-<center>
+<div class="main-page">
+
+  <?php 
+	  include("../../navigation.php");
+	  $assignmentID=$_GET['assignmentID'];
+	  $result = $conn->query("SELECT assignmentTitle FROM assignment where assignmentID = '$assignmentID'");
+									  while ($row = $result->fetch_assoc()) {
+										  $assignmentTitle=  $row['assignmentTitle'];
+										  }
+	?>
+
+<div class="main-content">
+<div class="dashboard-container">
+  <div class="section-heading"><h2><?php echo $_SESSION[arrayObject][1] . '|' . $_SESSION[arrayObject][2]; ?></h2></div>
+       </br>
+	   <div class="announcements-container">
+        
+        <h1><i class="fa fa-file-excel-o" aria-hidden="true"></i><?php echo  $assignmentTitle ?> Submissions </h1>
 
 <?php
-$assignmentID=$_GET['assignmentID'];
-$result = $conn->query("SELECT assignmentTitle FROM assignment where assignmentID = '$assignmentID'");
-	    						while ($row = $result->fetch_assoc()) {
-	    							$assignmentTitle=  $row['assignmentTitle'];
-									}
-$sql ="SELECT DISTINCT(userID),assignmentID,Max(submissionOrder),gradesEarned,isCheated FROM `submissionsdata` WHERE assignmentID='$assignmentID' GROUP BY userID";
-	$result = $conn->query("SELECT DISTINCT(userID),assignmentID,Max(submissionOrder),gradesEarned,isCheated FROM `submissionsdata` WHERE assignmentID='$assignmentID' GROUP BY userID");
+
+$sql ="Select u.firstName,u.lastName, s.* from submission s INNER JOIN (
+	SELECT userID,Max(submissionOrder) as maxSubmissionOrder FROM `submission` WHERE assignmentID='$assignmentID' group by userID) sdd
+	on s.userID =sdd.userID and s.submissionOrder =sdd.maxSubmissionOrder INNER JOIN user u 
+on s.userID =u.userID WHERE assignmentID='$assignmentID'
+	";
+	$result = $conn->query($sql);
 	$r = mysqli_num_rows($result);
    if($r > 0){
    
@@ -52,23 +80,26 @@ $sql ="SELECT DISTINCT(userID),assignmentID,Max(submissionOrder),gradesEarned,is
 	        echo '<div class="prev-update" >';
 			echo '<center>';
 			echo '<fieldset>';
-			echo '<h1 id="add-h1">Submissions:</h1>';
+			echo '<h1 id="add-h1">List of Submissions:</h1>';
 			echo '</br>';
 			echo '<table>' . "\n";
 			echo '<tr>' ;	
-			echo '<td>' . "S. No" . '</td>'.'<td>' . "Assignment Title" . '</td>' .'<td>' . "Submission Attempt" . '</td>' .'<td>' . "Points Earned" . '</td>' .'<td>' . "Cheated" . '</td>'  . "\n";
+			echo '<td>' . "S. No" . '</td>'.'<td>' . "Assignment Title" . '</td>'.'<td>' . "First Name" . '</td>'.'<td>' . "Last Name" . '</td>' .'<td>' . "Submission Attempt" . '</td>' .'<td>' . "Points Earned" . '</td>' .'<td>' . "Plagiarised" . '</td>'.'<td>' . "Plagiarised From" . '</td>'  . "\n";
          
         	while ($row = $result->fetch_assoc()) {
             echo '<tr>' ;
             If($row['isCheated'] =='TRUE')
             {
-                $isCheated ='YES';
+				$isCheated ='YES';
+				$points  = '0.0';
+				
             }
             else
             {
-                $isCheated ='NO';
+				$isCheated ='NO';
+				$points  = $row['grade'];
             }
-            echo '<td>' . $Sno . '</td>' .'<td>' .  $assignmentTitle . '</td>'.'<td>' .  ($row['Max(submissionOrder)'] +1) . '</td>' .'<td>' .  $row['gradesEarned'] . '</td>'.'<td>' .  $isCheated . '</td>'  . "\n";			
+            echo '<td>' . $Sno . '</td>' .'<td>' .  $assignmentTitle . '</td>'.'<td>' .  $row['firstName'] . '</td>'.'<td>' .  $row['lastName'] . '</td>'.'<td>' .  ($row['submissionOrder'] +1) . '</td>' .'<td>' .  $points . '</td>'.'<td>' .  $isCheated . '</td>' .'<td>' .  $row['cheatedFrom'] . '</td>' . "\n";			
 			echo '</tr>' ;
             $Sno++;
 
@@ -85,11 +116,8 @@ $sql ="SELECT DISTINCT(userID),assignmentID,Max(submissionOrder),gradesEarned,is
 </center>
 </div>
  <br/>
-			 </center>
+			 </div></div><?php echo "Go <a href='../excel/'>back</a>."; ?>
+			 </div>
 			 </div>
 </body>
 </html>
-<?php
-include '../../footer.php';
-	
-	?>
