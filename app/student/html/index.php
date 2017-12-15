@@ -1,4 +1,4 @@
-<?php 
+<?php
 
  $activePage = 'html';
  $isInstructor = false;
@@ -8,28 +8,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>instructor -- html</title>
+  <title> Student: HTML Assignment</title>
   <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-  <?php 
+  <?php
   include('../../header.php');
   include('../../mobile-nav.php');
 ?>
 
 
 <div class="main-page">
-  
-     <?php 
+
+     <?php
        include("../../navigation.php");
       ?>
-    
+
 
   <div class="main-content">
-    <?php 
-    include('html_grading.php');
+    <?php
+    include('htmlgrading.php');
   ?>
 
   </div>
