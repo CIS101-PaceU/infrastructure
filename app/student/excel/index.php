@@ -1,12 +1,14 @@
-<?php
-// Excel Grading Team:
-// Please do not modify this page
-// Begin your work on excel.php
+<?php 
+
+ $activePage = 'excel';
+ $isInstructor = false;
+
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>student excel</title>
+  <title>instructor -- excel</title>
   <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -15,6 +17,7 @@
 include ('../../header.php');
 include('../../mobile-nav.php');
 ?>
+
 <div class="main-page">
   
      <?php 
@@ -30,7 +33,6 @@ include('../../mobile-nav.php');
   </div>
 
 </div>
+
 </body>
 </html>
-
-

@@ -1,1 +1,1 @@
-<p>This is the text grading page. Put your content here.</p>
+<p>text content goes here</p>
