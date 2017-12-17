@@ -2,12 +2,9 @@
 <?php 
   include('session.php');
 
-  if(isset($_SESSION['crnSes'])){
-    $crnNo = $_SESSION['crnSes'];
+$crnNo = $_SESSION['crnSes'];
     $classDay = $_SESSION['daySes'];
     $classTime = $_SESSION['timeSes'];
-    $section = "<h1 id='class-name'><span class='bold'> " . $classDay . " | " . $classTime . "</span></h1>";
-}
 
   //for new posts
 date_default_timezone_set("America/New_York");

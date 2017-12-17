@@ -255,7 +255,7 @@ a {
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: 10;
   width: 450px;
   box-shadow: 5px 5px 5px #ddd; }
   @media only screen and (max-width: 767px) {

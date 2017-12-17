@@ -14,23 +14,7 @@
     $section = "<h1 id='class-name'><span class='bold'> " . $classDay . " | " . $classTime . "</span></h1>";
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
-    $selectedClass = $_POST['chooseclass-select'];
-echo $selectedClass;
- 
-    $arrayObject = $_SESSION['arrayObject'][$selectedClass];
-    
-    $_SESSION['crnSes'] = $arrayObject[0];
-    $_SESSION['daySes'] = $arrayObject[1];
-    $_SESSION['timeSes'] = $arrayObject[2];
-    
-    //$url='classHome.php';
-    //echo '<META HTTP-EQUIV=REFRESH CONTENT="0; '.$url.'">';
-}
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
