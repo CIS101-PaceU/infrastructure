@@ -37,7 +37,7 @@
              header("location: student/dashboard/");
          } else if($_SESSION['login_role'] == "Instructor"){
              // header("location: instructor/home.php");
-           header("location: instructor/home.php");
+           header("location: Instructor/home.php");
          }
          
       }else {
@@ -182,7 +182,7 @@
                   if(data == 'Student'){
                       window.location.href = "/student/dashboard/";
                   } else if (data == 'Instructor'){
-                       window.location.href = "/instructor/home.php";
+                       window.location.href = "/Instructor/home.php";
                   }else{
                       window.alert("Invalid credentials!");
                   }
