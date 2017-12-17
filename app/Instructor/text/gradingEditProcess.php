@@ -1,56 +1,60 @@
+
+
 <?php
 
-$belowRoot = true;
-$isLoggedIn = true;
-$showNav = true;
-$displayClass =true;
-$isTeacher = true;
+$activePage = 'text';
+$isInstructor = true;
 
-$thisPage="Edit Text Grade";
+?>
 
-include('../../header.php');
-include('../../config.php');
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment Edit</title>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 
+<?php
+include '../../header.php';
+include '../../mobile-nav.php';
+?>
 
-/*
-
-echo $_POST["assName"],$_POST["Instructions"],$_POST["dueDate"];
-
-$sql="INSERT into text_assignment (assName,Instructions,dueDate)
-VALUES
-('".$_POST["assName"]."','".$_POST["Instructions"]."','".$_POST["dueDate"]."')";
-
-echo $getGrade;
-echo $getSubId;
-echo $getAssId;
-echo $getStudId;
-
-
-*/
-
-$getGrade = $_POST["grade"];
-$getSubId = $_POST["subId"];
-$getAssId = $_POST["assId"];
-$getStudId = $_POST["studId"];
+<div class="main-page">
+<?php
+include "../../navigation.php";
+?>
 
 
+  <div class="main-content">
 
-$sql="UPDATE text_grades SET grade='".$getGrade."' where subId='". $getSubId ."'";
+
+<?php
+$getGrade = $_GET["grade"];
+$getSubId = $_GET["subId"];
+$getAssId = $_GET["assId"];
+$getStudId = $_GET["studId"];
+$getRemark = $_GET["remark"];
+$getNotes = $_GET["notes"];
+
+$sql="UPDATE text_grades SET grade='".$getGrade."', remark='".$getRemark."', notes='".$getNotes."' where subId='". $getSubId ."'";
 //VALUES ('".$getStudId."','".$getAssId."','".$getGrade."','".$getSubId."')";
 
 if($conn->query($sql) === TRUE)
 {
-    echo "Your post was submitted. Go <a href='textSubmissions.php?assId=".$getAssId."'>back</a> or go <a href='classHome.php'>home</a>.";
+    echo "Your post was submitted. Go <a href='textSubmissions.php?assId=".$getAssId."'>back</a> or go <a href='index.php'>home</a>.";
 } else {
     echo "An error. Contact the adminstrator. Or go <a href='classHome.php'>home</a>.";
 }
 
 $conn->close();
 
-
-//echo $_POST["studId"],$_POST["assId"],$_POST["grade"],$_POST["subId"];
-
-include('../../footer.php');
-
-
 ?>
+
+</div>
+
+</div>
+
+</body>
+</html>

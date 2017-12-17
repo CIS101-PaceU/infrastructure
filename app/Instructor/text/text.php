@@ -1,8 +1,4 @@
 
-<center><h1>Text Assignments</h1></center>
-<center><p>Create, assign, grade and manage text assignments.</p></center>
-
-
 <?php
 date_default_timezone_set("America/New_York");
 $currentDate = date("Y/m/d");
@@ -12,7 +8,6 @@ $currentDate = date("Y/m/d");
     
     <head>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
@@ -20,22 +15,27 @@ $currentDate = date("Y/m/d");
                $(".datepicker").datepicker({ dateFormat: "yy-mm-dd" }).val()
        });
    </script>
+   
     </head>
     
 <body>
 
 <div class="main-container">
-<center>
+
     <div class="all-updates">
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+        <script>
+            tinymce.init({ selector:'textarea', statusbar: false, branding: false });
+        </script>  
         <!-- ADD A NEW ASSIGNMENT -->
-            <div class="prev-update"><h1 id="add-h1">New Assignment</h1>
+            <div style="border-radius: 25px; border: 2px solid #73AD21; padding: 20px;" onMouseOver="this.style.cursor='pointer';"><h2 id="add-h1">New Text Assignment</h2>
                 <div class="add-new-update">
                     <form action="InstructorCreateEditProcess.php" method="post" id="add-new-assn">
                         
                     <input type="text" name="assName" placeholder="Title of Assignment" required><br>
-                    Posting Date: <?php echo $currentDate; ?> <br>
+                    Posting Date: <?php echo $currentDate; ?>
                     <p>Due Date: <input type="text" name="dueDate" class="datepicker" required></p>                        
-                        <br>
+                    Instructions:
                         <textarea id="textarea" method="post" type="submit" name="Instructions"></textarea>
                         <br>
                         <input type="submit" value="Submit" />
@@ -67,7 +67,7 @@ $currentDate = date("Y/m/d");
                             <br><textarea id='textarea' method='post' type='submit' name='Instructions'>" . $row["Instructions"] . "</textarea><br>
                             <input type='submit' value='Edit' />
                         </form></div>" .
-                        "<br><span href='#' style='text-decoration: none; color: #01508d; font-weight: 700;' onclick='EditAssignmentToggle(".$row["assId"].");'>Edit Assignment</span> | <a href='textSubmissions.php?assId=". $row["assId"] . "'>View and/or Grade Submissions</a></div>";
+                        "<br><span href='#' style='text-decoration: none; color: #01508d; font-weight: 700;' onclick='EditAssignmentToggle(".$row["assId"].");'>Edit Assignment</span> | <a href='textSubmissions.php?assId=". $row["assId"] . "'>View and/or Grade Submissions</a></div><hr />";
                         }
                     } else {
                     echo "";
@@ -82,7 +82,7 @@ $currentDate = date("Y/m/d");
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='prev-update'><div id='divAss". $row["assId"] ."'><h2>" . $row["assName"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Instructions: " . $row["Instructions"] ."</div>"
+                        echo "<div class='current-update'><div id='divAss". $row["assId"] ."'><h2>" . $row["assName"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Instructions: " . $row["Instructions"] ."</div>"
                         ."<div id='assDiv". $row["assId"] ."' style='display: none;'><form action='InstructorAssignmentEditProcess.php' method='post' id='add-new-assn'>
                         <input type='text' name='assId' value='". $row["assId"] ."' style='display: none;' required><br> 
                     <input type='text' name='assName' value='". $row["assName"] ."' required><br>
@@ -90,7 +90,7 @@ $currentDate = date("Y/m/d");
                         <br><textarea id='textarea' method='post' type='submit' name='Instructions'>" . $row["Instructions"] . "</textarea><br>
                         <input type='submit' value='Edit' />
                     </form></div>" .
-                        "<br><span href='#' style='text-decoration: none; color: #01508d; font-weight: 700;' onclick='EditAssignmentToggle(".$row["assId"].");'>Edit Assignment</span> | <a href='textSubmissions.php?assId=". $row["assId"] . "'>View and/or Grade Submissions</a></div>";
+                        "<br><span href='#' style='text-decoration: none; color: #01508d; font-weight: 700;' onclick='EditAssignmentToggle(".$row["assId"].");'>Edit Assignment</span> | <a href='textSubmissions.php?assId=". $row["assId"] . "'>View and/or Grade Submissions</a></div><hr />";
                         }
                     } else {
                     echo "";
@@ -101,7 +101,7 @@ $currentDate = date("Y/m/d");
         
     </div>
 
-</center>
+
 </div>
     
     <script>

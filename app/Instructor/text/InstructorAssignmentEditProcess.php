@@ -1,37 +1,35 @@
+
 <?php
 
-$belowRoot = true;
-$isLoggedIn = true;
-$showNav = true;
-$displayClass =true;
-$isTeacher = true;
+$activePage = 'text';
+$isInstructor = true;
 
-$thisPage="Edit Text Grade";
+?>
 
-include('../../header.php');
-include('../../config.php');
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment Edit</title>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<?php
+include '../../header.php';
+include '../../mobile-nav.php';
+?>
+
+<div class="main-page">
+<?php
+include "../../navigation.php";
+?>
 
 
-/*
+  <div class="main-content">
 
-echo $_POST["assName"],$_POST["Instructions"],$_POST["dueDate"];
 
-$sql="INSERT into text_assignment (assName,Instructions,dueDate)
-VALUES
-('".$_POST["assName"]."','".$_POST["Instructions"]."','".$_POST["dueDate"]."')";
-
-echo $getGrade;
-echo $getSubId;
-echo $getAssId;
-echo $getStudId;
-echo $getAssName;
-echo $getInstructions;
-echo $getAssId;
-echo $getDueDate;
-
-*/
-
-//include 'text.php';
+<?php
 $getAssName = $_POST["assName"];
 $getInstructions = $_POST["Instructions"];
 $getDueDate = $_POST["dueDate"];
@@ -50,10 +48,14 @@ if($conn->query($sql) === TRUE)
 
 $conn->close();
 
-
 //echo $_POST["studId"],$_POST["assId"],$_POST["grade"],$_POST["subId"];
 
-include('../../footer.php');
-
-
+//include('../../footer.php');
 ?>
+
+</div>
+
+</div>
+
+</body>
+</html>

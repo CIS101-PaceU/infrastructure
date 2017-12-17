@@ -1,7 +1,4 @@
 
-<center><h1>Text Assignments</h1></center>
-<center><p>View, write, submit and manage your text assignments.</p></center>
-
 <?php
 date_default_timezone_set("America/New_York");
 $currentDate = date("Y/m/d");
@@ -24,8 +21,12 @@ $currentDate = date("Y/m/d");
 <body>
 
 <div class="main-container">
-<center>
+
     <div class="all-updates">
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+        <script>
+            tinymce.init({ selector:'textarea', statusbar: false, branding: false });
+        </script>  
         <!-- ADD A NEW ASSIGNMENT
             <div class="prev-update"><h1 id="add-h1">New Assignment</h1>
                 <div class="add-new-update"></div>
@@ -54,8 +55,7 @@ $currentDate = date("Y/m/d");
 
                 <?php 
                         $myId = $_SESSION['login_user'];
-                        echo $myId;
-                        echo "<center><h1>Completed Assignments</h1></center>";
+                        echo "<h1>Completed Assignments</h1>";
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
                     
@@ -65,7 +65,7 @@ $currentDate = date("Y/m/d");
                         if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='prev-update'> <form action='StudentSubmission.php' method='post' id='add-new-assn'> <h2 id='add-h". $row['assId'] ."' onClick='displayAssignment(". $row['assId'] .")' > Assignment " . $row["assId"] . "</h2>" . "<div class='add-new-update". $row['assId'] ."' style='display: none;'> <input type='text' name='assId' value='" . $row['assId'] ."' style='display: none;'>  <span class='bold-text'>Grade: " . $row["grade"] . "</span><br>Remark: " . $row["remark"] . "</br> <h2>Submission:</h2></br>" . " 
+                        echo "<div class='current-update'> <form action='StudentSubmission.php' method='post' id='add-new-assn'> <h2 id='add-h". $row['assId'] ."' onClick='displayAssignment(". $row['assId'] .")' > Assignment " . $row["assId"] . "</h2>" . "<div class='add-new-update". $row['assId'] ."' style='display: none;'> <input type='text' name='assId' value='" . $row['assId'] ."' style='display: none;'>  <span style='text-align: center; color: blue; font-size: 30pt'>Grade: " . $row["grade"] . "</span><br>Remark: " . $row["remark"] . "</br> <h2>Submission:</h2>" . " 
                         <textarea id='textarea' method='post' type='submit' name='assText'> ". $row['assText'] ." </textarea> </br> </form> </div></div>";
                         //echo "<div class='prev-update'> <h2 id='add-h". $row['assId'] ."'>" . $row["assId"] . "</h2> </div>";
                         }
@@ -73,7 +73,7 @@ $currentDate = date("Y/m/d");
                     echo "";
                         }
                     
-                    echo "<center><h1>New Assignments</h1></center>";
+                    echo "</br><h1>New Assignments</h1>";
                     //contains older announcements
 
                     $earlierPostsSQL="SELECT * FROM text_assignment where assId NOT IN (SELECT assId FROM text_submission WHERE studId = '".$myId."')";
@@ -83,7 +83,7 @@ $currentDate = date("Y/m/d");
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                        echo "<div class='prev-update'> <form action='StudentSubmission.php' method='post' id='add-new-assn'> <h2 id='add-h". $row['assId'] ."' onClick='displayAssignment(". $row['assId'] .")' >" . $row["assName"] . "</h2>" ."<div class='add-new-update". $row['assId'] ."' style='display: none;'> <input type='text' name='assId' value='" . $row['assId'] ."' style='display: none;'> <span class='bold-text'>Due Date: " . $row["dueDate"] . "</span> <br> Instructions: " . $row["Instructions"] . "<br></br> <input type='text' name='studId' placeholder='Enter Student ID' required> <br></br>" . "
+                        echo "<div class='prev-update' style='border-radius: 25px; border: 2px solid #73AD21; padding: 20px;' onMouseOver='this.style.cursor='pointer';'> <form action='StudentSubmission.php' method='post' id='add-new-assn'> <h2 id='add-h". $row['assId'] ."' onClick='displayAssignment(". $row['assId'] .")' >" . $row["assName"] . "</h2>" ."<div class='add-new-update". $row['assId'] ."' style='display: none;'> <input type='text' name='assId' value='" . $row['assId'] ."' style='display: none;'> <span class='bold-text'>Due Date: " . $row["dueDate"] . "</span> <br> Instructions: " . $row["Instructions"] . "<br></br> <input type='text' name='studId' placeholder='Enter Student ID' required> <br></br>" . "
                         <textarea id='textarea' method='post' type='submit' name='assText'> </textarea> </br> <input type='submit' value='Submit'/> </form> </div> </div>";
                         }
                     } else {
@@ -94,7 +94,7 @@ $currentDate = date("Y/m/d");
                 
 
 
-</center>
+
 </div>
 </div>
     <script>

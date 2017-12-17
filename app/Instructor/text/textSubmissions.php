@@ -1,21 +1,35 @@
-<?php
 
-//logic for login
+<?php 
 
-$belowRoot = true;
-$isLoggedIn = true;
-$isTeacher = true;
+$activePage = 'text';
+$isInstructor = true;
 
-$isStudent = false;
-$displayClass = true;
-
-$showNav = true;
-
-$thisPage = "SubmissionListing";
-include('../../header.php');
-include('../../config.php');
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Submissions</title>
+ <link rel="stylesheet" type="text/css" href="../../stylesheets/main.css">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+ <?php 
+ include('../../header.php');
+ include('../../mobile-nav.php');
+?>
+
+
+
+<div class="main-page">
+ 
+    <?php 
+      include("../../navigation.php");
+     ?>
+   
+
+ <div class="main-content">
     <div class="main-container">
     <center>
     <div class="all-updates">
@@ -35,54 +49,24 @@ include('../../config.php');
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-    echo "<div class='prev-update'><h2>" . $row["studId"] . "</h2>" . "<span class='bold-text'>Submission Date: " . $row["subDate"] . "</span><br>Text Submission: " . $row["assText"];
+    echo "<div class='current-update' style='text-align: left;'><h2>" . $row["studId"] . "</h2>" . "<span class='bold-text'>Submission Date: " . $row["subDate"] . "</span><br>Text Submission: " . $row["assText"];
     if($row["grade"]==null){
-    echo "<br><a href='textSubmissions.php'>Grade</a><form action='gradingProcess.php'>
-    <input list='grades' name='grade'>
-    <datalist id='grades'>
-      <option value='A+'>
-      <option value='A'>
-      <option value='A-'>   
-      <option value='B+'>
-      <option value='B'>
-      <option value='B-'>
-      <option value='C+'>
-      <option value='C'>
-      <option value='C-'>
-      <option value='D+'>
-      <option value='D'>
-      <option value='D-'>
-      <option value='F'>
-    </datalist>
-    <br><a href=''>Remark for student</a>
+    echo "</br><label for='grades'>Grade:</label><form action='gradingProcess.php'>
+    <input list='grades' style='font-size: 150%;' name='grade'>
+    </br></br><label for='remark'>Remark for student:</label>
     <br><input type='text' name='remark'>
-    <br><a href=''>Notes</a>
+    <br><label for='notes'>Notes:</label>
     <br><input type='text' name='notes' value='". $row['notes'] ."'>
     <input type='text' name='subId' value='" . $row['subId'] ."' style='display: none;'>
     <input type='text' name='studId' value='" . $row['studId'] ."' style='display: none;'>
     <input type='text' name='assId' value='" . $assignId ."' style='display: none;'>
     <button type='submit'>Add</button>
   </form>";} else {
-      echo "<br><a href='textSubmissionsEdit.php'>Grade</a><form action='gradingEditProcess.php'>
-      <input list='grades' name='grade' value='". $row['grade'] ."'>
-      <datalist id='grades'>
-        <option value='A+'>
-        <option value='A'>
-        <option value='A-'>   
-        <option value='B+'>
-        <option value='B'>
-        <option value='B-'>
-        <option value='C+'>
-        <option value='C'>
-        <option value='C-'>
-        <option value='D+'>
-        <option value='D'>
-        <option value='D-'>
-        <option value='F'>
-      </datalist>
-      <br><a href=''>Remark for student</a>
+      echo "</br><label for='grades'>Grade Assigned:</label><form action='gradingEditProcess.php'>
+      <input list='grades' style='font-size: 150%;' name='grade' value='". $row['grade'] ."'>
+      <br><label for='remark'>Remark for student:</label>
       <br><input type='text' name='remark' value='". $row['remark'] ."'>
-      <br><a href=''>Notes</a>
+      <br><label for='notes'>Notes:</label>
       <br><input type='text' name='notes'  value='". $row['notes'] ."'>
       <input type='text' name='subId' value='" . $row['subId'] ."' style='display: none;'>
       <input type='text' name='studId' value='" . $row['studId'] ."' style='display: none;'>
@@ -100,6 +84,10 @@ include('../../config.php');
     </center>
     </div>
 
-<?php
-include '../../footer.php';
-?>
+
+    </div>
+
+</div>
+
+</body>
+</html>
