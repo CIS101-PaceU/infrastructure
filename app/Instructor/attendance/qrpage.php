@@ -1,11 +1,13 @@
 <?php 
 
- $activePage = 'attendance';
- $isInstructor = true;
+    include '../../config.php';
 
+    $query = "SELECT * FROM events";
+    mysqli_query($conn, $query) or die(' 0 error querrring the datbase');
+
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
 ?>
-
-<?php include 'Config.php'; ?>
 
 <html>
 

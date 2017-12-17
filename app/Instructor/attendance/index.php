@@ -3,6 +3,7 @@
  $activePage = 'attendance';
  $isInstructor = true;
 
+
 ?>
 
 <!DOCTYPE html>

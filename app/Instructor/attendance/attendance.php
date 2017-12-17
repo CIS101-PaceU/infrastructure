@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
-	<?php include 'Config.php'; ?>
+	<?php 
+    
+    include '../app/config.php';
+
+    $query = "SELECT * FROM events";
+    mysqli_query($conn, $query) or die(' error querrring the datbase');
+
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+
+  ?>
 
 <head>
 	<title>Attendance</title>
