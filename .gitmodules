@@ -1,0 +1,7 @@
+[submodule "apiclient"]
+	path = app/vendor/google/apiclient
+	url = https://github.com/google/google-api-php-client.git
+  
+[submodule "silex"]
+	path = app/vendor/silex/silex
+	url = https://github.com/silexphp/Silex.git
