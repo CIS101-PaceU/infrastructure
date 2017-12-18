@@ -14,7 +14,30 @@ include('../../config.php');
                 <?php
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
-                        $latestPostSQL ="SELECT * from html_assignment LIMIT 1";
+
+                        $latestPostSQL ="SELECT * from html_assignment WHERE assignmentTitle = 'HTML Assignment 1' LIMIT 1";
+                        $result = $conn->query($latestPostSQL);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                        echo "<div class='current-update'><h2>" . $row["assignmentTitle"] . "</h2>" . "<span class='bold-text'>Due Date: " . $row["html_submission_date"] . "<br><br><a href='htmlgrading2.php'>Submit Assignment</a></div>";//" | <a id='toggleGrade'>View Grade</a><br><div class='showGrade'>Grade: 98% <br> Professor Comments: Too much.</div></div>";
+                        }
+                    } else {
+                    echo "";
+                        }
+
+                        $latestPostSQL ="SELECT * from html_assignment WHERE assignmentTitle = 'HTML Assignment 2' LIMIT 1";
+                        $result = $conn->query($latestPostSQL);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                        echo "<div class='current-update'><h2>" . $row["assignmentTitle"] . "</h2>" . "<span class='bold-text'>Due Date: " . $row["html_submission_date"] . "<br><br><a href='htmlgrading2.php'>Submit Assignment</a></div>";//" | <a id='toggleGrade'>View Grade</a><br><div class='showGrade'>Grade: 98% <br> Professor Comments: Too much.</div></div>";
+                        }
+                    } else {
+                    echo "";
+                        }
+
+                        $latestPostSQL ="SELECT * from html_assignment WHERE assignmentTitle = 'HTML Assignment 3' LIMIT 1";
                         $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
                         // output data of each row
@@ -26,22 +49,7 @@ include('../../config.php');
                         }
 
 
-                        $earlierPostsSQL="SELECT * FROM html_assignment ORDER BY dueDate DESC LIMIT 10000 OFFSET 1";
-
-                        //combine submission and assignment tables
-
-                        $result = $conn->query($earlierPostsSQL);
-
-                        if ($result->num_rows > 0) {
-                            ///output data of each row
-                           while($row = $result->fetch_assoc()) {
-                             echo "<div class='current-update'><h2>" . $row["assignmentTitle"] . "</h2>" . "<span class='bold-text'>Due Date: " . $row["html_submission_date"] . "<br><br><a href='htmlgrading2.php'>Submit Assignment</a></div>";
-                             //echo "<div class='current-update'><h2>" . $row["assignmentTitle"] . "</h2>" . "<span class='bold-text'>Date Submitted: " . $row["html_submission_date"] . "</span><br>Grade: " . $row["html_grade"] . "<br>" . "<br><a href='htmlgrading2.php'>Submit Assignment</a></div>";
-                          // echo "<div class='prev-update'><h2>" . $row["assignmentTitle"] . "</h2>" ."<span class='bold-text'>Due Date: " . $row["dueDate"] . "</span><br>Date Posted: " . $row["availableDate"] . $row["assignmentDescription"] . "<br><a href='#'>Submit Assignment</a> | <a id='toggleGrade'>View Grade</a><br><div class='showGrade'>Example Grade: 68% <br> Professor Comments: Not enough.</div></div>";
-                           }
-                        } else {
-                       echo "";
-                            }
+                       
    ?>
 
     </div>

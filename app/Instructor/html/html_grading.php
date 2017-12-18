@@ -14,7 +14,7 @@ include('../../config.php');
                 <?php
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
-                        $latestPostSQL1 ="SELECT * from html_assignment WHERE assignmentID = 'HTML1'";
+                        $latestPostSQL1 ="SELECT * from html_assignment WHERE assignmentID = 'HTML1' LIMIT 1";
                         $result = $conn->query($latestPostSQL1);
                         if ($result->num_rows > 0) {
                         // output data of each row
@@ -25,8 +25,7 @@ include('../../config.php');
                     } else {
                     echo "";
                         }
-
-                        $latestPostSQL2 ="SELECT * from html_assignment WHERE assignmentID = 'HTML2'";
+                        $latestPostSQL2 ="SELECT * from html_assignment WHERE assignmentID = 'HTML2' LIMIT 1";
                         $result = $conn->query($latestPostSQL2);
                         if ($result->num_rows > 0) {
                         // output data of each row
@@ -37,8 +36,7 @@ include('../../config.php');
                     } else {
                     echo "";
                   }
-
-                    $latestPostSQL3 ="SELECT * from html_assignment WHERE assignmentID = 'HTML3'";
+                    $latestPostSQL3 ="SELECT * from html_assignment WHERE assignmentID = 'HTML3' LIMIT 1";
                     $result = $conn->query($latestPostSQL3);
                     if ($result->num_rows > 0) {
                     // output data of each row
@@ -57,19 +55,14 @@ include('../../config.php');
 </div>
 
 <script>
-
     //toggle assignment module
     //toggles all at once, need to change
         $(document).ready(function(){
             $(".showGrade").hide();
-
             $("#toggleGrade").click(function() {
                 $(".showGrade").slideToggle.hide();
-
-
             });
         });
-
     </script>
 
 </body>
@@ -77,7 +70,5 @@ include('../../config.php');
 
 
 <?php
-
 include('../footer.php');
-
 ?>
