@@ -31,13 +31,12 @@
                 <?php
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
-                        $latestPostSQL ="SELECT studID, studName, html_submission_date, assignmentTitle FROM html_assignment WHERE assignmentID = 'HTML2'";
+                        $latestPostSQL ="SELECT studID, studName, html_submission_date, assignmentTitle FROM html_assignment WHERE assignmentID = 'HTML1'";
                         $result = $conn->query($latestPostSQL);
                         if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
                         echo "<div class='current-update'><h2>" . $row["assignmentTitle"] . "</h2>" ."<br><span class='bold-text'>Student Name: " . $row["studName"]."<br><span class='bold-text'>Student ID: " . $row["studID"]. "<br><span class='bold-text'>Submission Date: " . $row["html_submission_date"] ."<br><span class='bold-text'>Due Date: " . $row["dueDate"] . "<br><br><a href='#' onclick='myGrade()'>Grade</a>"."|<a href='#' onclick='RunFile()'>Review</a></div>";
-                        }
                         }
                     } else {
                     echo "";
@@ -68,12 +67,10 @@ function myGrade(){
     var x = Math.abs(total_valid_open-z);
     var total=x*2;
     totalmarks=totalmarks-total;
-   xyz="You had "+ x +" number of mismatch tags. So you get: "+ totalmarks +" marks";
+    xyz="You had "+ x +" number of mismatch tags. So you get: "+ totalmarks +" marks";
     // $("#demo").append(xyz);
      alert(xyz);
-
   }
-  //xtra = <?php echo "abcdefgh";?>
   //$("#demo").append(xtra);
 }
 </script>
