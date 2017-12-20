@@ -20,6 +20,7 @@
 ?>
 
 
+
 <div class="main-page">
   
      <?php 
@@ -31,6 +32,7 @@
     <?php 
     include('text.php');
   ?>
+
 
   </div>
 

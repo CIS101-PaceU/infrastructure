@@ -73,7 +73,7 @@ echo"<tr><td class='ta1'><b> Student ID </b></td> <td class='ta1'><b> Present Cl
 echo" <td class='ta1'><b> Marks </b></td></tr> ";
      while($row = $result->fetch_assoc()) {
 
-         echo  "<tr><td class='ta1'> ". $row["userID"]. " </td><td class='ta1'> ". $row["present_classes"]. "</td><td class='ta1'> " . $row["grades"] . "</td></tr>";
+         echo  "<tr><td class='ta1'> ". $row["userID"]. " </td><td class='ta1'> ". $row["present_classes"]. "</td><td class='ta1'> " . $row["present_classes"]*10 . "</td></tr>";
      }
 		 echo"</table>";
 	 }
