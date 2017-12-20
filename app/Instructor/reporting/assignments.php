@@ -56,10 +56,10 @@ if ($result->num_rows > 0) {
     // output data of each row
     echo "<tr><th class='ta1'>";
       echo '<form method="post" action="assignResult.php">';
-      echo "Assignment ID: </th><td class='ta1'>";
+      echo "Assignment : </th><td class='ta1'>";
       echo '<select name="a">';
      while($row = $result->fetch_assoc()) {
-      echo "<option value='{$row['assignmentID']}'>{$row['assignmentID']}</option>";
+      echo "<option value='{$row['assignmentID']}'>{$row['assignmentType']}</option>";
     //   $a[$i] = $row['assignmentID'];
     //  echo "$i";
       // echo '<input type="hidden" name="a" value="'.$row['assignmentID'].'" />';
