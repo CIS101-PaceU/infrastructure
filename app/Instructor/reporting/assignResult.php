@@ -57,15 +57,18 @@ include('../../mobile-nav.php');
 
 $a = (int)$_POST['a'];
 //  echo "$a";
+//$b= mysqli_query($conn,"select assignmentID from assignment where assignmentID='$a'");
+
 echo "<a id='head-links' href='assignments.php'>back</a>";
 echo "<form method='post' action='assignment_report.php'>";
-echo "<input type='hidden' name='a' value='$a'>";
+echo "<input type='hidden' name='a' value='$b'>";
 echo "<input type='submit' name='export_excel' id='head-links' value='Download Report'>";
 echo "</form>";
 /*echo "<form action='bardata1.php' method='post'>";
 echo "<input type='hidden' name='a' value='$a'>";
 echo "<input  id='head-links' type='submit' value='Graph'>";
 echo "</form>";*/
+
 $result= mysqli_query($conn,"select * from assignment where assignmentID='$a'");
 
 

@@ -59,7 +59,7 @@ if ($result->num_rows > 0) {
       echo "Assignment ID: </th><td class='ta1'>";
       echo '<select name="a">';
      while($row = $result->fetch_assoc()) {
-      echo "<option value='{$row['assignmentID']}'>{$row['assignmentID']}</option>";
+      echo "<option value='{$row['assignmentID']}'>{$row['assignmentType']}</option>";
     //   $a[$i] = $row['assignmentID'];
     //  echo "$i";
       // echo '<input type="hidden" name="a" value="'.$row['assignmentID'].'" />';
