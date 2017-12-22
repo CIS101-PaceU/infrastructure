@@ -11,6 +11,7 @@ include('../../config.php');
    <div class="all-updates">
         <!-- ADD A NEW ASSIGNMENT -->
             <h1 id="add-h1">Assignments</h1>
+              <h2><a href='create_assignment.php'>Create New Assignment</a></h2>
                 <?php
                         //$conn = new mysqli("localhost","root","", "Red-Velvet");
                         if(!$conn) {echo "error";}
